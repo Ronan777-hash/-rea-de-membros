@@ -2,22 +2,22 @@
 export const mainModules = [
   {
     title: 'Desafio 7 Dias',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://placehold.co/675x1200.png',
     dataAiHint: 'challenge medal',
   },
   {
     title: 'Meditação para Dormir',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://placehold.co/675x1200.png',
     dataAiHint: 'calm meditation',
   },
   {
     title: 'Especialistas em Sono',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://placehold.co/675x1200.png',
     dataAiHint: 'sleep expert',
   },
   {
     title: 'Alimentação Noturna',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://placehold.co/675x1200.png',
     dataAiHint: 'healthy food',
   },
 ];
