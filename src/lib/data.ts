@@ -19,11 +19,6 @@ export const mainModules = [
     image: 'https://i.imgur.com/KcsHkhv.png',
     dataAiHint: 'healthy food',
   },
-  {
-    title: 'Yoga para Relaxar',
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'yoga relaxation',
-  },
 ];
 
 export const continueWatchingItems = [

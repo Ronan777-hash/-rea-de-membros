@@ -30,8 +30,8 @@ export function MainModulesCarousel() {
                   <Image
                     src={module.image}
                     alt={module.title}
-                    width={600}
-                    height={400}
+                    width={1200}
+                    height={675}
                     className="object-cover w-full h-full"
                     data-ai-hint={module.dataAiHint}
                   />
