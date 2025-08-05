@@ -25,16 +25,16 @@ export function MainModulesCarousel() {
           <CarouselItem key={module.title} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="flex aspect-video items-center justify-center p-0 relative">
+                <CardContent className="p-0">
                   <Image
                     src={module.image}
                     alt={module.title}
                     width={675}
                     height={1200}
-                    className="object-cover w-full h-full"
+                    className="w-full h-auto"
                     data-ai-hint={module.dataAiHint}
+                    priority={mainModules.indexOf(module) < 2}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </CardContent>
               </Card>
             </div>
