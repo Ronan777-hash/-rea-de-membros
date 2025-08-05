@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
 import { mainModules } from "@/lib/data"
 
 export function MainModulesCarousel() {
@@ -36,13 +35,7 @@ export function MainModulesCarousel() {
                     data-ai-hint={module.dataAiHint}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                   <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white font-headline">
-                    {module.title}
-                  </h3>
                 </CardContent>
-                <CardFooter className="p-4 bg-card">
-                  <Button className="w-full">Acessar</Button>
-                </CardFooter>
               </Card>
             </div>
           </CarouselItem>
