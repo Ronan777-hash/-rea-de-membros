@@ -2,21 +2,25 @@
 export const mainModules = [
   {
     title: 'Desafio 7 Dias',
+    slug: 'desafio-7-dias',
     image: 'https://i.imgur.com/ICaw9t7.png',
     dataAiHint: 'challenge medal',
   },
   {
     title: 'Meditação para Dormir',
+    slug: 'meditacao-para-dormir',
     image: 'https://i.imgur.com/o6sg7Po.png',
     dataAiHint: 'calm meditation',
   },
   {
     title: 'Especialistas em Sono',
+    slug: 'especialistas-em-sono',
     image: 'https://i.imgur.com/GEL81gq.png',
     dataAiHint: 'sleep expert',
   },
   {
     title: 'Alimentação Noturna',
+    slug: 'alimentacao-noturna',
     image: 'https://i.imgur.com/KcsHkhv.png',
     dataAiHint: 'healthy food',
   },

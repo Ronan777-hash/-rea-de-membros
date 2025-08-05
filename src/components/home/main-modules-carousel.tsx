@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -24,19 +25,21 @@ export function MainModulesCarousel() {
         {mainModules.map((module) => (
           <CarouselItem key={module.title} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-0">
-                  <Image
-                    src={module.image}
-                    alt={module.title}
-                    width={675}
-                    height={1200}
-                    className="w-full h-auto"
-                    data-ai-hint={module.dataAiHint}
-                    priority={mainModules.indexOf(module) < 2}
-                  />
-                </CardContent>
-              </Card>
+              <Link href={`/modules/${module.slug}`}>
+                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                  <CardContent className="p-0 relative">
+                    <Image
+                      src={module.image}
+                      alt={module.title}
+                      width={675}
+                      height={1200}
+                      className="w-full h-auto object-contain"
+                      data-ai-hint={module.dataAiHint}
+                      priority={mainModules.indexOf(module) < 2}
+                    />
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </CarouselItem>
         ))}
