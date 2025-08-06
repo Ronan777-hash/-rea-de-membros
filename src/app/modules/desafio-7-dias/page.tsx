@@ -9,7 +9,7 @@ import { BookOpen, Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -34,6 +34,11 @@ export default function Desafio7DiasPage() {
     q3: '',
     q4: '',
   });
+  const [day4Answers, setDay4Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+  });
 
   const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -48,6 +53,11 @@ export default function Desafio7DiasPage() {
   const handleDay3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay3Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDay4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay4Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -265,6 +275,65 @@ export default function Desafio7DiasPage() {
             </div>
           </div>
         );
+      case 'dia4':
+        return (
+            <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Dia 4 – Relaxe a Mente</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Você não precisa dormir no meio do caos. Precisa de um ritual.</p>
+                <p>🧭 Objetivo do dia:<br/>Eliminar os estímulos que mantêm sua mente acelerada à noite. Mesmo quando o corpo quer descansar, pensamentos agitados podem impedir o sono profundo. Hoje, você vai criar um ritual mental que ensina o cérebro a desacelerar e entrar em modo repouso.</p>
+                <p>🌍 Como os holandeses fazem?<br/>Na Holanda, o descanso começa antes de deitar. Eles evitam luzes intensas e telas ao menos 1 hora antes de dormir. Muitos leem livros físicos, preparam um chá, respiram fundo ou apenas contemplam o silêncio.<br/>Celular no rosto até apagar? Por lá, isso é sinal de insônia anunciada.</p>
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">📝 Tarefa do dia – Diário do Sono, Dia 4</h3>
+                    <p className="mb-2">Reflexões para registrar:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="d4q1">O que costumo fazer nas 2 horas antes de dormir?</Label>
+                          <Textarea id="d4q1" name="q1" value={day4Answers.q1} onChange={handleDay4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d4q2">Quais dessas atividades me deixam em estado de alerta — e quais me acalmam?</Label>
+                          <Textarea id="d4q2" name="q2" value={day4Answers.q2} onChange={handleDay4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d4q3">Qual será meu novo ritual de relaxamento a partir de hoje?</Label>
+                          <Textarea id="d4q3" name="q3" value={day4Answers.q3} onChange={handleDay4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+                 <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                    <h3 className="font-bold text-foreground mb-2">🎯 Escolha 1 ou 2 hábitos relaxantes e coloque em prática hoje à noite:</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Tomar um banho quente, com pouca luz e em silêncio</li>
+                        <li>Ler um livro leve, com toque suave nas páginas</li>
+                        <li>Ouvir uma meditação guiada ou música instrumental suave</li>
+                        <li>Respirar fundo por 5 minutos: inspire 4s, segure 4s, expire 4s</li>
+                        <li>Escrever no diário: como foi o dia, o que quero soltar</li>
+                        <li>Acender uma vela aromática ou usar óleo essencial de lavanda</li>
+                    </ul>
+                </div>
+                <blockquote className="border-l-4 border-primary pl-4 italic">
+                    <p className="font-bold">💬 Frase motivadora para escrever no diário:</p>
+                    <p>"Desacelerar é um ato de cuidado. Quando eu acalmo a mente, convido o sono a me envolver com gentileza."</p>
+                </blockquote>
+                <div className="p-4 bg-muted/50 rounded-lg">
+                    <h3 className="font-bold text-foreground mb-2">💡 Dica do dia:</h3>
+                    <p>Evite telas, redes sociais e conteúdos pesados antes de dormir. Eles ativam áreas do cérebro ligadas à atenção e dificultam o desligamento.</p>
+                    <p className="italic mt-2">"Criar um ritual noturno é como colocar o corpo no modo avião — ele entende que está tudo bem se desligar."</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'selection':
       default:
         return (
@@ -286,6 +355,9 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia3')}>
                   Dia 3: Construindo Seu Santuário do Sono
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => setView('dia4')}>
+                  Dia 4: Relaxe a Mente
                 </Button>
             </div>
           </div>
