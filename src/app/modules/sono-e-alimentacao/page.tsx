@@ -19,10 +19,21 @@ export default function SonoEAlimentacaoPage() {
     q3: '',
     q4: '',
   });
+  const [secao2Answers, setSecao2Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao1Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao2Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -126,14 +137,79 @@ export default function SonoEAlimentacaoPage() {
       case 'secao2':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                🚫 Seção 2: O que Evitar à Noite
-              </h1>
-            </header>
-            <div className="text-center text-muted-foreground">
-              <p>Conteúdo da Seção 2 aparecerá aqui.</p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🚫</span> Seção 2: O que Evitar à Noite
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🧃 Alimentos que Sabotam o Sono</h3>
+                  <p>Alguns alimentos ativam o corpo e o cérebro em vez de acalmá-los. Comer esses itens à noite pode dificultar o relaxamento e prejudicar a qualidade do sono.</p>
+                  <p className="font-semibold text-foreground mt-2">Aqui estão os principais sabotadores:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li><span className="font-semibold">Cafeína escondida:</span> além do café, ela está presente em chás escuros, refrigerantes, chocolates e até alguns medicamentos.</li>
+                    <li><span className="font-semibold">Gorduras em excesso:</span> frituras, fast food e carnes muito gordurosas exigem digestão lenta e podem causar refluxo.</li>
+                    <li><span className="font-semibold">Açúcar simples:</span> doces, bolos, biscoitos e sobremesas aumentam a glicose no sangue, gerando picos de energia e dificultando o relaxamento.</li>
+                    <li><span className="font-semibold">Alimentos ultraprocessados:</span> embutidos, salgadinhos e produtos industrializados contêm aditivos que podem interferir nos neurotransmissores do sono.</li>
+                  </ul>
+                  <p className="font-semibold text-foreground mt-4">👉 Resumo simples: Comer alimentos estimulantes à noite é como apertar o “botão de ligar” do corpo quando ele deveria estar desligando.</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">⚠️ Por Que Esses Alimentos Atrapalham o Relaxamento</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Cafeína bloqueia a adenosina, substância que induz o sono.</li>
+                    <li>Gorduras exigem mais tempo de digestão, o que mantém o corpo em alerta.</li>
+                    <li>Açúcar provoca picos de energia seguidos de quedas bruscas, o que pode gerar agitação ou ansiedade.</li>
+                    <li>Alimentos pesados aumentam a temperatura corporal, dificultando o início do sono profundo.</li>
+                  </ul>
+                  <p className="mt-2">Além disso, esses alimentos podem:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                      <li>Alterar o ritmo cardíaco.</li>
+                      <li>Provocar sonhos agitados.</li>
+                      <li>Reduzir o tempo de sono reparador.</li>
+                  </ul>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❌ Erros Comuns nas Refeições Noturnas</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Comer pizza ou hambúrguer tarde da noite.</li>
+                    <li>Tomar refrigerante com a janta.</li>
+                    <li>Beliscar chocolate ou doces antes de dormir.</li>
+                    <li>Jantar em frente à TV e exagerar na quantidade.</li>
+                    <li>Pular o jantar e comer demais na ceia.</li>
+                  </ul>
+                   <div className="mt-4 p-4 bg-accent/50 rounded-lg border border-accent">
+                    <p><span className="font-bold">💡 Dica prática:</span> Se você sente fome à noite, escolha alimentos leves e naturais. Na Seção 3, vamos mostrar ótimas opções.</p>
+                  </div>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q1">1. Você costuma consumir algum desses alimentos à noite?</Label>
+                          <Textarea id="s2q1" name="q1" value={secao2Answers.q1} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q2">2. Já percebeu que certos alimentos te deixam mais agitado?</Label>
+                          <Textarea id="s2q2" name="q2" value={secao2Answers.q2} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q3">3. Qual desses erros você já cometeu sem perceber?</Label>
+                          <Textarea id="s2q3" name="q3" value={secao2Answers.q3} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q4">4. Que alimento você pode evitar hoje para dormir melhor?</Label>
+                          <Textarea id="s2q4" name="q4" value={secao2Answers.q4} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
             <div className="text-center">
               <Button onClick={() => setView('inicio')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
