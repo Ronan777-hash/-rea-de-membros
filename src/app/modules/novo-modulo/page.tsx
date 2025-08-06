@@ -1,5 +1,5 @@
 
-import { Home, Moon, BrainCircuit } from 'lucide-react';
+import { Home, Moon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,7 +27,7 @@ export default function MeditacaoGuiadaPage() {
               O que é Meditação Guiada e por que ela ajuda no sono?
             </Button>
             <Button size="lg" className="w-full" variant="outline">
-              <BrainCircuit className="mr-2 h-5 w-5" />
+              <span className="mr-2 text-lg">🧠</span>
               Benefícios para o Corpo, Mente e Sono
             </Button>
           </CardContent>
