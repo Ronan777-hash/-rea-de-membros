@@ -31,23 +31,29 @@ export default function AlimentacaoNoturnaPage() {
               <p className="text-muted-foreground mt-1">Descubra como o que você come impacta suas noites.</p>
             </header>
             <div className="flex flex-col gap-4 w-full max-w-sm">
-              <Button size="lg" variant="outline" onClick={() => setView('secao1')}>
-                <span className="mr-2">🧠</span> Seção 1: A Relação entre Comida e Sono
+              <Button size="lg" variant="outline" onClick={() => setView('secao1')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">🧠</span> 
+                <span className="flex-1">Seção 1: A Relação entre Comida e Sono</span>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => setView('secao2')}>
-                <span className="mr-2">🚫</span> Seção 2: O que Evitar à Noite
+              <Button size="lg" variant="outline" onClick={() => setView('secao2')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">🚫</span> 
+                <span className="flex-1">Seção 2: O que Evitar à Noite</span>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => setView('secao3')}>
-                <span className="mr-2">✅</span> Seção 3: O que Comer para Dormir Melhor
+              <Button size="lg" variant="outline" onClick={() => setView('secao3')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">✅</span> 
+                <span className="flex-1">Seção 3: O que Comer para Dormir Melhor</span>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => setView('secao4')}>
-                <span className="mr-2">🍞</span> Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
+              <Button size="lg" variant="outline" onClick={() => setView('secao4')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">🍞</span> 
+                <span className="flex-1">Seção 4: Carboidrato à Noite – Inimigo ou Aliado?</span>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => setView('secao5')}>
-                <span className="mr-2">🔍</span> Seção 5: Seu Estilo de Vida e Hábitos Alimentares
+              <Button size="lg" variant="outline" onClick={() => setView('secao5')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">🔍</span> 
+                <span className="flex-1">Seção 5: Seu Estilo de Vida e Hábitos Alimentares</span>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => setView('bonus')}>
-                <span className="mr-2">🎉</span> Seção Bônus: “Quero Chutar o Balde no Fim de Semana!”
+              <Button size="lg" variant="outline" onClick={() => setView('bonus')} className="justify-start text-left h-auto py-3">
+                <span className="mr-3 text-xl">🎉</span> 
+                <span className="flex-1">Seção Bônus: “Quero Chutar o Balde no Fim de Semana!”</span>
               </Button>
             </div>
           </div>
