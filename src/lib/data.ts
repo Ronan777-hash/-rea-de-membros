@@ -6,6 +6,12 @@ export const mainModules = [
     image: 'https://i.imgur.com/ICaw9t7.png',
     dataAiHint: 'challenge medal',
   },
+  {
+    title: 'Sono e Alimentação',
+    slug: 'sono-e-alimentacao',
+    image: 'https://i.imgur.com/GPwK1d3.png',
+    dataAiHint: 'healthy food night',
+  },
 ];
 
 export const continueWatchingItems = [
