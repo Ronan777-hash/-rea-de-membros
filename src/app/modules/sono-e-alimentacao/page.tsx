@@ -31,6 +31,13 @@ export default function SonoEAlimentacaoPage() {
     q3: '',
     q4: '',
   });
+  const [secao4Answers, setSecao4Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -45,6 +52,11 @@ export default function SonoEAlimentacaoPage() {
   const handleSecao3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao3Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao4Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -324,14 +336,96 @@ export default function SonoEAlimentacaoPage() {
       case 'secao4':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                🍞 Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
-              </h1>
-            </header>
-            <div className="text-center text-muted-foreground">
-              <p>Conteúdo da Seção 4 aparecerá aqui.</p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🍞</span> Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">⚖️ A Verdade Sobre Cortar Carboidratos à Noite</h3>
+                  <p>Durante muito tempo, os carboidratos foram vistos como vilões noturnos. Mas a ciência mostra que, quando escolhidos com sabedoria, eles podem ser grandes aliados do sono.</p>
+                  <p className="font-semibold text-foreground mt-2">🔍 O que acontece quando você corta carboidratos à noite:</p>
+                   <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Seu corpo pode entrar em estado de alerta por falta de energia.</li>
+                    <li>A produção de triptofano (precursor da melatonina e serotonina) pode ser prejudicada.</li>
+                    <li>Você pode sentir mais fome, irritação ou dificuldade para relaxar.</li>
+                  </ul>
+                  <p className="font-semibold text-foreground mt-4">👉 Resumo simples: Cortar carboidratos de forma radical à noite pode deixar o cérebro mais agitado — e isso atrapalha o sono.</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🌙 Por Que Uma Quantidade Moderada Pode Ajudar a Relaxar</h3>
+                  <p>Carboidratos leves ajudam o triptofano a atravessar a barreira do cérebro, estimulando a produção de melatonina e serotonina. Isso favorece:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Relaxamento muscular</li>
+                    <li>Sensação de saciedade</li>
+                    <li>Redução da ansiedade</li>
+                    <li>Indução ao sono profundo</li>
+                  </ul>
+                  <div className="mt-4 p-4 bg-accent/50 rounded-lg border border-accent">
+                    <p><span className="font-bold">💡 Importante:</span> A chave está na qualidade e na quantidade. Não é sobre comer uma pizza às 23h, mas sim sobre incluir fontes naturais e leves de carboidrato em pequenas porções.</p>
+                  </div>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🍛 O Prato Brasileiro Também Pode Ser Saudável à Noite</h3>
+                  <p>A clássica combinação brasileira — arroz, feijão, carne e salada — pode sim ser uma refeição equilibrada à noite, desde que adaptada:</p>
+                   <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>✅ Arroz e feijão fornecem carboidratos complexos e proteínas vegetais.</li>
+                    <li>✅ Carne magra (como frango ou peixe) oferece proteína de qualidade.</li>
+                    <li>✅ Salada crua ou legumes cozidos ajudam na digestão e saciedade.</li>
+                  </ul>
+                  <p className="mt-2"><span className="font-semibold">📌 Dica prática:</span> Se for comer esse prato à noite, prefira porções menores e carnes menos gordurosas. Evite frituras e excesso de sal.</p>
+                  <p className="mt-1"><span className="font-semibold">🕘 Horário também importa:</span> Comer até 2 horas antes de dormir ajuda o corpo a digerir melhor e favorece o sono.</p>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">✅ Outros Tipos de Carboidrato para o Período Noturno</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Frutas: banana, mamão, maçã, pera</li>
+                    <li>Tubérculos: batata-doce, mandioquinha, inhame</li>
+                    <li>Grãos integrais: aveia, arroz integral, quinoa</li>
+                    <li>Pães leves: torradas integrais ou pão de fermentação natural</li>
+                    <li>Leguminosas: lentilha, grão-de-bico (em pequenas porções)</li>
+                  </ul>
+                  <p className="mt-4 font-semibold text-foreground">🍽️ Combinações inteligentes:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Banana com aveia + proteína leve</li>
+                    <li>Purê de batata-doce com azeite e frango desfiado</li>
+                    <li>Torrada integral com pasta de amendoim natural</li>
+                    <li>Arroz integral com legumes cozidos e tofu ou ovo</li>
+                  </ul>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q1">1. Você costuma evitar carboidratos à noite? Por quê?</Label>
+                          <Textarea id="s4q1" name="q1" value={secao4Answers.q1} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q2">2. Já percebeu que comer um pouco de carboidrato te ajuda a relaxar?</Label>
+                          <Textarea id="s4q2" name="q2" value={secao4Answers.q2} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q3">3. Qual desses alimentos você gostaria de incluir na sua ceia?</Label>
+                          <Textarea id="s4q3" name="q3" value={secao4Answers.q3} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q4">4. Que combinação leve de carboidrato + proteína você pode testar hoje?</Label>
+                          <Textarea id="s4q4" name="q4" value={secao4Answers.q4} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q5">5. Como você pode adaptar o prato brasileiro para torná-lo mais leve à noite?</Label>
+                          <Textarea id="s4q5" name="q5" value={secao4Answers.q5} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
             <div className="text-center">
               <Button onClick={() => setView('inicio')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
