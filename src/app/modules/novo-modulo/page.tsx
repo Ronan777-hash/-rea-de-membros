@@ -30,6 +30,10 @@ export default function MeditacaoGuiadaPage() {
               <span className="mr-2 text-lg">🧠</span>
               Benefícios para o Corpo, Mente e Sono
             </Button>
+            <Button size="lg" className="w-full" variant="outline">
+              <span className="mr-2 text-lg">🚦</span>
+              Como Começar do Zero: Guia para Iniciantes Absolutos.
+            </Button>
           </CardContent>
         </Card>
       </div>
