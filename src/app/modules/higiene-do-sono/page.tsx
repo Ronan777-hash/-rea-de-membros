@@ -22,6 +22,12 @@ export default function HigieneDoSonoPage() {
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
                 <p className="text-muted-foreground">Em breve, um módulo completo sobre higiene do sono.</p>
+                <Button asChild size="lg" className="w-full text-base h-auto py-3">
+                  <Link href="/modules/especialistas-do-sono">
+                    <span className="mr-2 text-lg">🧠✨</span>
+                    Módulo: Especialistas do Sono — Aulas Selecionadas
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
            </div>
