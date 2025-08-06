@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -37,6 +37,13 @@ export default function MeditacaoGuiadaPage() {
     q4: '',
     q5: '',
   });
+  const [secao5Answers, setSecao5Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
 
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -57,6 +64,11 @@ export default function MeditacaoGuiadaPage() {
   const handleSecao4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao4Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao5AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao5Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -311,6 +323,77 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secao5':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🎧 Seção 5 – Criando um Ritual Noturno com Meditação Guiada</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Um ritual noturno é como um convite gentil para o corpo e a mente desacelerarem. Quando repetido com intenção, ele sinaliza ao cérebro que é hora de desligar e descansar.</p>
+                <p>A meditação guiada entra como peça-chave nesse ritual: ela conduz o foco, acalma os pensamentos e prepara o terreno para um sono profundo e restaurador.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🌙 Como montar seu ritual:</h3>
+                  <ol className="list-decimal list-inside space-y-2 pl-4">
+                    <li>
+                      <strong>Escolha um horário fixo para começar</strong><br />
+                      Isso ajuda o corpo a criar uma rotina de desligamento.
+                    </li>
+                    <li>
+                      <strong>Desconecte-se das telas 30 minutos antes</strong><br />
+                      A luz azul dos dispositivos atrapalha a produção de melatonina, o hormônio do sono.
+                    </li>
+                    <li>
+                      <strong>Crie um ambiente acolhedor</strong><br />
+                      Luz baixa, aromas suaves, cobertor confortável — tudo que transmite segurança e tranquilidade.
+                    </li>
+                    <li>
+                      <strong>Use fones de ouvido ou som ambiente</strong><br />
+                      A meditação guiada pode ser ouvida deitado, com olhos fechados, em total relaxamento.
+                    </li>
+                    <li>
+                      <strong>Repita o ritual diariamente</strong><br />
+                      A repetição cria um condicionamento positivo: o corpo aprende que esse momento é para descansar.
+                    </li>
+                  </ol>
+                </div>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q1">1. Você já tem algum hábito noturno que te ajuda a relaxar antes de dormir?</Label>
+                          <Textarea id="s5q1" name="q1" value={secao5Answers.q1} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q2">2. Como seria transformar sua noite em um momento sagrado de autocuidado?</Label>
+                          <Textarea id="s5q2" name="q2" value={secao5Answers.q2} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q3">3. Que tipo de ambiente te faz sentir seguro e tranquilo para dormir?</Label>
+                          <Textarea id="s5q3" name="q3" value={secao5Answers.q3} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s5q4">4. Você prefere ouvir meditações com voz suave, sons da natureza ou música relaxante?</Label>
+                          <Textarea id="s5q4" name="q4" value={secao5Answers.q4} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s5q5">5. Se pudesse criar seu ritual ideal, o que não poderia faltar: silêncio, aromas, cobertor, luz baixa?</Label>
+                          <Textarea id="s5q5" name="q5" value={secao5Answers.q5} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -337,7 +420,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🙏</span>
                   Meditação e Crenças Religiosas: Pode confiar.
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao5')}>
                   <span className="mr-2 text-lg">🎧</span>
                   Criando um Ritual Noturno com Meditação Guiada.
                 </Button>
