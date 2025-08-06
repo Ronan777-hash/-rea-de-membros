@@ -9,7 +9,7 @@ export const mainModules = [
   {
     title: 'Novo Módulo',
     slug: 'novo-modulo',
-    image: 'https://i.imgur.com/vLh5aI3.png',
+    image: 'https://i.imgur.com/GPwK1d3.png',
     dataAiHint: 'module placeholder',
   },
 ];
