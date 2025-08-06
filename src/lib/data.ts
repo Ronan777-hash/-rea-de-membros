@@ -13,7 +13,7 @@ export const mainModules = [
     dataAiHint: 'healthy food night',
   },
   {
-    title: 'Novo Módulo',
+    title: 'Meditação Guiada para Dormir',
     slug: 'novo-modulo',
     image: 'https://i.imgur.com/GAJkXxH.png',
     dataAiHint: 'night sky stars',
