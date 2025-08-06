@@ -615,6 +615,7 @@ export default function MeditacaoGuiadaPage() {
                 
                 <div className="border-t pt-4">
                   <h3 className="font-semibold text-foreground text-lg mb-2">🎧 Meditações Guiadas com Voz e Sons Suaves (YouTube)</h3>
+                  <p className="text-sm text-primary -mt-2 mb-2">Clique nos nomes para acessar os vídeos no YouTube.</p>
                   <ul className="list-disc list-inside space-y-2 pl-4">
                     <li><a href="https://www.youtube.com/watch?v=dfi11cxr1NM" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação para Dormir – Relaxamento Profundo</a></li>
                     <li><a href="https://www.youtube.com/watch?v=-PVVSKedbUs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação para Dormir Rápido – Voz + Chuva</a></li>
