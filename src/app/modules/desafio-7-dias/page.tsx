@@ -9,7 +9,7 @@ import { BookOpen, Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4' | 'dia5';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -39,6 +39,12 @@ export default function Desafio7DiasPage() {
     q2: '',
     q3: '',
   });
+  const [day5Answers, setDay5Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -58,6 +64,11 @@ export default function Desafio7DiasPage() {
   const handleDay4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay4Answers((prev) => ({ ...prev, [name]: value }));
+  };
+  
+  const handleDay5AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay5Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -334,6 +345,80 @@ export default function Desafio7DiasPage() {
             </div>
           </div>
         );
+        case 'dia5':
+        return (
+            <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Dia 5 – Nutrição Noturna</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>O que você come à noite pode estar roubando seu sono.</p>
+                <p>🧭 Objetivo do dia:<br/>Hoje vamos explorar como a alimentação influencia diretamente a qualidade do seu descanso. Comer na hora errada — ou os alimentos errados — pode manter o corpo em alerta, dificultar o sono profundo e trazer consequências que se estendem até o dia seguinte. A meta: comer com sabedoria para dormir com leveza.</p>
+                <p>🌍 Como os holandeses fazem?<br/>Eles jantam cedo, com pratos leves e nutritivos. Evitam álcool, cafeína e grandes porções. Muitos optam por refeições à base de vegetais, grãos suaves e chás calmantes. Tudo isso ensina o corpo a se preparar gradualmente para o repouso, sem estímulos em excesso.</p>
+                <p>🕒 Qual é o tempo ideal entre jantar e dormir?<br/>Espere entre 2 a 3 horas depois da última refeição antes de ir para cama. Esse intervalo permite que a digestão ocorra sem sobrecarregar o organismo, evitando sintomas como refluxo, agitação noturna, pesadelos e sono fragmentado.</p>
+                <p>🍞 E os carboidratos? Não fuja deles!<br/>Carboidratos leves estimulam a liberação de triptofano, um aminoácido essencial para a produção de melatonina e serotonina — substâncias que regulam o sono e o humor. Cortá-los completamente pode deixar sua mente inquieta e dificultar o relaxamento.</p>
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">📝 Tarefa do dia – Diário do Sono, Dia 5:</h3>
+                    <p className="mb-2">Responda com atenção:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="d5q1">O que comi ontem à noite? (Descreva com detalhes)</Label>
+                          <Textarea id="d5q1" name="q1" value={day5Answers.q1} onChange={handleDay5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d5q2">Quantas horas antes de deitar foi essa refeição?</Label>
+                          <Textarea id="d5q2" name="q2" value={day5Answers.q2} onChange={handleDay5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d5q3">Como me senti ao deitar: leve, estufado, relaxado, ansioso?</Label>
+                          <Textarea id="d5q3" name="q3" value={day5Answers.q3} onChange={handleDay5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d5q4">Qual será meu plano alimentar noturno ideal para os próximos dias?</Label>
+                          <Textarea id="d5q4" name="q4" value={day5Answers.q4} onChange={handleDay5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                    <h3 className="font-bold text-foreground mb-2">🔎 Recomendações úteis:</h3>
+                    <h4 className='font-semibold text-destructive'>❌ Evite:</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Cafeína (café, chá preto ou verde, refrigerantes)</li>
+                        <li>Bebidas alcoólicas</li>
+                        <li>Frituras, chocolates e alimentos pesados</li>
+                        <li>Comer muito tarde</li>
+                    </ul>
+                    <h4 className='font-semibold text-green-600 mt-2'>✅ Prefira:</h4>
+                     <ul className="list-disc list-inside space-y-1">
+                        <li>Banana, aveia, iogurte natural, nozes</li>
+                        <li>Torradas leves, sopas suaves ou caldos nutritivos</li>
+                        <li>Chá de camomila, erva-doce ou maracujá</li>
+                        <li>Pouca água à noite (para evitar acordar com vontade de ir ao banheiro)</li>
+                    </ul>
+                </div>
+                
+                <blockquote className="border-l-4 border-primary pl-4 italic">
+                    <p className="font-bold">💬 Frase motivadora para seu diário:</p>
+                    <p>"Comer bem à noite é como plantar o descanso. Meu corpo agradece no silêncio da madrugada."</p>
+                </blockquote>
+                
+                <div className="p-4 bg-muted/50 rounded-lg">
+                    <h3 className="font-bold text-foreground mb-2">💡 Dica do dia:</h3>
+                    <p>A produção de melatonina depende de nutrientes como triptofano, magnésio e vitamina B6. Ao incluir esses alimentos naturalmente ricos em compostos do sono, seu corpo entra em sintonia com o descanso — de dentro para fora.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'selection':
       default:
         return (
@@ -358,6 +443,9 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia4')}>
                   Dia 4: Relaxe a Mente
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => setView('dia5')}>
+                  Dia 5: Nutrição Noturna
                 </Button>
             </div>
           </div>
