@@ -627,6 +627,7 @@ export default function MeditacaoGuiadaPage() {
 
                 <div className="border-t pt-4">
                   <h3 className="font-semibold text-foreground text-lg mb-2">🎶 Preferência por Sons Naturais sem Voz?</h3>
+                  <p className="text-sm text-primary -mt-2 mb-2">Toque nas palavras abaixo para acessar o vídeo.</p>
                   <p>Se você prefere meditar apenas com sons da natureza — como chuva, água corrente ou floresta — aqui estão 5 vídeos com mais de 1 hora de duração, ideais para relaxar ou dormir:</p>
                   <ul className="list-disc list-inside space-y-2 pl-4">
                     <li><a href="https://www.youtube.com/watch?v=ljhbLia0-lk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Som de Chuva Tela Preta – 1 Hora</a></li>
