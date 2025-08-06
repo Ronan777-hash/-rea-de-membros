@@ -6,6 +6,12 @@ export const mainModules = [
     image: 'https://i.imgur.com/ICaw9t7.png',
     dataAiHint: 'challenge medal',
   },
+  {
+    title: 'Novo Módulo',
+    slug: 'novo-modulo',
+    image: 'https://placehold.co/675x1200.png',
+    dataAiHint: 'module placeholder',
+  },
 ];
 
 export const continueWatchingItems = [
