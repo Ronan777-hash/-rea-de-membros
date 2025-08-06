@@ -45,7 +45,7 @@ export default function AlimentacaoNoturnaPage() {
     const currentSection = sections.find(s => s.id === view);
 
     return (
-        <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+        <div className="w-full max-w-2xl space-y-8 py-8 animate-in fade-in-50 duration-300">
             <Card>
                 <CardHeader>
                     <CardTitle className="font-headline text-2xl flex items-center">
@@ -61,7 +61,7 @@ export default function AlimentacaoNoturnaPage() {
             <div className="text-center">
                 <Button onClick={() => setView('selection')}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Voltar
+                    Voltar para seções
                 </Button>
             </div>
       </div>
