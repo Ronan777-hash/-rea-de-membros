@@ -12,6 +12,12 @@ export const mainModules = [
     image: 'https://i.imgur.com/GPwK1d3.png',
     dataAiHint: 'healthy food night',
   },
+  {
+    title: 'Novo Módulo',
+    slug: 'novo-modulo',
+    image: 'https://placehold.co/675x1200.png',
+    dataAiHint: 'new module',
+  },
 ];
 
 export const continueWatchingItems = [
