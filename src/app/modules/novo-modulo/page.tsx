@@ -42,6 +42,10 @@ export default function MeditacaoGuiadaPage() {
               <span className="mr-2 text-lg">🎧</span>
               Criando um Ritual Noturno com Meditação Guiada.
             </Button>
+            <Button size="lg" className="w-full" variant="outline">
+              <span className="mr-2 text-lg">🔄</span>
+              O que Fazer Quando a Mente Não Para (Mesmo com a Meditação).
+            </Button>
           </CardContent>
         </Card>
       </div>
