@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secaoBonus';
+type ViewState = 'inicio' | 'introducao' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secaoBonus';
 
 export default function SonoEAlimentacaoPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -84,6 +84,27 @@ export default function SonoEAlimentacaoPage() {
 
   const renderContent = () => {
     switch (view) {
+      case 'introducao':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+             <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🌙</span> Introdução ao Módulo: Comida & Sono – A Dupla que Muda Seu Bem-Estar
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground p-6">
+                <p>Conteúdo da introdução em breve.</p>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'secao1':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
@@ -643,6 +664,9 @@ export default function SonoEAlimentacaoPage() {
               </p>
             </header>
             <div className="flex flex-col gap-4 w-full max-w-sm">
+              <Button size="lg" onClick={() => setView('introducao')}>
+                <span className="mr-2">🌙</span> Introdução ao Módulo
+              </Button>
               <Button size="lg" variant="outline" onClick={() => setView('secao1')}>
                 <span className="mr-2">🧠</span> Seção 1: A Relação entre Comida e Sono
               </Button>
@@ -683,5 +707,3 @@ export default function SonoEAlimentacaoPage() {
     </div>
   );
 }
-
-    
