@@ -384,7 +384,7 @@ export default function MeditacaoGuiadaPage() {
                 </div>
                 
                 <div className="border-t pt-4 mt-4">
-                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
                    <div className="space-y-4 mt-4">
                         <div className="space-y-2">
                           <Label htmlFor="s5q1">1. Você já tem algum hábito noturno que te ajuda a relaxar antes de dormir?</Label>
@@ -441,7 +441,7 @@ export default function MeditacaoGuiadaPage() {
                 </div>
                 
                 <div className="border-t pt-4 mt-4">
-                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
                    <div className="space-y-4 mt-4">
                         <div className="space-y-2">
                           <Label htmlFor="s6q1">1. Você já tentou meditar e sentiu que sua mente estava “a mil”?</Label>
