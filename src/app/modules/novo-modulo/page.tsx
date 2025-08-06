@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6' | 'secao7';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -51,6 +51,13 @@ export default function MeditacaoGuiadaPage() {
     q4: '',
     q5: '',
   });
+  const [secao7Answers, setSecao7Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
 
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -81,6 +88,11 @@ export default function MeditacaoGuiadaPage() {
   const handleSecao6AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao6Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao7AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao7Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -463,6 +475,123 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+        case 'secao7':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🌼 Seção 7 – Técnicas para Relaxar o Corpo e Desacelerar a Respiração</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Antes de acalmar a mente, é essencial acalmar o corpo. Quando o corpo está tenso, a respiração fica curta e acelerada — e isso envia sinais de alerta ao cérebro. Relaxar fisicamente é como abrir espaço para que a mente também desacelere.</p>
+                <p>A seguir, você encontra técnicas simples, eficazes e acessíveis para qualquer pessoa, mesmo que nunca tenha praticado meditação ou respiração consciente antes.</p>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🧘‍♂️ Técnicas Simples e Eficazes (com Detalhes)</h3>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-bold">1. Respiração 4-7-8</h4>
+                      <p className="font-semibold mt-1">Como fazer:</p>
+                      <ul className="list-disc list-inside space-y-1 pl-4">
+                        <li>Inspire profundamente pelo nariz contando até 4.</li>
+                        <li>Segure o ar nos pulmões contando até 7.</li>
+                        <li>Expire lentamente pela boca contando até 8.</li>
+                        <li>Repita esse ciclo 4 vezes.</li>
+                      </ul>
+                      <p className="font-semibold mt-1">Por que funciona:</p>
+                      <p>Essa técnica ativa o sistema nervoso parassimpático, responsável por desacelerar o corpo e induzir o relaxamento. É excelente para ansiedade, insônia e agitação mental.</p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold">2. Relaxamento Muscular Progressivo</h4>
+                      <p className="font-semibold mt-1">Como fazer:</p>
+                      <ul className="list-disc list-inside space-y-1 pl-4">
+                        <li>Deite-se ou sente-se confortavelmente.</li>
+                        <li>Comece pelos pés: contraia os músculos por 5 segundos e solte.</li>
+                        <li>Suba para as pernas, glúteos, abdômen, mãos, braços, ombros, pescoço e rosto.</li>
+                        <li>Em cada grupo muscular, contraia e solte com atenção à sensação de alívio.</li>
+                      </ul>
+                      <p className="font-semibold mt-1">Por que funciona:</p>
+                      <p>Ajuda a identificar e liberar tensões acumuladas no corpo. Ao relaxar fisicamente, a mente também tende a desacelerar.</p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold">3. Respiração Diafragmática (Abdominal)</h4>
+                      <p className="font-semibold mt-1">Como fazer:</p>
+                      <ul className="list-disc list-inside space-y-1 pl-4">
+                          <li>Sente-se ou deite-se com uma mão no peito e outra na barriga.</li>
+                          <li>Inspire lentamente pelo nariz, sentindo a barriga subir mais que o peito.</li>
+                          <li>Expire devagar pela boca, sentindo a barriga descer.</li>
+                          <li>Faça isso por 5 minutos, com atenção plena à respiração.</li>
+                      </ul>
+                      <p className="font-semibold mt-1">Por que funciona:</p>
+                      <p>Estimula a respiração profunda e natural, reduzindo o ritmo cardíaco e promovendo sensação de segurança e calma.</p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-bold">4. Alongamentos Suaves</h4>
+                      <p className="font-semibold mt-1">Como fazer:</p>
+                      <ul className="list-disc list-inside space-y-1 pl-4">
+                          <li>Gire lentamente o pescoço para os lados.</li>
+                          <li>Eleve os ombros e solte com um suspiro.</li>
+                          <li>Estique os braços acima da cabeça e respire fundo.</li>
+                          <li>Faça movimentos lentos com a coluna, como se estivesse acordando o corpo.</li>
+                      </ul>
+                      <p className="font-semibold mt-1">Por que funciona:</p>
+                      <p>Libera tensões musculares e prepara o corpo para o descanso. Ideal antes de dormir ou após um dia estressante.</p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold">5. Banho Morno com Respiração Consciente</h4>
+                      <p className="font-semibold mt-1">Como fazer:</p>
+                      <ul className="list-disc list-inside space-y-1 pl-4">
+                          <li>Durante o banho, respire profundamente e sinta a água tocar a pele.</li>
+                          <li>Imagine que a água está lavando não só o corpo, mas também os pensamentos.</li>
+                          <li>Ao final, respire fundo e agradeça pelo momento de cuidado.</li>
+                      </ul>
+                      <p className="font-semibold mt-1">Por que funciona:</p>
+                      <p>A combinação de calor, toque e respiração consciente cria um ambiente de relaxamento profundo e acolhimento.</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s7q1">1. Qual parte do seu corpo costuma ficar mais tensa quando você está estressado?</Label>
+                          <Textarea id="s7q1" name="q1" value={secao7Answers.q1} onChange={handleSecao7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s7q2">2. Você já experimentou respirar de forma consciente antes de dormir?</Label>
+                          <Textarea id="s7q2" name="q2" value={secao7Answers.q2} onChange={handleSecao7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s7q3">3. Como seu corpo reage quando você está ansioso ou preocupado?</Label>
+                          <Textarea id="s7q3" name="q3" value={secao7Answers.q3} onChange={handleSecao7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s7q4">4. Que técnica dessas você sente que poderia experimentar hoje mesmo?</Label>
+                          <Textarea id="s7q4" name="q4" value={secao7Answers.q4} onChange={handleSecao7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s7q5">5. Que sensação você gostaria de cultivar ao final do dia: leveza, calma, segurança?</Label>
+                          <Textarea id="s7q5" name="q5" value={secao7Answers.q5} onChange={handleSecao7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -497,7 +626,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🔄</span>
                   O que Fazer Quando a Mente Não Para (Mesmo com a Meditação).
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao7')}>
                   <span className="mr-2 text-lg">🌼</span>
                   Técnicas para Relaxar o Corpo e Desacelerar a Respiração.
                 </Button>
@@ -528,5 +657,3 @@ export default function MeditacaoGuiadaPage() {
     </div>
   );
 }
-
-    
