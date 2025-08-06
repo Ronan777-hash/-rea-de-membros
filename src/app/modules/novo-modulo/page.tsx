@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -23,6 +23,14 @@ export default function MeditacaoGuiadaPage() {
     q2: '',
     q3: '',
   });
+  const [secao3Answers, setSecao3Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
+
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -32,6 +40,11 @@ export default function MeditacaoGuiadaPage() {
   const handleSecao2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao2Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao3Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -156,6 +169,80 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secao3':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🚦 Seção 3 – Como Começar do Zero: Guia para Iniciantes Absolutos</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Meditar não exige experiência, nem postura perfeita, nem mente vazia. O segredo está em começar pequeno, com gentileza e consistência.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🧭 Passo a Passo para Iniciar:</h3>
+                  <ol className="list-decimal list-inside space-y-2 pl-4">
+                    <li>
+                      <strong>Escolha um momento do dia</strong><br />
+                      Pode ser ao acordar, antes de dormir ou em uma pausa tranquila. O importante é que seja um momento em que você possa estar presente.
+                    </li>
+                    <li>
+                      <strong>Encontre um lugar confortável</strong><br />
+                      Não precisa ser silencioso ou especial. Uma cadeira, uma almofada ou até a cama servem. O corpo deve estar relaxado, mas desperto.
+                    </li>
+                    <li>
+                      <strong>Defina um tempo curto</strong><br />
+                      Comece com 3 a 5 minutos. O objetivo não é meditar por muito tempo, mas criar o hábito com leveza.
+                    </li>
+                    <li>
+                      <strong>Use meditações guiadas</strong><br />
+                      Para iniciantes, ouvir uma voz conduzindo ajuda a manter o foco e entender o ritmo da prática.
+                    </li>
+                    <li>
+                      <strong>Foque na respiração</strong><br />
+                      Observe o ar entrando e saindo. Se a mente se distrair (e ela vai!), apenas volte para a respiração — sem se julgar.
+                    </li>
+                    <li>
+                      <strong>Repita diariamente</strong><br />
+                      A regularidade é mais importante que a duração. Meditar todos os dias, mesmo que por pouco tempo, cria uma base sólida.
+                    </li>
+                  </ol>
+                </div>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q1">1. Qual momento do seu dia parece mais tranquilo para começar a meditar?</Label>
+                          <Textarea id="s3q1" name="q1" value={secao3Answers.q1} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q2">2. Você já tem um cantinho onde se sente confortável para praticar?</Label>
+                          <Textarea id="s3q2" name="q2" value={secao3Answers.q2} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q3">3. Que tipo de orientação te ajuda mais: ouvir uma voz guiando ou seguir sozinho com foco na respiração?</Label>
+                          <Textarea id="s3q3" name="q3" value={secao3Answers.q3} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q4">4. Você conseguiria começar com 3 minutos por dia?</Label>
+                          <Textarea id="s3q4" name="q4" value={secao3Answers.q4} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q5">5. Como acha que seu corpo e mente reagiriam se você criasse esse hábito por uma semana?</Label>
+                          <Textarea id="s3q5" name="q5" value={secao3Answers.q5} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -174,7 +261,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🧠</span>
                   Benefícios para o Corpo, Mente e Sono
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao3')}>
                   <span className="mr-2 text-lg">🚦</span>
                   Como Começar do Zero: Guia para Iniciantes Absolutos.
                 </Button>
@@ -221,3 +308,5 @@ export default function MeditacaoGuiadaPage() {
     </div>
   );
 }
+
+    
