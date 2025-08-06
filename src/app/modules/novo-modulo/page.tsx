@@ -1,3 +1,4 @@
+
 import { Home, Moon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -23,7 +24,7 @@ export default function MeditacaoGuiadaPage() {
           <CardContent>
             <Button size="lg" className="w-full">
               <Moon className="mr-2 h-5 w-5" />
-              Respiração para Acalmar a Mente
+              O que é Meditação Guiada e por que ela ajuda no sono?
             </Button>
           </CardContent>
         </Card>
