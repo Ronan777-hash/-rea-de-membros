@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image"
+import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import {
   Carousel,
   CarouselContent,
@@ -14,6 +16,15 @@ import { bonusContent } from "@/lib/data"
 export function BonusContent() {
   return (
     <div className="space-y-8">
+      <section>
+        <Link href="/modules/especialistas-do-sono">
+          <Button size="lg" className="w-full text-base h-auto py-3">
+            <span className="mr-2 text-lg">🧠✨</span>
+            Módulo: Especialistas do Sono — Aulas Selecionadas
+          </Button>
+        </Link>
+      </section>
+
       <section>
         <h2 className="text-2xl font-bold font-headline mb-4">Vídeos Escolhidos a Dedo</h2>
         <Carousel opts={{ align: "start" }} className="w-full">
