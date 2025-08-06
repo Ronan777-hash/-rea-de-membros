@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6' | 'secao7' | 'secaoBonus';
+type ViewState = 'inicio' | 'introducao' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6' | 'secao7' | 'secaoBonus';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -97,6 +97,56 @@ export default function MeditacaoGuiadaPage() {
 
   const renderContent = () => {
     switch (view) {
+      case 'introducao':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🌙 Introdução ao Módulo: Meditação Guiada para Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Você está prestes a descobrir uma prática simples, acessível e transformadora: a meditação guiada como ferramenta para dormir melhor, relaxar profundamente e cuidar da sua saúde mental e emocional.</p>
+                <p>Este módulo foi criado para quem:</p>
+                <ul className="list-disc list-inside space-y-1 pl-4">
+                  <li>Tem dificuldade para “desligar” à noite</li>
+                  <li>Sofre com ansiedade ou pensamentos acelerados na hora de dormir</li>
+                  <li>Nunca meditou e quer começar com leveza</li>
+                  <li>Busca uma alternativa natural para melhorar a qualidade do sono</li>
+                  <li>Quer criar um ritual noturno que traga paz, presença e descanso verdadeiro</li>
+                </ul>
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">🧭 O que você vai aprender aqui:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>O que é meditação guiada e por que ela funciona tão bem para dormir</li>
+                    <li>Os benefícios reais para o corpo, mente e sono</li>
+                    <li>Como começar do zero, mesmo sem experiência</li>
+                    <li>Como adaptar a prática à sua rotina e estilo de vida</li>
+                    <li>Técnicas simples para relaxar o corpo e desacelerar a respiração</li>
+                    <li>Como lidar com a mente agitada durante a meditação</li>
+                    <li>Como usar a meditação sem conflito com suas crenças religiosas</li>
+                    <li>Como criar um ritual noturno acolhedor e eficaz</li>
+                    <li>Onde encontrar meditações guiadas (YouTube, Spotify, sons naturais)</li>
+                    <li>Sessões prontas para você ouvir e dormir com tranquilidade</li>
+                  </ul>
+                </div>
+                 <div className="border-t pt-4 mt-4">
+                    <h3 className="font-bold text-foreground mb-2">💬 Uma mensagem para você:</h3>
+                    <blockquote className="border-l-4 border-primary pl-4 italic">
+                      <p>Você não precisa dominar técnicas complexas, nem “esvaziar a mente”.</p>
+                      <p>Aqui, você só precisa se permitir parar, respirar e ser guiado.</p>
+                      <p>Meditar é um ato de cuidado — e você merece descansar com leveza.</p>
+                    </blockquote>
+                 </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'secao1':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
@@ -662,7 +712,7 @@ export default function MeditacaoGuiadaPage() {
                 <CardDescription>Aprenda a meditar de um jeito simples e fácil — sem complicação, sem pressão.</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
-                <Button size="lg" className="w-full" onClick={() => {}}>
+                <Button size="lg" className="w-full" onClick={() => setView('introducao')}>
                   <span className="mr-2 text-lg">🧘‍♂️</span>
                   Introdução ao Módulo: Meditação Guiada para Dormir
                 </Button>
