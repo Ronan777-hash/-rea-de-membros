@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1';
+type ViewState = 'inicio' | 'secao1' | 'secao2';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -18,10 +18,20 @@ export default function MeditacaoGuiadaPage() {
     q2: '',
     q3: '',
   });
+  const [secao2Answers, setSecao2Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao1Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao2Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -80,6 +90,72 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secao2':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🧠 Seção 2 – Benefícios para o Corpo, Mente e Sono</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Meditar não é só “ficar zen”. É uma prática que transforma o funcionamento do corpo e da mente — especialmente quando o objetivo é dormir melhor.</p>
+                <p>A meditação guiada atua diretamente no sistema nervoso, ajudando a desacelerar os pensamentos, reduzir tensões físicas e criar um estado interno de segurança e tranquilidade. Isso é essencial para que o corpo entre no modo descanso.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mb-2">🌟 Benefícios para o corpo:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Redução da frequência cardíaca e da pressão arterial</li>
+                    <li>Relaxamento muscular profundo</li>
+                    <li>Diminuição da produção de cortisol (hormônio do estresse)</li>
+                    <li>Melhora na digestão e na respiração durante o sono</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🧘 Benefícios para a mente:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Diminuição da ansiedade e da agitação mental</li>
+                    <li>Redução de pensamentos repetitivos e preocupações</li>
+                    <li>Aumento da sensação de presença e clareza</li>
+                    <li>Estímulo à produção de serotonina (neurotransmissor do bem-estar)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">😴 Benefícios para o sono:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Facilita o início do sono (menos tempo rolando na cama)</li>
+                    <li>Aumenta a profundidade do sono</li>
+                    <li>Reduz despertares noturnos</li>
+                    <li>Melhora a qualidade do descanso e da recuperação</li>
+                  </ul>
+                </div>
+                <blockquote className="border-l-4 border-primary pl-4 italic mt-4">Meditar antes de dormir é como preparar o terreno para que o sono aconteça naturalmente — sem forçar, sem lutar contra o relógio.</blockquote>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q1">1. Você costuma sentir seu corpo tenso ou agitado na hora de dormir?</Label>
+                          <Textarea id="s2q1" name="q1" value={secao2Answers.q1} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q2">2. Já percebeu que seus pensamentos acelerados atrapalham o sono?</Label>
+                          <Textarea id="s2q2" name="q2" value={secao2Answers.q2} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s2q3">3. Como seria acordar com mais disposição e leveza todos os dias?</Label>
+                          <Textarea id="s2q3" name="q3" value={secao2Answers.q3} onChange={handleSecao2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -94,7 +170,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🌙</span>
                   O que é Meditação Guiada e por que ela ajuda no sono?
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao2')}>
                   <span className="mr-2 text-lg">🧠</span>
                   Benefícios para o Corpo, Mente e Sono
                 </Button>
