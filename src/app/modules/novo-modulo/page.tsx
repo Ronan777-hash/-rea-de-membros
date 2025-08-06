@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6' | 'secao7';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6' | 'secao7' | 'secaoBonus';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -592,6 +592,64 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secaoBonus':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🎁 Seção 8 – Sessões Guiadas para Você Ouvir Antes de Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Às vezes, tudo que você precisa é uma voz calma e sons suaves para desacelerar corpo e mente. As meditações guiadas com sons de chuva são especialmente eficazes: o som da água caindo acalma o sistema nervoso, enquanto a voz conduz você ao relaxamento e ao sono profundo.</p>
+                <p>Você não precisa “saber meditar” — basta dar o play, fechar os olhos e se permitir ser guiado.</p>
+                
+                <div className="border-t pt-4">
+                  <h3 className="font-semibold text-foreground text-lg mb-2">📱 Antes de Começar: Prepare o Ambiente</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Deixe o celular com a tela virada para baixo ou ative o modo noturno (tela amarelada) para evitar estímulos visuais.</li>
+                    <li>Use fones de ouvido, se possível, para mergulhar na experiência.</li>
+                    <li>Abaixe o volume do vídeo após o início para evitar anúncios altos ou interrupções inesperadas.</li>
+                    <li>Evite mexer no celular durante a sessão. Quanto mais presente você estiver, mais profundo será o relaxamento.</li>
+                  </ul>
+                </div>
+                
+                <div className="border-t pt-4">
+                  <h3 className="font-semibold text-foreground text-lg mb-2">🎧 Meditações Guiadas com Voz e Sons Suaves (YouTube)</h3>
+                  <ul className="list-disc list-inside space-y-2 pl-4">
+                    <li><a href="https://www.youtube.com/watch?v=dfi11cxr1NM" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação para Dormir – Relaxamento Profundo</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=-PVVSKedbUs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação para Dormir Rápido – Voz + Chuva</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=p2p0gYPVQxU" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação: Acalme-se e Durma com Chuva</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=1SP3AqW5XLY" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação Guiada: Sono Profundo em 1 Hora</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=qiUlSeZg4yE" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Meditação Guiada com Som do Mar – 1 Hora</a></li>
+                  </ul>
+                </div>
+
+                <div className="border-t pt-4">
+                  <h3 className="font-semibold text-foreground text-lg mb-2">🎶 Preferência por Sons Naturais sem Voz?</h3>
+                  <p>Se você prefere meditar apenas com sons da natureza — como chuva, água corrente ou floresta — aqui estão 5 vídeos com mais de 1 hora de duração, ideais para relaxar ou dormir:</p>
+                  <ul className="list-disc list-inside space-y-2 pl-4">
+                    <li><a href="https://www.youtube.com/watch?v=ljhbLia0-lk" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Som de Chuva Tela Preta – 1 Hora</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=FlzxXKY-DF4" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Chuva com Trovoadas – 1 Hora</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=HgoGbw8XJ2k" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Chuva Torrencial na Floresta – 1 Hora</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=k7KGsrOMRG0" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Sons da Natureza com Música Relaxante – 1 Hora</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=IH38yGLClu0" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Água Corrente na Floresta – 1 Hora</a></li>
+                  </ul>
+                </div>
+
+                <div className="border-t pt-4">
+                   <h3 className="font-semibold text-foreground text-lg mb-2">🎧 Meditações Guiadas no Spotify</h3>
+                   <p>Você também pode encontrar meditações guiadas no Spotify, muitas delas sem anúncios — especialmente na aba Podcasts.<br/>Basta pesquisar:<br/>“Meditação Guiada 1 Hora”<br/>Depois, vá até a aba Podcasts e escolha uma sessão.<br/>Você pode baixar o áudio no app e ouvir offline, sem interrupções.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -630,7 +688,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🌼</span>
                   Técnicas para Relaxar o Corpo e Desacelerar a Respiração.
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secaoBonus')}>
                   <span className="mr-2 text-lg">🎁</span>
                   Bônus – Sessões Guiadas para Você Ouvir Antes de Dormir.
                 </Button>
