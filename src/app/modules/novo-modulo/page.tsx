@@ -296,7 +296,7 @@ export default function MeditacaoGuiadaPage() {
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
             <Card>
               <CardHeader>
-                <CardTitle className="font-headline text-2xl">🙏 Seção 4 – Meditação e Crenças Religiosas: Pode Confiar</CardTitle>
+                <CardTitle className="font-headline text-2xl">🙏 Seção 4 – Meditação e Crenças Religiosas: Pode confiar</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground">
                 <p>Muita gente evita meditar por achar que a prática está ligada a religiões específicas ou que pode entrar em conflito com sua fé. Mas a verdade é que meditar é uma prática universal, que pode ser adaptada a qualquer crença — ou nenhuma.</p>
@@ -313,7 +313,7 @@ export default function MeditacaoGuiadaPage() {
                 <p>Muitos líderes religiosos, inclusive, recomendam práticas meditativas como forma de aprofundar a espiritualidade, acalmar o coração e ouvir com mais clareza.</p>
                 
                 <div className="border-t pt-4 mt-4">
-                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas</h3>
                    <div className="space-y-4 mt-4">
                         <div className="space-y-2">
                           <Label htmlFor="s4q1">1. Você já teve dúvidas se meditar poderia interferir na sua fé ou crença?</Label>
