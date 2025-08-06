@@ -5,11 +5,11 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { BookOpen, Home, ArrowLeft } from 'lucide-react';
+import { BookOpen, Home, ArrowLeft, Star } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4' | 'dia5' | 'dia6' | 'dia7';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4' | 'dia5' | 'dia6' | 'dia7' | 'bonus';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -56,6 +56,12 @@ export default function Desafio7DiasPage() {
     q3: '',
     q4: '',
   });
+  const [bonusAnswers, setBonusAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -90,6 +96,11 @@ export default function Desafio7DiasPage() {
   const handleDay7AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay7Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleBonusAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setBonusAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -569,6 +580,64 @@ export default function Desafio7DiasPage() {
             </div>
           </div>
         );
+      case 'bonus':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Bônus – Não Se Cobre Tanto: O Sono Também É um Processo</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>💬 Você não falhou. Você está aprendendo.</p>
+                <p>Nem todo dia será perfeito. E sabe o que é mais importante? Está tudo bem.</p>
+                <p>Algumas noites podem sair do planejado. Você pode dormir mais tarde, sentir-se agitado, sair da rotina por conta de compromissos, lazer ou simplesmente estar presente com quem você ama.</p>
+                <p className="font-semibold text-foreground">👉 Isso não apaga sua evolução.</p>
+                <p>O sono é um hábito — e hábitos se constroem com consistência, não com rigidez.</p>
+                <p>😌 Transforme tropeços em aprendizado, não em culpa.</p>
+                <p>Culpar-se pelo que não saiu como planejado só aumenta o estresse e dificulta o sono. Pensar “perdi o dia, então nada mais funciona” é uma armadilha mental.</p>
+                <p>Recomece no dia seguinte. Com leveza. O progresso real vem da persistência — não da perfeição.</p>
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">🖊️ Escreva para aliviar.</h3>
+                    <p className="mb-2">Se o dia foi puxado, triste ou estressante, despeje no papel. Sem filtros. Seu Diário do Sono pode ser seu espaço seguro. Você pode responder:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="bq1">Como foi meu dia?</Label>
+                          <Textarea id="bq1" name="q1" value={bonusAnswers.q1} onChange={handleBonusAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="bq2">O que eu senti?</Label>
+                          <Textarea id="bq2" name="q2" value={bonusAnswers.q2} onChange={handleBonusAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="bq3">O que me incomodou?</Label>
+                          <Textarea id="bq3" name="q3" value={bonusAnswers.q3} onChange={handleBonusAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="bq4">O que me fez bem?</Label>
+                          <Textarea id="bq4" name="q4" value={bonusAnswers.q4} onChange={handleBonusAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                    <p className="mt-4">Liberar os pensamentos na escrita ajuda a acalmar a mente.</p>
+                    <p>É como dizer: “Tá tudo aqui. Agora posso descansar.”</p>
+                </div>
+
+                <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                  <h3 className="font-bold text-foreground mb-2">✨ Lembre-se:</h3>
+                  <p>Dormir melhor é uma jornada, não uma linha reta.</p>
+                  <p>Cada escolha, cada tentativa, cada pequeno ajuste está te movendo em direção a uma vida mais equilibrada, consciente e em paz.</p>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'selection':
       default:
         return (
@@ -602,6 +671,10 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia7')}>
                   Dia 7: Sustente o Hábito
+                </Button>
+                <Button size="lg" onClick={() => setView('bonus')}>
+                  <Star className="mr-2 h-5 w-5" />
+                  Bônus: Não se cobre tanto
                 </Button>
             </div>
           </div>
