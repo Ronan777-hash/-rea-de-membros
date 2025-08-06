@@ -44,6 +44,12 @@ export default function SonoEAlimentacaoPage() {
     q3: '',
     q4: '',
   });
+  const [secaoBonusAnswers, setSecaoBonusAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -70,6 +76,11 @@ export default function SonoEAlimentacaoPage() {
     setSecao5Answers((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleSecaoBonusAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecaoBonusAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
 
   const renderContent = () => {
     switch (view) {
@@ -82,7 +93,7 @@ export default function SonoEAlimentacaoPage() {
                   <span>🧠</span> Seção 1: A Relação entre Comida e Sono
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
+              <CardContent className="space-y-6 text-muted-foreground p-6">
                 <div>
                   <h3 className="font-bold text-foreground mb-2 text-lg">🍽️ Como a Digestão Influencia o Cérebro na Hora de Dormir</h3>
                   <p>Quando você come, seu corpo entra em modo digestivo. Isso significa que:</p>
@@ -177,7 +188,7 @@ export default function SonoEAlimentacaoPage() {
                   <span>🚫</span> Seção 2: O que Evitar à Noite
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
+              <CardContent className="space-y-6 text-muted-foreground p-6">
                 <div>
                   <h3 className="font-bold text-foreground mb-2 text-lg">🧃 Alimentos que Sabotam o Sono</h3>
                   <p>Alguns alimentos ativam o corpo e o cérebro em vez de acalmá-los. Comer esses itens à noite pode dificultar o relaxamento e prejudicar a qualidade do sono.</p>
@@ -258,10 +269,10 @@ export default function SonoEAlimentacaoPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center gap-3">
-                  <span>🥗</span> Seção 3: O que Comer para Dormir Melhor
+                  <span>✅</span> Seção 3: O que Comer para Dormir Melhor
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
+              <CardContent className="space-y-6 text-muted-foreground p-6">
                 <div>
                   <h3 className="font-bold text-foreground mb-2 text-lg">🌿 Alimentos que Ajudam o Corpo a Produzir Melatonina e Serotonina</h3>
                   <p>Alguns alimentos contêm nutrientes que estimulam a produção de melatonina (hormônio do sono) e serotonina (neurotransmissor do bem-estar). Esses compostos ajudam o corpo a relaxar e entrar no ciclo natural do descanso.</p>
@@ -353,7 +364,7 @@ export default function SonoEAlimentacaoPage() {
                   <span>🍞</span> Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
+              <CardContent className="space-y-6 text-muted-foreground p-6">
                 <div>
                   <h3 className="font-bold text-foreground mb-2 text-lg">⚖️ A Verdade Sobre Cortar Carboidratos à Noite</h3>
                   <p>Durante muito tempo, os carboidratos foram vistos como vilões noturnos. Mas a ciência mostra que, quando escolhidos com sabedoria, eles podem ser grandes aliados do sono.</p>
@@ -451,14 +462,14 @@ export default function SonoEAlimentacaoPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center gap-3">
-                  <span>🧩</span> Seção 5: Seu Estilo de Vida e Hábitos Alimentares
+                  <span>🔍</span> Seção 5: Seu Estilo de Vida e Hábitos Alimentares
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground">
+              <CardContent className="space-y-6 text-muted-foreground p-6">
                 <div>
-                  <h3 className="font-bold text-foreground mb-2 text-lg">Não Existe Uma Regra Única — Existe o Que Funciona Pra Você</h3>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🧩 Não Existe Uma Regra Única — Existe o Que Funciona Pra Você</h3>
                   <p>Cada pessoa tem uma rotina diferente. Alguns jantam cedo, outros trabalham à noite, alguns treinam à noite, outros dormem tarde. Por isso, o mais importante é entender como seu corpo responde às suas escolhas alimentares.</p>
-                  <p className="mt-2 font-semibold">Exemplos de perfis diferentes:</p>
+                  <p className="mt-2 font-semibold">🔄 Exemplos de perfis diferentes:</p>
                   <ul className="list-disc list-inside space-y-1 mt-2">
                     <li>Quem treina à noite pode precisar de mais carboidrato e proteína após o treino.</li>
                     <li>Quem janta tarde deve evitar refeições pesadas e gordurosas.</li>
@@ -468,7 +479,7 @@ export default function SonoEAlimentacaoPage() {
                 </div>
 
                 <div className="border-t pt-6">
-                  <h3 className="font-bold text-foreground mb-2 text-lg">Ouça Seu Corpo: Ele Dá Sinais</h3>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🧠 Ouça Seu Corpo: Ele Dá Sinais</h3>
                   <p>Seu corpo fala — e aprender a escutar esses sinais é essencial:</p>
                   <ul className="list-disc list-inside space-y-1 mt-2">
                     <li>😴 Sono leve ou dificuldade para dormir → pode ser falta de triptofano ou refeições muito pesadas.</li>
@@ -482,7 +493,7 @@ export default function SonoEAlimentacaoPage() {
                 </div>
 
                 <div className="border-t pt-6">
-                  <h3 className="font-bold text-foreground mb-2 text-lg">Experimente e Ajuste: Pequenas Mudanças, Grandes Resultados</h3>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🧪 Experimente e Ajuste: Pequenas Mudanças, Grandes Resultados</h3>
                   <p>Não precisa mudar tudo de uma vez. Teste pequenas adaptações e veja como seu corpo reage:</p>
                   <ul className="list-disc list-inside space-y-1 mt-2">
                     <li>Troque o arroz branco por integral ou misture os dois.</li>
@@ -490,7 +501,7 @@ export default function SonoEAlimentacaoPage() {
                     <li>Inclua uma fruta ou tubérculo leve na ceia.</li>
                     <li>Evite refrigerantes, frituras e excesso de açúcar à noite.</li>
                   </ul>
-                  <p className="mt-4 font-semibold">Exemplo de adaptação simples:</p>
+                  <p className="mt-4 font-semibold">🔄 Exemplo de adaptação simples:</p>
                   <blockquote className="border-l-4 border-primary pl-4 italic my-2">
                     <p>“Antes eu comia arroz, feijão, carne e batata frita às 22h. Agora como arroz integral, feijão, frango grelhado e salada às 20h — e durmo muito melhor.”</p>
                   </blockquote>
@@ -530,14 +541,87 @@ export default function SonoEAlimentacaoPage() {
         case 'secaoBonus':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-              🎉 Seção Bônus: “Quero Chutar o Balde no Fim de Semana!”
-              </h1>
-            </header>
-            <div className="text-center text-muted-foreground">
-              <p>Conteúdo da Seção Bônus aparecerá aqui.</p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🎉</span> Seção Bônus: “Quero Chutar o Balde no Fim de Semana!”
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground p-6">
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">😎 Pizza, Hambúrguer, Churrasco... Posso Comer e Dormir Bem?</h3>
+                  <p>Sim, você pode aproveitar! Comer algo mais calórico de vez em quando é normal e faz parte da vida. O importante é entender como isso afeta o corpo — e como minimizar os impactos no sono e na digestão.</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🕒 Alimentos Pesados Demoram Mais Para Ser Digeridos</h3>
+                  <p>Quando você come alimentos ricos em gordura, açúcar ou em grandes quantidades, o corpo precisa de mais tempo e energia para digerir. Isso pode causar:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Refluxo ou azia</li>
+                    <li>Sensação de estômago “cheio”</li>
+                    <li>Sono agitado ou superficial</li>
+                    <li>Dificuldade para relaxar</li>
+                    <li>Gases e desconforto abdominal</li>
+                  </ul>
+                  <p className="mt-2"><span className="font-semibold">📌 Exemplos de alimentos que exigem mais da digestão:</span></p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Pizza com muito queijo e embutidos</li>
+                    <li>Hambúrguer com fritas</li>
+                    <li>Churrasco com farofa, maionese e refrigerante</li>
+                    <li>Doces com leite condensado ou chocolate ao leite</li>
+                  </ul>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">⏳ Dê Tempo ao Corpo Antes de Dormir</h3>
+                  <p>Se for comer algo mais pesado à noite, tente:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Comer pelo menos 2 a 4 horas antes de dormir, especialmente se exagerar na quantidade</li>
+                    <li>Evitar deitar logo após comer — isso aumenta o risco de refluxo</li>
+                    <li>Caminhar levemente após a refeição (ajuda na digestão e no relaxamento)</li>
+                    <li>Beber água, mas sem exagerar para não interromper o sono com idas ao banheiro</li>
+                  </ul>
+                  <div className="mt-4 p-4 bg-accent/50 rounded-lg border border-accent">
+                    <p className="font-bold">💡 Dica prática:</p>
+                    <p>Se você vai dormir às 23h, o ideal é terminar a refeição entre 19h e 21h.</p>
+                    <blockquote className="border-l-2 border-primary pl-2 italic my-1">Quanto mais pesada a refeição, mais cedo ela deve acontecer.</blockquote>
+                    <blockquote className="border-l-2 border-primary pl-2 italic">Se você exagerou, tente esperar 4 horas antes de deitar.</blockquote>
+                  </div>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🧘‍♂️ Sem Culpa, Mas Sem Virar Hábito</h3>
+                  <p>Comer tarde da noite ou dormir com o estômago cheio de vez em quando não é o fim do mundo. O problema é quando isso vira rotina.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>😴 Dormir tarde + comer pesado = sono ruim + cansaço no dia seguinte</li>
+                    <li>🍽️ Comer tarde todo dia = risco de refluxo, ganho de peso e desregulação hormonal</li>
+                  </ul>
+                  <p className="mt-2 font-semibold">📌 Se for ocasional, tudo bem. Se for frequente, vale repensar.</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas Interativas</h3>
+                  <div className="space-y-4 mt-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="bq1">1. Você costuma comer algo mais pesado nos fins de semana?</Label>
+                      <Textarea id="bq1" name="q1" value={secaoBonusAnswers.q1} onChange={handleSecaoBonusAnswerChange} placeholder="Sua resposta..." />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="bq2">2. Já sentiu que isso atrapalha seu sono ou digestão?</Label>
+                      <Textarea id="bq2" name="q2" value={secaoBonusAnswers.q2} onChange={handleSecaoBonusAnswerChange} placeholder="Sua resposta..." />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="bq3">3. Que horário você costuma dormir quando “chuta o balde”?</Label>
+                      <Textarea id="bq3" name="q3" value={secaoBonusAnswers.q3} onChange={handleSecaoBonusAnswerChange} placeholder="Sua resposta..." />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="bq4">4. Que estratégia você pode usar para curtir sem prejudicar seu corpo?</Label>
+                      <Textarea id="bq4" name="q4" value={secaoBonusAnswers.q4} onChange={handleSecaoBonusAnswerChange} placeholder="Sua resposta..." />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
             <div className="text-center">
               <Button onClick={() => setView('inicio')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -559,19 +643,19 @@ export default function SonoEAlimentacaoPage() {
               </p>
             </header>
             <div className="flex flex-col gap-4 w-full max-w-sm">
-              <Button size="lg" onClick={() => setView('secao1')}>
+              <Button size="lg" variant="outline" onClick={() => setView('secao1')}>
                 <span className="mr-2">🧠</span> Seção 1: A Relação entre Comida e Sono
               </Button>
-               <Button size="lg" onClick={() => setView('secao2')}>
+               <Button size="lg" variant="outline" onClick={() => setView('secao2')}>
                 <span className="mr-2">🚫</span> Seção 2: O que Evitar à Noite
               </Button>
-               <Button size="lg" onClick={() => setView('secao3')}>
+               <Button size="lg" variant="outline" onClick={() => setView('secao3')}>
                 <span className="mr-2">✅</span> Seção 3: O que Comer para Dormir Melhor
               </Button>
-               <Button size="lg" onClick={() => setView('secao4')}>
+               <Button size="lg" variant="outline" onClick={() => setView('secao4')}>
                 <span className="mr-2">🍞</span> Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
               </Button>
-               <Button size="lg" onClick={() => setView('secao5')}>
+               <Button size="lg" variant="outline" onClick={() => setView('secao5')}>
                 <span className="mr-2">🔍</span> Seção 5: Seu Estilo de Vida e Hábitos Alimentares
               </Button>
               <Button size="lg" onClick={() => setView('secaoBonus')}>
@@ -599,3 +683,5 @@ export default function SonoEAlimentacaoPage() {
     </div>
   );
 }
+
+    
