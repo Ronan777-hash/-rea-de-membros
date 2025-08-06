@@ -662,7 +662,11 @@ export default function MeditacaoGuiadaPage() {
                 <CardDescription>Aprenda a meditar de um jeito simples e fácil — sem complicação, sem pressão.</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
-                <Button size="lg" className="w-full" onClick={() => setView('secao1')}>
+                <Button size="lg" className="w-full" onClick={() => {}}>
+                  <span className="mr-2 text-lg">🧘‍♂️</span>
+                  Introdução ao Módulo: Meditação Guiada para Dormir
+                </Button>
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao1')}>
                   <span className="mr-2 text-lg">🌙</span>
                   O que é Meditação Guiada e por que ela ajuda no sono?
                 </Button>
