@@ -18,6 +18,12 @@ export const mainModules = [
     image: 'https://i.imgur.com/GAJkXxH.png',
     dataAiHint: 'night sky stars',
   },
+  {
+    title: 'Meditação Guiada para Dormir',
+    slug: 'meditacao-guiada-para-dormir',
+    image: 'https://placehold.co/675x1200.png',
+    dataAiHint: 'meditation calm night',
+  },
 ];
 
 export const continueWatchingItems = [
