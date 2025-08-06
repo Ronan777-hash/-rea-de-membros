@@ -7,10 +7,10 @@ export const mainModules = [
     dataAiHint: 'challenge medal',
   },
   {
-    title: 'Novo Módulo',
-    slug: 'novo-modulo',
+    title: 'Sono e Alimentação',
+    slug: 'sono-e-alimentacao',
     image: 'https://i.imgur.com/GPwK1d3.png',
-    dataAiHint: 'module placeholder',
+    dataAiHint: 'food sleep',
   },
 ];
 
