@@ -93,8 +93,23 @@ export default function SonoEAlimentacaoPage() {
                   <span>🌙</span> Introdução ao Módulo: Comida & Sono – A Dupla que Muda Seu Bem-Estar
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground p-6">
-                <p>Conteúdo da introdução em breve.</p>
+              <CardContent className="space-y-4 text-muted-foreground p-6">
+                <p>Você já parou pra pensar que aquilo que você coloca no prato pode ser exatamente o que está sabotando (ou salvando!) seu sono? Neste módulo, vamos mergulhar em como sua alimentação afeta diretamente sua qualidade de descanso — e o quanto simples mudanças podem te levar de noites mal dormidas a uma rotina mais leve e revigorante.</p>
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">Prepare-se para descobrir:</h3>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>🧠 Como comida e sono se conectam profundamente</li>
+                      <li>🚫 Quais alimentos evitar à noite para não virar na cama</li>
+                      <li>✅ O que incluir na última refeição para acordar mais disposto</li>
+                      <li>🍞 A verdade sobre carboidratos antes de dormir</li>
+                      <li>🔍 Como seus hábitos e estilo de vida influenciam tudo isso</li>
+                      <li>🎉 E claro, como manter o equilíbrio mesmo quando bate a vontade de “chutar o balde” no fim de semana</li>
+                    </ul>
+                </div>
+
+                <p className="italic">Este conteúdo foi pensado pra te ajudar a ter noites de sono mais tranquilas — sem fórmulas mágicas, mas com estratégias reais e adaptáveis à sua rotina.</p>
+
               </CardContent>
             </Card>
             <div className="text-center">
