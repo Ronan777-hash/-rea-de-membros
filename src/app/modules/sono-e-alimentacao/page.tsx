@@ -25,6 +25,12 @@ export default function SonoEAlimentacaoPage() {
     q3: '',
     q4: '',
   });
+  const [secao3Answers, setSecao3Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -34,6 +40,11 @@ export default function SonoEAlimentacaoPage() {
   const handleSecao2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao2Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao3Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -221,14 +232,87 @@ export default function SonoEAlimentacaoPage() {
       case 'secao3':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                ✅ Seção 3: O que Comer para Dormir Melhor
-              </h1>
-            </header>
-            <div className="text-center text-muted-foreground">
-              <p>Conteúdo da Seção 3 aparecerá aqui.</p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🥗</span> Seção 3: O que Comer para Dormir Melhor
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🌿 Alimentos que Ajudam o Corpo a Produzir Melatonina e Serotonina</h3>
+                  <p>Alguns alimentos contêm nutrientes que estimulam a produção de melatonina (hormônio do sono) e serotonina (neurotransmissor do bem-estar). Esses compostos ajudam o corpo a relaxar e entrar no ciclo natural do descanso.</p>
+                  <p className="font-semibold text-foreground mt-2">Principais nutrientes e onde encontrá-los:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li><span className="font-semibold">Triptofano:</span> presente em banana, aveia, iogurte natural, ovos e nozes.</li>
+                    <li><span className="font-semibold">Magnésio:</span> encontrado em sementes, castanhas, espinafre, abacate e também na banana.</li>
+                    <li><span className="font-semibold">Vitamina B6:</span> presente em grão-de-bico, salmão, batata-doce e frutas como banana.</li>
+                    <li><span className="font-semibold">Carboidratos leves:</span> ajudam o triptofano a chegar ao cérebro, favorecendo o relaxamento.</li>
+                  </ul>
+                  <p className="font-semibold text-foreground mt-4">👉 Resumo simples: Comer alimentos ricos em triptofano + carboidratos leves é como dar ao corpo os ingredientes certos para desligar com tranquilidade.</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🍽️ Opções de Lanches Noturnos Leves, Saborosos e Funcionais</h3>
+                  <p>Aqui estão algumas sugestões de lanches que ajudam a induzir o sono sem pesar:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Banana com aveia e uma colher de mel</li>
+                    <li>Iogurte natural com chia ou linhaça</li>
+                    <li>Torradas integrais com pasta de amendoim (sem açúcar)</li>
+                    <li>Frutas como maçã, pera ou mamão</li>
+                    <li>Mix de castanhas (em pequena quantidade)</li>
+                    <li>Purê de batata-doce com azeite e ervas suaves</li>
+                    <li>Shake leve com whey protein ou proteína vegetal + banana ou mamão</li>
+                    <li>Iogurte com uma dose de proteína em pó + aveia ou frutas</li>
+                  </ul>
+                  <p className="font-semibold text-foreground mt-4">💪 Dica extra para quem treina: incluir uma fonte leve de proteína (como whey ou proteína vegetal) pode ajudar na recuperação muscular sem atrapalhar o sono — desde que não contenha estimulantes como cafeína.</p>
+                  <div className="mt-4 p-4 bg-accent/50 rounded-lg border border-accent">
+                    <p><span className="font-bold">💡 Dica prática:</span> Evite exagerar na quantidade. O ideal é comer o suficiente para se sentir saciado, mas leve.</p>
+                  </div>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">🌙 Como Montar uma “Ceia do Sono” Simples e Eficaz</h3>
+                  <p>A ceia do sono é uma pequena refeição feita cerca de 1 hora antes de dormir (caso você tenha jantado muito cedo ou esteja com fome). Ela deve ser:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Leve</li>
+                    <li>Rica em nutrientes calmantes</li>
+                    <li>Livre de estimulantes</li>
+                  </ul>
+                  <p className="mt-2 font-semibold">Exemplo de ceia ideal:</p>
+                  <blockquote className="border-l-4 border-primary pl-4 italic my-2">
+                    <p>1 banana amassada com aveia + 1 colher de pasta de amendoim natural</p>
+                    <p className="text-center my-1 font-sans not-italic">ou</p>
+                    <p>1 torrada integral com queijo branco + 1 fatia de mamão</p>
+                    <p className="text-center my-1 font-sans not-italic">ou</p>
+                    <p>Shake com whey + leite vegetal + 1 colher de aveia + canela</p>
+                  </blockquote>
+                  <p>Essa combinação ajuda o corpo a relaxar sem sobrecarregar o sistema digestivo.</p>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q1">1. Qual desses alimentos você já costuma consumir à noite?</Label>
+                          <Textarea id="s3q1" name="q1" value={secao3Answers.q1} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q2">2. Você já percebeu que certos alimentos te ajudam a relaxar?</Label>
+                          <Textarea id="s3q2" name="q2" value={secao3Answers.q2} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q3">3. Que lanche leve você pode testar hoje antes de dormir?</Label>
+                          <Textarea id="s3q3" name="q3" value={secao3Answers.q3} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s3q4">4. Se você treina, como incluir proteína na sua ceia sem atrapalhar o sono?</Label>
+                          <Textarea id="s3q4" name="q4" value={secao3Answers.q4} onChange={handleSecao3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
             <div className="text-center">
               <Button onClick={() => setView('inicio')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
