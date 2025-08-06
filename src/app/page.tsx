@@ -1,5 +1,4 @@
 import { MainModulesCarousel } from '@/components/home/main-modules-carousel';
-import { SmartModuleSuggestion } from '@/components/home/smart-module-suggestion';
 
 export default function Home() {
   return (
@@ -13,10 +12,6 @@ export default function Home() {
         </p>
       </header>
 
-      <section>
-        <SmartModuleSuggestion />
-      </section>
-      
       <section>
         <h2 className="text-2xl font-bold font-headline mb-4 text-center md:text-left">Módulos Principais</h2>
         <MainModulesCarousel />
