@@ -9,7 +9,7 @@ import { BookOpen, Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -28,6 +28,12 @@ export default function Desafio7DiasPage() {
     q3: '',
     q4: '',
   });
+  const [day3Answers, setDay3Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -37,6 +43,11 @@ export default function Desafio7DiasPage() {
   const handleDay2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay2Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDay3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay3Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -191,6 +202,69 @@ export default function Desafio7DiasPage() {
             </div>
           </div>
         );
+      case 'dia3':
+        return (
+            <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Dia 3 – Construindo Seu Santuário do Sono</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Seu ambiente fala com seu cérebro. Vamos ensinar ele a desligar.</p>
+                <p>🧭 Objetivo do dia:<br/>Hoje, você vai transformar seu quarto em um verdadeiro santuário do descanso. O ambiente em que você dorme pode ser seu maior aliado ou um vilão invisível — luzes, ruídos e temperatura desregulada podem sabotar seu sono sem que você perceba.</p>
+                <p>🌍 Como os holandeses fazem?<br/>Na Holanda, o quarto é tratado como um templo do sono. Ele costuma ser escuro, silencioso, arejado e livre de estímulos visuais ou tecnológicos. Essa configuração ensina o cérebro que, ali, é hora de descansar — e não de se distrair.</p>
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">📝 Tarefa do dia – Diário do Sono, Dia 3:</h3>
+                    <p className="mb-2">Responda com sinceridade:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="d3q1">Como está meu quarto hoje? (Iluminação, ruídos, temperatura, colchão, travesseiro)</Label>
+                          <Textarea id="d3q1" name="q1" value={day3Answers.q1} onChange={handleDay3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d3q2">O que posso melhorar com o que já tenho em casa?</Label>
+                          <Textarea id="d3q2" name="q2" value={day3Answers.q2} onChange={handleDay3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d3q3">O que me incomoda quando tento dormir?</Label>
+                          <Textarea id="d3q3" name="q3" value={day3Answers.q3} onChange={handleDay3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d3q4">Quais 3 ações concretas vou implementar hoje para melhorar meu ambiente de sono?</Label>
+                          <Textarea id="d3q4" name="q4" value={day3Answers.q4} onChange={handleDay3AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+                 <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                    <h3 className="font-bold text-foreground mb-2">🔧 Exemplos de ações que funcionam:</h3>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Fechar janelas e cortinas 30 min antes de deitar</li>
+                        <li>Usar luz âmbar ou abajur com luz quente</li>
+                        <li>Colocar o celular longe da cama e ativar o “não perturbe”</li>
+                        <li>Trocar a roupa de cama por uma mais fresca e limpa</li>
+                        <li>Iniciar uma trilha sonora suave com sons relaxantes (sem tela acesa)</li>
+                        <li>Borrifar essência de lavanda ou usar um difusor de aroma calmante</li>
+                    </ul>
+                </div>
+                <blockquote className="border-l-4 border-primary pl-4 italic">
+                    <p className="font-bold">💬 Frase motivadora para seu diário:</p>
+                    <p>"Estou criando um espaço de paz. Cada detalhe conta para que meu corpo confie e se entregue ao descanso."</p>
+                </blockquote>
+                <div className="p-4 bg-muted/50 rounded-lg">
+                    <h3 className="font-bold text-foreground mb-2">💡 Dica do dia:</h3>
+                    <p>Seu cérebro é altamente condicionado ao ambiente. Se você usa sua cama para trabalhar, comer ou ficar no celular, ele não entende que é hora de dormir. A partir de hoje, transforme sua cama num espaço sagrado. Use-a apenas para dormir e relaxar.</p>
+                    <p className="italic mt-2">"Quanto mais neutro, confortável e livre de estímulos for seu quarto, mais rápido sua mente desliga e mergulha no descanso profundo."</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'selection':
       default:
         return (
@@ -209,6 +283,9 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia2')}>
                   Dia 2: Reprograme o Relógio
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => setView('dia3')}>
+                  Dia 3: Construindo Seu Santuário do Sono
                 </Button>
             </div>
           </div>
@@ -232,5 +309,3 @@ export default function Desafio7DiasPage() {
     </div>
   );
 }
-
-    
