@@ -9,7 +9,7 @@ export const mainModules = [
   {
     title: 'Novo Módulo',
     slug: 'novo-modulo',
-    image: 'https://placehold.co/675x1200.png',
+    image: 'https://i.imgur.com/vLh5aI3.png',
     dataAiHint: 'module placeholder',
   },
 ];
