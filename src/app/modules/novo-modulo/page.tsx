@@ -34,6 +34,10 @@ export default function MeditacaoGuiadaPage() {
               <span className="mr-2 text-lg">🚦</span>
               Como Começar do Zero: Guia para Iniciantes Absolutos.
             </Button>
+            <Button size="lg" className="w-full" variant="outline">
+              <span className="mr-2 text-lg">🙏</span>
+              Meditação e Crenças Religiosas: Pode confiar.
+            </Button>
           </CardContent>
         </Card>
       </div>
