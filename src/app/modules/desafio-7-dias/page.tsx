@@ -6,11 +6,28 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { BookOpen, Home, ArrowLeft } from 'lucide-react';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 type ViewState = 'selection' | 'intro' | 'dia1';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
+  const [day1Answers, setDay1Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+    q6: '',
+    q7: '',
+  });
+
+  const handleAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay1Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
 
   const renderContent = () => {
     switch (view) {
@@ -58,15 +75,36 @@ export default function Desafio7DiasPage() {
                 <div className="p-4 bg-accent/50 rounded-lg border border-accent">
                     <h3 className="font-bold text-foreground mb-2">📝 Tarefa do Dia</h3>
                     <p className="mb-2">Pegue um caderno, diário ou qualquer lugar onde você possa escrever com liberdade. No topo da página, coloque a data de hoje e dê início ao seu Diário do Sono – Dia 1. Responda com sinceridade às perguntas abaixo:</p>
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Que horas fui dormir ontem?</li>
-                        <li>O que fiz nas 2 horas que antecederam o sono?</li>
-                        <li>Tive alguma dificuldade para dormir? Quais?</li>
-                        <li>Dormi bem ou tive interrupções durante a noite?</li>
-                        <li>Ao acordar, como me senti — física e mentalmente?</li>
-                        <li>Estimo que dormi por quantas horas?</li>
-                        <li>Percebo algum hábito que pode estar sabotando meu sono?</li>
-                    </ul>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="q1">Que horas fui dormir ontem?</Label>
+                          <Textarea id="q1" name="q1" value={day1Answers.q1} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q2">O que fiz nas 2 horas que antecederam o sono?</Label>
+                          <Textarea id="q2" name="q2" value={day1Answers.q2} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q3">Tive alguma dificuldade para dormir? Quais?</Label>
+                          <Textarea id="q3" name="q3" value={day1Answers.q3} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q4">Dormi bem ou tive interrupções durante a noite?</Label>
+                          <Textarea id="q4" name="q4" value={day1Answers.q4} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q5">Ao acordar, como me senti — física e mentalmente?</Label>
+                          <Textarea id="q5" name="q5" value={day1Answers.q5} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q6">Estimo que dormi por quantas horas?</Label>
+                          <Textarea id="q6" name="q6" value={day1Answers.q6} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="q7">Percebo algum hábito que pode estar sabotando meu sono?</Label>
+                          <Textarea id="q7" name="q7" value={day1Answers.q7} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
                 </div>
                 <p>📌 Importante: guarde esse diário com carinho. Ele será sua bússola nos próximos dias. Ver sua própria transformação escrita é poderoso e motivador.</p>
                 <div className="p-4 bg-muted/50 rounded-lg">
@@ -128,3 +166,5 @@ export default function Desafio7DiasPage() {
     </div>
   );
 }
+
+    
