@@ -9,7 +9,7 @@ import { BookOpen, Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -22,10 +22,21 @@ export default function Desafio7DiasPage() {
     q6: '',
     q7: '',
   });
+  const [day2Answers, setDay2Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
-  const handleAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay1Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDay2AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay2Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -77,32 +88,32 @@ export default function Desafio7DiasPage() {
                     <p className="mb-2">Pegue um caderno, diário ou qualquer lugar onde você possa escrever com liberdade. No topo da página, coloque a data de hoje e dê início ao seu Diário do Sono – Dia 1. Responda com sinceridade às perguntas abaixo:</p>
                     <div className="space-y-4 mt-4">
                         <div className="space-y-2">
-                          <Label htmlFor="q1">Que horas fui dormir ontem?</Label>
-                          <Textarea id="q1" name="q1" value={day1Answers.q1} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q1">Que horas fui dormir ontem?</Label>
+                          <Textarea id="d1q1" name="q1" value={day1Answers.q1} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q2">O que fiz nas 2 horas que antecederam o sono?</Label>
-                          <Textarea id="q2" name="q2" value={day1Answers.q2} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q2">O que fiz nas 2 horas que antecederam o sono?</Label>
+                          <Textarea id="d1q2" name="q2" value={day1Answers.q2} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q3">Tive alguma dificuldade para dormir? Quais?</Label>
-                          <Textarea id="q3" name="q3" value={day1Answers.q3} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q3">Tive alguma dificuldade para dormir? Quais?</Label>
+                          <Textarea id="d1q3" name="q3" value={day1Answers.q3} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q4">Dormi bem ou tive interrupções durante a noite?</Label>
-                          <Textarea id="q4" name="q4" value={day1Answers.q4} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q4">Dormi bem ou tive interrupções durante a noite?</Label>
+                          <Textarea id="d1q4" name="q4" value={day1Answers.q4} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q5">Ao acordar, como me senti — física e mentalmente?</Label>
-                          <Textarea id="q5" name="q5" value={day1Answers.q5} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q5">Ao acordar, como me senti — física e mentalmente?</Label>
+                          <Textarea id="d1q5" name="q5" value={day1Answers.q5} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q6">Estimo que dormi por quantas horas?</Label>
-                          <Textarea id="q6" name="q6" value={day1Answers.q6} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q6">Estimo que dormi por quantas horas?</Label>
+                          <Textarea id="d1q6" name="q6" value={day1Answers.q6} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="q7">Percebo algum hábito que pode estar sabotando meu sono?</Label>
-                          <Textarea id="q7" name="q7" value={day1Answers.q7} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Label htmlFor="d1q7">Percebo algum hábito que pode estar sabotando meu sono?</Label>
+                          <Textarea id="d1q7" name="q7" value={day1Answers.q7} onChange={handleDay1AnswerChange} placeholder="Sua resposta..." />
                         </div>
                     </div>
                 </div>
@@ -117,6 +128,58 @@ export default function Desafio7DiasPage() {
                         <li>Estímulos externos como luz, barulho ou calor 🔊💡🔥</li>
                     </ul>
                     <p className="mt-2">Apenas registre. A mudança começa com clareza — e amanhã daremos o próximo passo para construir noites de descanso profundo e renovador.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
+      case 'dia2':
+        return (
+            <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Dia 2 – Reprograme o Relógio</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Seu corpo ama rotina. Seu sono depende dela.</p>
+                <p>🧭 Objetivo do dia:<br/>Hoje, você vai moldar os pilares da sua nova rotina de sono. O foco é criar consistência: horários fixos para dormir e acordar — incluindo fins de semana! Essa prática simples tem um impacto profundo na qualidade do sono e é valorizada pelas populações que dormem melhor no mundo.</p>
+                <p>🌍 Como os holandeses fazem?<br/>Na Holanda, dormir é levado tão a sério quanto trabalhar. Eles encaram a hora de deitar como um compromisso pessoal com o bem-estar. Constância é o segredo: ao dormir e acordar sempre nos mesmos horários, o corpo entra em estado de equilíbrio.</p>
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">📝 Tarefa do dia – Diário do Sono, Dia 2</h3>
+                    <p className="mb-2">Escreva a data de hoje e responda:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="d2q1">A que horas decidi ir dormir todos os dias?</Label>
+                          <Textarea id="d2q1" name="q1" value={day2Answers.q1} onChange={handleDay2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d2q2">Qual será meu horário padrão para acordar?</Label>
+                          <Textarea id="d2q2" name="q2" value={day2Answers.q2} onChange={handleDay2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d2q3">Quais obstáculos podem atrapalhar esses horários?</Label>
+                          <Textarea id="d2q3" name="q3" value={day2Answers.q3} onChange={handleDay2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d2q4">O que posso ajustar na rotina para proteger esse novo ritmo?</Label>
+                          <Textarea id="d2q4" name="q4" value={day2Answers.q4} onChange={handleDay2AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+                 <p>📲 Dica prática<br/>Programe um alarme uma hora antes de dormir. Esse alarme não é para correr pra cama, e sim para iniciar seu ritual noturno: desligar as telas, diminuir as luzes e começar a desacelerar.</p>
+                <blockquote className="border-l-4 border-primary pl-4 italic">
+                    <p className="font-bold">✍️ Frase motivadora para escrever no diário:</p>
+                    <p>"Estou ensinando meu corpo a encontrar o ritmo ideal. Quanto mais constante eu for, mais leve serão minhas manhãs."</p>
+                </blockquote>
+                <div className="p-4 bg-muted/50 rounded-lg">
+                    <h3 className="font-bold text-foreground mb-2">💡 Dica do dia</h3>
+                    <p>Dormir e acordar sempre nos mesmos horários ajuda seu cérebro a calibrar o relógio biológico — conhecido como ritmo circadiano. Isso regula hormônios, temperatura corporal e até seu humor.<br/>Com o tempo, você vai acordar naturalmente, cheio de energia, sem depender de despertadores.</p>
                 </div>
               </CardContent>
             </Card>
@@ -143,6 +206,9 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia1')}>
                   Dia 1: Avalie Seus Hábitos
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => setView('dia2')}>
+                  Dia 2: Reprograme o Relógio
                 </Button>
             </div>
           </div>
