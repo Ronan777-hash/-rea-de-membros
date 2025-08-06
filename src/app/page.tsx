@@ -1,5 +1,4 @@
 import { MainModulesCarousel } from '@/components/home/main-modules-carousel';
-import { ChatWidget } from '@/components/chat/chat-widget';
 
 export default function Home() {
   return (
@@ -17,8 +16,6 @@ export default function Home() {
         <h2 className="text-2xl font-bold font-headline mb-4 text-center md:text-left">Módulos Principais</h2>
         <MainModulesCarousel />
       </section>
-
-      <ChatWidget />
     </div>
   );
 }
