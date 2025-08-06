@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -24,6 +24,13 @@ export default function MeditacaoGuiadaPage() {
     q3: '',
   });
   const [secao3Answers, setSecao3Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
+  const [secao4Answers, setSecao4Answers] = useState({
     q1: '',
     q2: '',
     q3: '',
@@ -45,6 +52,11 @@ export default function MeditacaoGuiadaPage() {
   const handleSecao3AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao3Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao4Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -243,6 +255,62 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secao4':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🙏 Seção 4 – Meditação e Crenças Religiosas: Pode Confiar</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Muita gente evita meditar por achar que a prática está ligada a religiões específicas ou que pode entrar em conflito com sua fé. Mas a verdade é que meditar é uma prática universal, que pode ser adaptada a qualquer crença — ou nenhuma.</p>
+                <p>A meditação guiada para o sono, por exemplo, não envolve mantras religiosos, rituais ou dogmas. Ela é uma ferramenta de cuidado pessoal, como respirar fundo, fazer uma oração ou contemplar o silêncio.</p>
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🧘‍♂️ Meditação é:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Uma prática de atenção e presença</li>
+                    <li>Um momento de conexão consigo mesmo</li>
+                    <li>Um espaço de silêncio e escuta interior</li>
+                    <li>Compatível com qualquer fé, espiritualidade ou filosofia de vida</li>
+                  </ul>
+                </div>
+                <p>Muitos líderes religiosos, inclusive, recomendam práticas meditativas como forma de aprofundar a espiritualidade, acalmar o coração e ouvir com mais clareza.</p>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q1">1. Você já teve dúvidas se meditar poderia interferir na sua fé ou crença?</Label>
+                          <Textarea id="s4q1" name="q1" value={secao4Answers.q1} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q2">2. Como seria usar a meditação como um complemento à sua espiritualidade?</Label>
+                          <Textarea id="s4q2" name="q2" value={secao4Answers.q2} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s4q3">3. Você se sentiria mais confortável se a meditação fosse apresentada como um momento de silêncio e cuidado pessoal?</Label>
+                          <Textarea id="s4q3" name="q3" value={secao4Answers.q3} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s4q4">4. Já experimentou alguma prática de contemplação, oração silenciosa ou respiração consciente?</Label>
+                          <Textarea id="s4q4" name="q4" value={secao4Answers.q4} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s4q5">5. O que te ajudaria a confiar mais na meditação como algo seguro e respeitoso?</Label>
+                          <Textarea id="s4q5" name="q5" value={secao4Answers.q5} onChange={handleSecao4AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -265,7 +333,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🚦</span>
                   Como Começar do Zero: Guia para Iniciantes Absolutos.
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao4')}>
                   <span className="mr-2 text-lg">🙏</span>
                   Meditação e Crenças Religiosas: Pode confiar.
                 </Button>
@@ -308,5 +376,3 @@ export default function MeditacaoGuiadaPage() {
     </div>
   );
 }
-
-    
