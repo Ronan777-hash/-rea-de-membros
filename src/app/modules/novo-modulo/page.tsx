@@ -1,5 +1,5 @@
 
-import { Home, Moon } from 'lucide-react';
+import { Home } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -23,7 +23,7 @@ export default function MeditacaoGuiadaPage() {
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
             <Button size="lg" className="w-full">
-              <Moon className="mr-2 h-5 w-5" />
+              <span className="mr-2 text-lg">🌙</span>
               O que é Meditação Guiada e por que ela ajuda no sono?
             </Button>
             <Button size="lg" className="w-full" variant="outline">
@@ -49,6 +49,10 @@ export default function MeditacaoGuiadaPage() {
             <Button size="lg" className="w-full" variant="outline">
               <span className="mr-2 text-lg">🌼</span>
               Técnicas para Relaxar o Corpo e Desacelerar a Respiração.
+            </Button>
+            <Button size="lg" className="w-full" variant="outline">
+              <span className="mr-2 text-lg">🎁</span>
+              Bônus – Sessões Guiadas para Você Ouvir Antes de Dormir.
             </Button>
           </CardContent>
         </Card>
