@@ -15,8 +15,8 @@ export const mainModules = [
   {
     title: 'Novo Módulo',
     slug: 'novo-modulo',
-    image: 'https://placehold.co/675x1200.png',
-    dataAiHint: 'new module',
+    image: 'https://i.imgur.com/GAJkXxH.png',
+    dataAiHint: 'night sky stars',
   },
 ];
 
