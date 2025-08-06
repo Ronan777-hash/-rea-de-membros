@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4' | 'secao5' | 'secao6';
 
 export default function MeditacaoGuiadaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -44,6 +44,13 @@ export default function MeditacaoGuiadaPage() {
     q4: '',
     q5: '',
   });
+  const [secao6Answers, setSecao6Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
 
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -69,6 +76,11 @@ export default function MeditacaoGuiadaPage() {
   const handleSecao5AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao5Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSecao6AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao6Answers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -394,6 +406,63 @@ export default function MeditacaoGuiadaPage() {
             </div>
           </div>
         );
+      case 'secao6':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🔄 Seção 6 – O que Fazer Quando a Mente Não Para (Mesmo com a Meditação)</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>É normal. A mente não foi feita para parar — ela foi feita para pensar. E mesmo durante a meditação, pensamentos vão surgir. Isso não significa que você está fazendo errado. Na verdade, perceber que a mente está ativa já é parte da meditação.</p>
+                <p>O objetivo não é controlar os pensamentos, mas mudar a forma como você se relaciona com eles. Em vez de lutar contra a mente, você aprende a observar, respirar e voltar ao foco — quantas vezes for necessário.</p>
+                
+                <div>
+                  <h3 className="font-semibold text-foreground text-lg mt-4 mb-2">🧘 Estratégias para lidar com a mente agitada:</h3>
+                  <ul className="list-disc list-inside space-y-1 pl-4">
+                    <li>Aceite os pensamentos sem julgamento<br/>Eles vão aparecer. Apenas reconheça e volte à respiração.</li>
+                    <li>Use meditações guiadas com foco na voz<br/>Isso ajuda a manter a atenção em algo externo e reduz o ruído interno.</li>
+                    <li>Pratique o “escaneamento corporal”<br/>Focar nas sensações físicas ajuda a tirar a atenção da mente.</li>
+                    <li>Se estiver muito agitado, medite sentado ou com olhos abertos<br/>Às vezes, deitar pode aumentar a dispersão. Ajuste conforme seu estado.</li>
+                    <li>Seja gentil consigo mesmo<br/>Meditação não é performance. É prática. E toda prática melhora com o tempo.</li>
+                  </ul>
+                </div>
+                
+                <div className="border-t pt-4 mt-4">
+                  <h3 className="font-bold text-foreground mb-2">❓ Perguntas Interativas para o Aluno</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s6q1">1. Você já tentou meditar e sentiu que sua mente estava “a mil”?</Label>
+                          <Textarea id="s6q1" name="q1" value={secao6Answers.q1} onChange={handleSecao6AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s6q2">2. O que você costuma fazer quando está com muitos pensamentos antes de dormir?</Label>
+                          <Textarea id="s6q2" name="q2" value={secao6Answers.q2} onChange={handleSecao6AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s6q3">3. Como seria aprender a observar seus pensamentos sem se envolver com eles?</Label>
+                          <Textarea id="s6q3" name="q3" value={secao6Answers.q3} onChange={handleSecao6AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s6q4">4. Você já experimentou meditar com foco no corpo ou na respiração?</Label>
+                          <Textarea id="s6q4" name="q4" value={secao6Answers.q4} onChange={handleSecao6AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                         <div className="space-y-2">
+                          <Label htmlFor="s6q5">5. Que frase te ajudaria a lembrar que meditar não é sobre controlar, mas sobre acolher?</Label>
+                          <Textarea id="s6q5" name="q5" value={secao6Answers.q5} onChange={handleSecao6AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -424,7 +493,7 @@ export default function MeditacaoGuiadaPage() {
                   <span className="mr-2 text-lg">🎧</span>
                   Criando um Ritual Noturno com Meditação Guiada.
                 </Button>
-                <Button size="lg" className="w-full" variant="outline">
+                <Button size="lg" className="w-full" variant="outline" onClick={() => setView('secao6')}>
                   <span className="mr-2 text-lg">🔄</span>
                   O que Fazer Quando a Mente Não Para (Mesmo com a Meditação).
                 </Button>
@@ -459,3 +528,5 @@ export default function MeditacaoGuiadaPage() {
     </div>
   );
 }
+
+    
