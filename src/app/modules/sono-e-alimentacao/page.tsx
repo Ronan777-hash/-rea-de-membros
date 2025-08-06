@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -5,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Home } from 'lucide-react';
 import Link from 'next/link';
 
-type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3';
+type ViewState = 'inicio' | 'secao1' | 'secao2' | 'secao3' | 'secao4';
 
 export default function SonoEAlimentacaoPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -69,6 +70,25 @@ export default function SonoEAlimentacaoPage() {
             </div>
           </div>
         );
+      case 'secao4':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <header className="mb-8 text-center">
+              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
+                🍞 Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
+              </h1>
+            </header>
+            <div className="text-center text-muted-foreground">
+              <p>Conteúdo da Seção 4 aparecerá aqui.</p>
+            </div>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -90,6 +110,9 @@ export default function SonoEAlimentacaoPage() {
               </Button>
               <Button size="lg" onClick={() => setView('secao3')}>
                 <span className="mr-2">✅</span> Seção 3: O que Comer para Dormir Melhor
+              </Button>
+              <Button size="lg" onClick={() => setView('secao4')}>
+                <span className="mr-2">🍞</span> Seção 4: Carboidrato à Noite – Inimigo ou Aliado?
               </Button>
             </div>
           </div>
