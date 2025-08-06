@@ -9,7 +9,7 @@ import { BookOpen, Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4' | 'dia5' | 'dia6';
+type ViewState = 'selection' | 'intro' | 'dia1' | 'dia2' | 'dia3' | 'dia4' | 'dia5' | 'dia6' | 'dia7';
 
 export default function Desafio7DiasPage() {
   const [view, setView] = useState<ViewState>('selection');
@@ -50,6 +50,12 @@ export default function Desafio7DiasPage() {
     q2: '',
     q3: '',
   });
+  const [day7Answers, setDay7Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleDay1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -79,6 +85,11 @@ export default function Desafio7DiasPage() {
   const handleDay6AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setDay6Answers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDay7AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDay7Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -491,6 +502,73 @@ export default function Desafio7DiasPage() {
             </div>
           </div>
         );
+      case 'dia7':
+        return (
+            <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">Dia 7 – Sustente o Hábito</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>Você não apenas aprendeu — você se transformou. Agora é hora de sustentar.</p>
+                <p>🧭 Objetivo do dia:<br/>Hoje é dia de olhar para trás com orgulho e olhar para frente com propósito. Você construiu uma nova rotina de sono baseada em escolhas conscientes. Agora, o desafio é manter o que funciona, mesmo quando a vida tentar bagunçar o seu ritmo.</p>
+                <p>🌍 Como os holandeses fazem?<br/>Eles adotam o conceito de “rotina flexível” — o segredo não é rigidez, e sim consistência com gentileza. Se saem do padrão por algum motivo, retornam logo em seguida. Dormir bem é um valor que eles protegem com sabedoria, não com perfeccionismo.</p>
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2">📝 Tarefa Final – Diário do Sono, Dia 7</h3>
+                    <p className="mb-2">Responda com sinceridade:</p>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="d7q1">O que melhorou na minha rotina desde o Dia 1?</Label>
+                          <Textarea id="d7q1" name="q1" value={day7Answers.q1} onChange={handleDay7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d7q2">Quais novos hábitos estou praticando?</Label>
+                          <Textarea id="d7q2" name="q2" value={day7Answers.q2} onChange={handleDay7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d7q3">Em que pontos ainda enfrento dificuldade?</Label>
+                          <Textarea id="d7q3" name="q3" value={day7Answers.q3} onChange={handleDay7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="d7q4">O que posso fazer para manter essa nova fase viva nas próximas semanas?</Label>
+                          <Textarea id="d7q4" name="q4" value={day7Answers.q4} onChange={handleDay7AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                    <h3 className="font-bold text-foreground mb-2">💬 Compromisso consigo mesmo:</h3>
+                    <p>Escreva uma frase que represente seu novo modo de cuidar do sono. Aqui vai uma sugestão:</p>
+                    <blockquote className="border-l-4 border-primary pl-4 italic my-2">"Me comprometo a tratar meu sono como parte do meu bem-estar diário. Dormir bem não é um luxo — é o combustível da minha saúde física, mental e emocional."</blockquote>
+                </div>
+
+                <div className="p-4 bg-muted/50 rounded-lg mt-4">
+                    <h3 className="font-bold text-foreground mb-2">💡 Bônus – Estratégias para manter o ritmo:</h3>
+                    <ul className="space-y-2">
+                        <li><strong>✅ 1. Mantenha a regularidade:</strong><br/>Evite alterar demais os horários, mesmo aos fins de semana.</li>
+                        <li><strong>✅ 2. Revise o diário semanalmente:</strong><br/>Escolha um dia da semana para refletir e ajustar sua rotina.</li>
+                        <li><strong>✅ 3. Use o áudio de relaxamento com intenção:</strong><br/>Não precisa esperar estar ansioso. Use para nutrir a tranquilidade.</li>
+                        <li><strong>✅ 4. Crie seu “ritual plano B”:</strong><br/>Tenha um kit de emergência: banho relaxante, respiração, silêncio, luz baixa e cama acolhedora.</li>
+                        <li><strong>✅ 5. Refaça o desafio quando precisar:</strong><br/>Sempre que sentir que perdeu o ritmo, comece de novo. Não é retrocesso — é cuidado.</li>
+                    </ul>
+                </div>
+                
+                <blockquote className="border-l-4 border-primary pl-4 italic text-foreground mt-4">
+                  <p className="font-bold">💬 Reflexão Final:</p>
+                  <p>"Reprogramar seu sono é reprogramar sua vida. Agora você tem ferramentas, conhecimento e o mais importante — consciência."</p>
+                </blockquote>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('selection')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'selection':
       default:
         return (
@@ -521,6 +599,9 @@ export default function Desafio7DiasPage() {
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => setView('dia6')}>
                   Dia 6: Relaxando de Dentro pra Fora
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => setView('dia7')}>
+                  Dia 7: Sustente o Hábito
                 </Button>
             </div>
           </div>
