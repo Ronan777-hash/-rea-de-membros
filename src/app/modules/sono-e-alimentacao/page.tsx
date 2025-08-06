@@ -38,6 +38,12 @@ export default function SonoEAlimentacaoPage() {
     q4: '',
     q5: '',
   });
+  const [secao5Answers, setSecao5Answers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleSecao1AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -57,6 +63,11 @@ export default function SonoEAlimentacaoPage() {
   const handleSecao4AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSecao4Answers((prev) => ({ ...prev, [name]: value }));
+  };
+  
+  const handleSecao5AnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSecao5Answers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -437,14 +448,77 @@ export default function SonoEAlimentacaoPage() {
       case 'secao5':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
-            <header className="mb-8 text-center">
-              <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                🔍 Seção 5: Seu Estilo de Vida e Hábitos Alimentares
-              </h1>
-            </header>
-            <div className="text-center text-muted-foreground">
-              <p>Conteúdo da Seção 5 aparecerá aqui.</p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center gap-3">
+                  <span>🧩</span> Seção 5: Seu Estilo de Vida e Hábitos Alimentares
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground mb-2 text-lg">Não Existe Uma Regra Única — Existe o Que Funciona Pra Você</h3>
+                  <p>Cada pessoa tem uma rotina diferente. Alguns jantam cedo, outros trabalham à noite, alguns treinam à noite, outros dormem tarde. Por isso, o mais importante é entender como seu corpo responde às suas escolhas alimentares.</p>
+                  <p className="mt-2 font-semibold">Exemplos de perfis diferentes:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Quem treina à noite pode precisar de mais carboidrato e proteína após o treino.</li>
+                    <li>Quem janta tarde deve evitar refeições pesadas e gordurosas.</li>
+                    <li>Quem dorme cedo pode se beneficiar de uma ceia leve com carboidrato de boa qualidade.</li>
+                    <li>Quem trabalha em turnos (plantões, madrugada) precisa ajustar os horários das refeições para manter energia e sono regulado.</li>
+                  </ul>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">Ouça Seu Corpo: Ele Dá Sinais</h3>
+                  <p>Seu corpo fala — e aprender a escutar esses sinais é essencial:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>😴 Sono leve ou dificuldade para dormir → pode ser falta de triptofano ou refeições muito pesadas.</li>
+                    <li>😠 Irritação ou ansiedade à noite → pode ser falta de energia ou nutrientes.</li>
+                    <li>🍽️ Fome excessiva antes de dormir → talvez o jantar foi muito leve ou cedo demais.</li>
+                    <li>💤 Sonolência após comer → talvez a refeição foi muito pesada ou rica em gordura.</li>
+                  </ul>
+                   <div className="mt-4 p-4 bg-accent/50 rounded-lg border border-accent">
+                    <p><span className="font-bold">📌 Dica prática:</span> Anote por alguns dias o que você come à noite e como dorme. Você vai começar a perceber padrões.</p>
+                  </div>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">Experimente e Ajuste: Pequenas Mudanças, Grandes Resultados</h3>
+                  <p>Não precisa mudar tudo de uma vez. Teste pequenas adaptações e veja como seu corpo reage:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Troque o arroz branco por integral ou misture os dois.</li>
+                    <li>Reduza a quantidade de carne vermelha à noite e experimente frango ou ovos.</li>
+                    <li>Inclua uma fruta ou tubérculo leve na ceia.</li>
+                    <li>Evite refrigerantes, frituras e excesso de açúcar à noite.</li>
+                  </ul>
+                  <p className="mt-4 font-semibold">Exemplo de adaptação simples:</p>
+                  <blockquote className="border-l-4 border-primary pl-4 italic my-2">
+                    <p>“Antes eu comia arroz, feijão, carne e batata frita às 22h. Agora como arroz integral, feijão, frango grelhado e salada às 20h — e durmo muito melhor.”</p>
+                  </blockquote>
+                </div>
+                
+                <div className="border-t pt-6">
+                  <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas Interativas</h3>
+                   <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q1">1. Qual é o seu horário habitual de jantar?</Label>
+                          <Textarea id="s5q1" name="q1" value={secao5Answers.q1} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q2">2. Você costuma sentir fome antes de dormir?</Label>
+                          <Textarea id="s5q2" name="q2" value={secao5Answers.q2} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q3">3. Já percebeu alguma relação entre o que come à noite e a qualidade do seu sono?</Label>
+                          <Textarea id="s5q3" name="q3" value={secao5Answers.q3} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="s5q4">4. Que pequena mudança você pode testar essa semana?</Label>
+                          <Textarea id="s5q4" name="q4" value={secao5Answers.q4} onChange={handleSecao5AnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
             <div className="text-center">
               <Button onClick={() => setView('inicio')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
