@@ -57,7 +57,6 @@ export default function EspecialistasDoSonoPage() {
                     <VideoLink href="https://youtu.be/8KbgOqnpXYQ">Insônia e ansiedade – Dr. Drauzio Varella</VideoLink>
                     <VideoLink href="https://youtu.be/eN6HD7Hha4o">O poder do sono profundo – Prof. Leandro Teles</VideoLink>
                     <VideoLink href="https://youtube.com/playlist?list=PLKi0yV3JJbpU6DSoUXomiqj9BeKlVztK7">Playlist com 5 vídeos de especialistas</VideoLink>
-                    <VideoLink href="https://www.youtube.com/live/H1cahDY92I">Live: Como melhorar o sono naturalmente – com especialistas</VideoLink>
                     <VideoLink href="https://youtu.be/US04p4n4f9A">O impacto da luz azul no sono</VideoLink>
                     <VideoLink href="https://youtu.be/7c-OJ8LpuNg">Sono e saúde mental – entrevista com especialista</VideoLink>
                     <VideoLink href="https://youtu.be/9xwgc0ZZejU">Como criar uma rotina noturna eficaz</VideoLink>
