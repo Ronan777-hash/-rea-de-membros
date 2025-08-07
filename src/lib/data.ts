@@ -54,7 +54,7 @@ export const bonusContent = {
   videos: [
     {
       title: 'Técnicas de Respiração com Dr. Silva',
-      image: 'https://placehold.co/675x1200.png',
+      image: 'https://i.imgur.com/bkq1S7n.png',
       dataAiHint: 'breathing exercise',
     },
     {
