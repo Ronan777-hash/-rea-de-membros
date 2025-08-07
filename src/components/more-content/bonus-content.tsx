@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image"
@@ -37,9 +38,9 @@ export function BonusContent() {
                       <Image
                         src={video.image}
                         alt={video.title}
-                        width={400}
-                        height={225}
-                        className="w-full aspect-video object-cover"
+                        width={675}
+                        height={1200}
+                        className="w-full h-auto object-contain"
                         data-ai-hint={video.dataAiHint}
                       />
                        <div className="p-4">
@@ -68,9 +69,9 @@ export function BonusContent() {
                       <Image
                         src={audio.image}
                         alt={audio.title}
-                        width={400}
-                        height={225}
-                        className="w-full aspect-video object-cover"
+                        width={675}
+                        height={1200}
+                        className="w-full h-auto object-contain"
                         data-ai-hint={audio.dataAiHint}
                       />
                        <div className="p-4">
