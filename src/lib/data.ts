@@ -27,7 +27,7 @@ export const mainModules = [
   {
     title: 'Sono de Qualidade para Casais',
     slug: 'sono-para-casais',
-    image: 'https://i.imgur.com/3CyIyKD.png',
+    image: 'https://i.imgur.com/bkq1S7n.png',
     dataAiHint: 'couple sleeping',
   },
 ];
@@ -59,14 +59,10 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
-      title: 'Técnicas de Respiração com Dr. Silva',
+      title: 'Sono de qualidade para Casais',
+      slug: 'sono-para-casais',
       image: 'https://i.imgur.com/bkq1S7n.png',
-      dataAiHint: 'breathing exercise',
-    },
-    {
-      title: 'A Ciência por Trás dos Sonhos',
-      image: 'https://placehold.co/675x1200.png',
-      dataAiHint: 'dream science',
+      dataAiHint: 'couple sleeping',
     },
   ],
 };

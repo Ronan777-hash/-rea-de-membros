@@ -4,7 +4,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import {
   Carousel,
   CarouselContent,
@@ -23,18 +22,20 @@ export function BonusContent() {
             {bonusContent.videos.map((video) => (
               <CarouselItem key={video.title} className="sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <Card className="overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                    <CardContent className="p-0">
-                      <Image
-                        src={video.image}
-                        alt={video.title}
-                        width={675}
-                        height={1200}
-                        className="w-full h-auto object-contain"
-                        data-ai-hint={video.dataAiHint}
-                      />
-                    </CardContent>
-                  </Card>
+                  <Link href={`/modules/${video.slug}`}>
+                    <Card className="overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                      <CardContent className="p-0 relative">
+                        <Image
+                          src={video.image}
+                          alt={video.title}
+                          width={675}
+                          height={1200}
+                          className="w-full h-auto object-contain"
+                          data-ai-hint={video.dataAiHint}
+                        />
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </div>
               </CarouselItem>
             ))}
