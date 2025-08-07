@@ -56,37 +56,6 @@ export function BonusContent() {
           <CarouselNext className="hidden sm:flex" />
         </Carousel>
       </section>
-
-      <section>
-        <h2 className="text-2xl font-bold font-headline mb-4">Áudios Relaxantes</h2>
-        <Carousel opts={{ align: "start" }} className="w-full">
-          <CarouselContent>
-            {bonusContent.audios.map((audio) => (
-              <CarouselItem key={audio.title} className="sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                   <Card className="overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                    <CardContent className="p-0">
-                      <Image
-                        src={audio.image}
-                        alt={audio.title}
-                        width={675}
-                        height={1200}
-                        className="w-full h-auto object-contain"
-                        data-ai-hint={audio.dataAiHint}
-                      />
-                       <div className="p-4">
-                         <h3 className="font-semibold font-headline leading-snug">{audio.title}</h3>
-                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
-        </Carousel>
-      </section>
     </div>
   )
 }

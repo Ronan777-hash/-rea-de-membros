@@ -63,21 +63,4 @@ export const bonusContent = {
       dataAiHint: 'dream science',
     },
   ],
-  audios: [
-    {
-      title: 'Sons da Natureza: Floresta',
-      image: 'https://placehold.co/675x1200.png',
-      dataAiHint: 'forest sounds',
-    },
-    {
-      title: 'Música Lo-fi para Foco e Relaxamento',
-      image: 'https://placehold.co/675x1200.png',
-      dataAiHint: 'lofi music',
-    },
-    {
-      title: 'Ruído Branco para Sono Profundo',
-      image: 'https://placehold.co/675x1200.png',
-      dataAiHint: 'white noise',
-    },
-  ],
 };
