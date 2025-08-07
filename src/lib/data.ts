@@ -54,34 +54,29 @@ export const bonusContent = {
   videos: [
     {
       title: 'Técnicas de Respiração com Dr. Silva',
-      image: 'https://placehold.co/400x225.png',
+      image: 'https://placehold.co/675x1200.png',
       dataAiHint: 'breathing exercise',
     },
     {
       title: 'A Ciência por Trás dos Sonhos',
-      image: 'https://placehold.co/400x225.png',
+      image: 'https://placehold.co/675x1200.png',
       dataAiHint: 'dream science',
-    },
-    {
-      title: 'Entendendo a Insônia',
-      image: 'https://placehold.co/400x225.png',
-      dataAiHint: 'insomnia help',
     },
   ],
   audios: [
     {
       title: 'Sons da Natureza: Floresta',
-      image: 'https://placehold.co/400x225.png',
+      image: 'https://placehold.co/675x1200.png',
       dataAiHint: 'forest sounds',
     },
     {
       title: 'Música Lo-fi para Foco e Relaxamento',
-      image: 'https://placehold.co/400x225.png',
+      image: 'https://placehold.co/675x1200.png',
       dataAiHint: 'lofi music',
     },
     {
       title: 'Ruído Branco para Sono Profundo',
-      image: 'https://placehold.co/400x225.png',
+      image: 'https://placehold.co/675x1200.png',
       dataAiHint: 'white noise',
     },
   ],
