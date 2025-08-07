@@ -5,10 +5,10 @@ export default function MoreContentPage() {
     <div className="container mx-auto max-w-4xl px-4 py-6 space-y-8">
        <header className="text-center md:text-left">
         <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-          Mais Conteúdos
+          Acesso Premium ⭐️
         </h1>
         <p className="text-muted-foreground mt-1">
-          Explore nossos materiais bônus.
+          Explore materiais especiais para aprofundar seu sono.
         </p>
       </header>
       <BonusContent />
