@@ -27,7 +27,6 @@ export function BonusContent() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold font-headline mb-4">Vídeos Escolhidos a Dedo</h2>
         <Carousel opts={{ align: "start" }} className="w-full">
           <CarouselContent>
             {bonusContent.videos.map((video) => (
@@ -43,9 +42,6 @@ export function BonusContent() {
                         className="w-full h-auto object-contain"
                         data-ai-hint={video.dataAiHint}
                       />
-                       <div className="p-4">
-                         <h3 className="font-semibold font-headline leading-snug">{video.title}</h3>
-                       </div>
                     </CardContent>
                   </Card>
                 </div>
