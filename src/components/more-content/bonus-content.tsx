@@ -18,15 +18,6 @@ export function BonusContent() {
   return (
     <div className="space-y-8">
       <section>
-        <Link href="/modules/especialistas-do-sono">
-          <Button size="lg" className="w-full text-base h-auto py-3">
-            <span className="mr-2 text-lg">🧠✨</span>
-            Módulo: Especialistas do Sono — Aulas Selecionadas
-          </Button>
-        </Link>
-      </section>
-
-      <section>
         <Carousel opts={{ align: "start" }} className="w-full">
           <CarouselContent>
             {bonusContent.videos.map((video) => (
