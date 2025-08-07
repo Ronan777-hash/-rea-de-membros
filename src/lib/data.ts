@@ -13,6 +13,12 @@ export const mainModules = [
     dataAiHint: 'healthy food night',
   },
   {
+    title: 'Sono de Qualidade para Casais',
+    slug: 'sono-para-casais',
+    image: 'https://i.imgur.com/3CyIyKD.png',
+    dataAiHint: 'couple sleeping',
+  },
+  {
     title: 'Meditação Guiada para Dormir',
     slug: 'novo-modulo',
     image: 'https://i.imgur.com/GAJkXxH.png',
