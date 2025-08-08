@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'abertura' | 'entendendo';
+type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual';
 
 export default function SonoParaCasaisPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -195,6 +195,124 @@ export default function SonoParaCasaisPage() {
             </div>
           </div>
         );
+      case 'ritual':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🧴 Módulo 3: Ritual Noturno do Casal</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Objetivo do Módulo</h3>
+                  <p>Criar uma rotina noturna que prepare corpo e mente para o sono — e que fortaleça o vínculo entre o casal. O ritual não precisa ser longo nem complexo: o segredo está na constância e na intenção.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🕰️ Passo a Passo: Sinalizando ao Corpo que É Hora de Dormir</h3>
+                  <p>O corpo adora previsibilidade. Quando repetimos certos comportamentos antes de dormir, ele entende que está na hora de desacelerar. Aqui vai um modelo de ritual noturno para o casal adaptar:</p>
+                  <ol className="list-decimal list-inside space-y-1 mt-2">
+                    <li>Desconectar-se das telas (30 min antes): luz azul atrasa a produção de melatonina.</li>
+                    <li>Higiene pessoal com calma: escovar os dentes, lavar o rosto, aplicar cremes — tudo com presença.</li>
+                    <li>Luz baixa e ambiente tranquilo: abajur, velas ou luz quente ajudam a sinalizar o fim do dia.</li>
+                    <li>Trocar palavras gentis: um “boa noite” com carinho já muda o clima emocional.</li>
+                    <li>Deitar com intenção de descanso, não de fuga: evite usar o sono como escape de conflitos.</li>
+                  </ol>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Ritual é repetição com afeto. Quando feito a dois, vira um código de cuidado mútuo.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌿 Atividades Leves que Aumentam o Relaxamento a Dois</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Respiração sincronizada: sentem-se juntos e respirem lentamente por 3 minutos.</li>
+                    <li>Alongamento suave: movimentos simples para soltar a tensão do dia.</li>
+                    <li>Leitura compartilhada: um trecho de um livro, uma reflexão ou até uma oração.</li>
+                    <li>Massagem leve nas mãos ou nos pés: toque afetuoso que acalma.</li>
+                    <li>Gratidão do dia: cada um compartilha 1 coisa boa que aconteceu.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Essas práticas não só ajudam a dormir melhor, como fortalecem a intimidade emocional.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🚫 O Que Evitar Antes de Deitar (E Por Quê)</h3>
+                  <table className="w-full mt-2 text-left">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 font-semibold text-foreground">Evitar</th>
+                        <th className="p-2 font-semibold text-foreground">Por quê</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="p-2">Discussões intensas</td>
+                        <td className="p-2">Aumentam o cortisol e dificultam o relaxamento.</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-2">Celular, TV, computador</td>
+                        <td className="p-2">A luz azul bloqueia a melatonina, hormônio do sono.</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-2">Cafeína ou álcool</td>
+                        <td className="p-2">Interferem na qualidade do sono profundo.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2">Atividades estimulantes</td>
+                        <td className="p-2">Exercícios intensos ou trabalho mental aceleram o corpo.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O ideal é transformar a noite em um momento de desaceleração, não de agitação.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground text-lg mb-2">✅ Checklist Noturno Interativo para o Casal</h3>
+                    <p>Antes de dormir, façam juntos este checklist. Pode ser divertido, leve e até virar um jogo:</p>
+                    <div className="font-mono text-sm bg-background p-3 rounded-md mt-2">
+                      <p className="font-bold mb-2">🛏️ Checklist do Ritual Noturno</p>
+                      <p>[ ] Desconectamos das telas?</p>
+                      <p>[ ] Fizemos nossa higiene com calma?</p>
+                      <p>[ ] Criamos um ambiente tranquilo?</p>
+                      <p>[ ] Compartilhamos algo bom do dia?</p>
+                      <p>[ ] Fizemos uma atividade relaxante juntos?</p>
+                      <p>[ ] Evitamos discussões ou assuntos pesados?</p>
+                      <p>[ ] Desejamos boa noite com carinho?</p>
+                    </div>
+                     <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                       Dica: imprimam esse checklist ou deixem visível no quarto. A constância transforma o ritual em hábito — e o hábito em bem-estar.
+                    </blockquote>
+                </div>
+
+                <Separator />
+                
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌙 Encerramento do Módulo</h3>
+                    <p>O ritual noturno é mais do que uma rotina: é um convite para o casal desacelerar junto, cuidar um do outro e preparar o terreno para um sono restaurador. Quando feito com intenção, ele vira um dos momentos mais especiais do dia.</p>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -211,7 +329,7 @@ export default function SonoParaCasaisPage() {
                 <Button size="lg" variant="outline" onClick={() => setView('entendendo')}>
                   🧠 Entendendo o Sono do Corpo e da Mente
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => setView('ritual')}>
                   🧴 Ritual Noturno do Casal
                 </Button>
                 <Button size="lg" variant="outline">
