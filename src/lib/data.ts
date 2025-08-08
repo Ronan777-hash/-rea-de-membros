@@ -53,6 +53,12 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
+      title: 'Placeholder',
+      slug: '#',
+      image: 'https://placehold.co/675x1200.png',
+      dataAiHint: 'placeholder',
+    },
+    {
       title: 'Sono de qualidade para Casais',
       slug: 'sono-para-casais',
       image: 'https://i.imgur.com/bkq1S7n.png',
