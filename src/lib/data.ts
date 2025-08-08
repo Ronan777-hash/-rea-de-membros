@@ -1,12 +1,6 @@
 
 export const mainModules = [
   {
-    title: 'Especialistas do Sono',
-    slug: 'especialistas-do-sono',
-    image: 'https://i.imgur.com/XtIjaQY.png',
-    dataAiHint: 'expert sleep',
-  },
-  {
     title: 'Desafio 7 Dias',
     slug: 'desafio-7-dias',
     image: 'https://i.imgur.com/ICaw9t7.png',
