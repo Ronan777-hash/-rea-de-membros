@@ -35,6 +35,9 @@ export default function SonoParaCasaisPage() {
               <Button size="lg" variant="outline">
                 🧴 Ritual Noturno do Casal
               </Button>
+              <Button size="lg" variant="outline">
+                🥱 Barulhos, Luzes e Clima do Quarto
+              </Button>
             </CardContent>
           </Card>
         </div>
