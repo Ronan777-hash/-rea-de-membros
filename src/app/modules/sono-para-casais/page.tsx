@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual' | 'ambiente' | 'toque';
+type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual' | 'ambiente' | 'toque' | 'conchinha';
 
 export default function SonoParaCasaisPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -506,6 +506,129 @@ export default function SonoParaCasaisPage() {
             </div>
           </div>
         );
+      case 'conchinha':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">💑 Módulo 6: Dormir de Conchinha ou Separado?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Objetivo do Módulo</h3>
+                  <p>Ajudar o casal a entender suas preferências na hora de dormir, respeitar os limites de conforto e encontrar uma “posição oficial” que funcione para ambos — com leveza, carinho e bom humor.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">⚖️ Vantagens e Desvantagens de Dormir Juntos na Mesma Posição</h3>
+                  <table className="w-full mt-2 text-left">
+                    <thead>
+                      <tr className="border-b">
+                        <th className="p-2 font-semibold text-foreground">Posição</th>
+                        <th className="p-2 font-semibold text-foreground">Vantagens</th>
+                        <th className="p-2 font-semibold text-foreground">Desvantagens</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="p-2 align-top">Conchinha</td>
+                        <td className="p-2 align-top">Cria intimidade, sensação de proteção, aquece o corpo</td>
+                        <td className="p-2 align-top">Pode gerar calor excessivo, desconforto em quem se mexe muito</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-2 align-top">De frente, abraçados</td>
+                        <td className="p-2 align-top">Estimula conexão emocional, facilita conversa antes de dormir</td>
+                        <td className="p-2 align-top">Pode atrapalhar a respiração ou causar tensão no pescoço</td>
+                      </tr>
+                       <tr className="border-b">
+                        <td className="p-2 align-top">Separados, mas encostando (pés, costas)</td>
+                        <td className="p-2 align-top">Equilibra espaço pessoal com toque</td>
+                        <td className="p-2 align-top">Menos contato direto, pode parecer “distante” para alguns</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 align-top">Totalmente separados</td>
+                        <td className="p-2 align-top">Mais liberdade de movimento, ideal para quem tem sono leve</td>
+                        <td className="p-2 align-top">Pode gerar sensação de desconexão se não houver toque antes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Não existe posição certa — existe o que funciona para vocês dois.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🛏️ Como Encontrar a Posição Ideal para Ambos</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Testem diferentes posições por alguns dias e observem como cada um dorme melhor.</li>
+                    <li>Conversem sobre o que incomoda: calor, falta de espaço, dor no corpo, etc.</li>
+                    <li>Criem uma rotina de toque antes de dormir, mesmo que durmam separados depois.</li>
+                    <li>Usem travesseiros estratégicos para apoiar braços, pernas ou criar espaço.</li>
+                    <li>Respeitem os momentos individuais: às vezes, dormir separado é só uma fase.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Dormir bem é um ato de cuidado — com o outro e consigo mesmo.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">😴 E se um dos dois se mexe demais ou ronca?</h3>
+                  <p className="font-semibold mt-1">Mexer demais:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Use colchões que absorvem movimento (caso possível).</li>
+                    <li>Dormir separados por um tempo pode ajudar a preservar o sono.</li>
+                    <li>Criem um “ritual de toque” antes de dormir para manter a conexão.</li>
+                  </ul>
+                  <p className="font-semibold mt-2">Ronco:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Avaliem causas médicas (apneia, respiração nasal).</li>
+                    <li>Use tampões de ouvido ou ruído branco.</li>
+                    <li>Brinquem com leveza: “Você ronca como um urso fofo, mas ainda te amo.”</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O importante é transformar o incômodo em conversa — e não em conflito.
+                  </blockquote>
+                </div>
+                
+                <Separator />
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground text-lg mb-2">💬 Pergunta Interativa: Qual será nossa “posição oficial” para dormir?</h3>
+                    <p className="font-semibold text-foreground">Proposta:</p>
+                    <ol className="list-decimal list-inside space-y-1 mt-2">
+                      <li>Experimentem 3 posições diferentes durante a semana.</li>
+                      <li>Avaliem juntos: conforto, conexão, qualidade do sono.</li>
+                      <li>Escolham uma “posição oficial” — e deixem espaço para mudar quando quiserem.</li>
+                      <li>Criem um nome divertido para ela: “Modo conchinha turbo”, “Estilo espaçoso com toque”, “Abraço ninja”, etc.</li>
+                    </ol>
+                    <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                      A posição oficial não precisa ser fixa — só precisa ser escolhida com carinho.
+                    </blockquote>
+                </div>
+
+                <Separator />
+                
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌙 Encerramento do Módulo</h3>
+                    <p>Dormir juntos é mais do que dividir um colchão — é aprender a respeitar os ritmos, os limites e os gestos que fazem cada um se sentir amado. Seja em conchinha ou separados, o que importa é dormir em paz — e acordar com afeto.</p>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -531,7 +654,7 @@ export default function SonoParaCasaisPage() {
                 <Button size="lg" variant="outline" onClick={() => setView('toque')}>
                   🫂 O Poder do Toque Antes de Dormir
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => setView('conchinha')}>
                   💑 Dormir de Conchinha ou Separado?
                 </Button>
               </CardContent>
