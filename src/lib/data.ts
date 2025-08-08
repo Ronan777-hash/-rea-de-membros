@@ -53,10 +53,10 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
-      title: 'Placeholder',
-      slug: '#',
+      title: 'Sono Sem Tela',
+      slug: 'sono-sem-tela',
       image: 'https://placehold.co/675x1200.png',
-      dataAiHint: 'placeholder',
+      dataAiHint: 'no screen sleep',
     },
     {
       title: 'Sono de qualidade para Casais',
