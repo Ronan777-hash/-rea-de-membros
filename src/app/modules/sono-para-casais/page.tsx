@@ -41,6 +41,9 @@ export default function SonoParaCasaisPage() {
               <Button size="lg" variant="outline">
                 🫂 O Poder do Toque Antes de Dormir
               </Button>
+              <Button size="lg" variant="outline">
+                💑 Dormir de Conchinha ou Separado?
+              </Button>
             </CardContent>
           </Card>
         </div>
