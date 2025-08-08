@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual' | 'ambiente';
+type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual' | 'ambiente' | 'toque';
 
 export default function SonoParaCasaisPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -414,6 +414,98 @@ export default function SonoParaCasaisPage() {
             </div>
           </div>
         );
+      case 'toque':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🫂 Módulo 5: O Poder do Toque Antes de Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Objetivo do Módulo</h3>
+                  <p>Explorar como o toque físico pode ser uma ferramenta poderosa para relaxar, criar segurança emocional e melhorar a qualidade do sono — sem exigir grandes gestos, apenas presença e intenção.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">💞 Por que o Toque Físico Antes de Dormir Melhora o Sono?</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Ativa o sistema parassimpático: responsável por desacelerar o corpo e induzir o relaxamento.</li>
+                    <li>Libera ocitocina: o “hormônio do vínculo”, que reduz o estresse e aumenta a sensação de bem-estar.</li>
+                    <li>Cria segurança emocional: o corpo entende que está protegido, o que facilita o desligamento mental.</li>
+                    <li>Fortalece a intimidade: mesmo em silêncio, o toque comunica afeto, cuidado e presença.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O toque é uma linguagem silenciosa que diz: “Você pode descansar. Eu estou aqui.”
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🤲 Pequenos Gestos que Aumentam a Sensação de Segurança e Conforto</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Segurar as mãos por alguns minutos</li>
+                    <li>Encostar os pés sob o cobertor</li>
+                    <li>Apoiar a cabeça no ombro ou no peito</li>
+                    <li>Fazer carinho leve nas costas ou no cabelo</li>
+                    <li>Encostar as testas ou respirar juntos em silêncio</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Não é sobre intensidade, é sobre intenção. O toque certo, na hora certa, acalma mais que mil palavras.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">⚖️ Como Equilibrar Contato Físico e Espaço Pessoal</h3>
+                  <p>Nem todo mundo gosta de dormir abraçado — e isso é totalmente normal. O segredo está em respeitar os limites e encontrar um meio-termo:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Conchinha para dormir, espaço para descansar: alguns casais começam abraçados e depois se afastam naturalmente.</li>
+                    <li>Toque breve antes de dormir: um carinho ou abraço antes de virar para o lado já cria conexão.</li>
+                    <li>Comunicação aberta: perguntar “você quer carinho agora?” pode evitar desconfortos e criar segurança.</li>
+                    <li>Rotina flexível: o toque pode variar conforme o dia, o humor e a necessidade de cada um.</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O respeito ao espaço do outro também é uma forma de afeto.
+                  </blockquote>
+                </div>
+                
+                <Separator />
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground text-lg mb-2">🧘‍♂️ Exercício Prático: “3 Minutos de Toque Consciente”</h3>
+                    <p className="font-semibold text-foreground">Instruções:</p>
+                    <ol className="list-decimal list-inside space-y-1 mt-2">
+                      <li>Sente-se ou deite-se ao lado do parceiro, em silêncio.</li>
+                      <li>Escolha um tipo de toque leve (mãos, costas, rosto, cabelo).</li>
+                      <li>Durante 3 minutos, mantenha o foco total no toque — sem falar, sem pensar em outra coisa.</li>
+                      <li>Respirem juntos e observem como o corpo responde.</li>
+                      <li>Ao final, compartilhem como se sentiram.</li>
+                    </ol>
+                    <p className="mt-4 italic">Esse exercício ajuda a desacelerar, criar presença e transformar o toque em um ritual de cuidado mútuo.</p>
+                </div>
+
+                <Separator />
+                
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌙 Encerramento do Módulo</h3>
+                    <p>O toque é uma ponte entre o corpo e a emoção. Quando o casal aprende a usar esse gesto com intenção e respeito, o sono se torna mais profundo, mais leve — e a relação, mais conectada.</p>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -436,7 +528,7 @@ export default function SonoParaCasaisPage() {
                 <Button size="lg" variant="outline" onClick={() => setView('ambiente')}>
                   🥱 Barulhos, Luzes e Clima do Quarto
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => setView('toque')}>
                   🫂 O Poder do Toque Antes de Dormir
                 </Button>
                 <Button size="lg" variant="outline">
