@@ -25,8 +25,10 @@ export default function SonoParaCasaisPage() {
               <CardTitle className="font-headline text-3xl">Sono de qualidade para Casais</CardTitle>
               <CardDescription>Dormir junto sem perder o sono.</CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Em breve, um módulo completo sobre sono para casais.</p>
+            <CardContent className="flex flex-col gap-4">
+              <Button size="lg">
+                ✨ Abertura: Dormir Juntos é uma Arte
+              </Button>
             </CardContent>
           </Card>
         </div>
