@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual';
+type ViewState = 'inicio' | 'abertura' | 'entendendo' | 'ritual' | 'ambiente';
 
 export default function SonoParaCasaisPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -313,6 +313,107 @@ export default function SonoParaCasaisPage() {
             </div>
           </div>
         );
+      case 'ambiente':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🥱 Módulo 4: Barulhos, Luzes e Clima do Quarto</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Objetivo do Módulo</h3>
+                  <p>Ajudar o casal a transformar o quarto em um ambiente que favoreça o sono profundo, respeitando as preferências de cada um. O espaço onde dormimos influencia diretamente na qualidade do descanso — e pequenos ajustes podem fazer uma grande diferença.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🛏️ Como Preparar o Quarto para um Sono Profundo</h3>
+                  <p>Um quarto ideal para dormir é como um abraço: acolhedor, silencioso e escuro. Aqui vão os elementos essenciais:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Temperatura agradável: entre 18°C e 22°C costuma ser ideal para o corpo relaxar.</li>
+                    <li>Iluminação suave ou ausente: quanto menos luz, mais melatonina o corpo produz.</li>
+                    <li>Silêncio ou sons suaves: o cérebro continua “ouvindo” mesmo dormindo.</li>
+                    <li>Cama confortável: colchão e travesseiros adequados ao corpo de cada um.</li>
+                    <li>Ambiente limpo e organizado: bagunça visual gera agitação mental.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O quarto deve sinalizar: “aqui é seguro descansar”.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌡️ Soluções para Diferenças de Preferência</h3>
+                  <p>Nem sempre o casal gosta das mesmas condições. Um prefere frio, outro calor? Aqui vão soluções práticas:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Cobertores separados: cada um escolhe o tipo e espessura que prefere.</li>
+                    <li>Ventilador direcionado: pode refrescar um sem incomodar o outro.</li>
+                    <li>Pijamas personalizados: quem sente mais frio pode usar tecidos mais quentes.</li>
+                    <li>Climatizador com controle remoto: permite ajustes sem sair da cama.</li>
+                    <li>Negociação com afeto: o importante é conversar e buscar equilíbrio, não vencer a disputa.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O conforto do casal começa com respeito mútuo às diferenças.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🔕 Truques Simples para Reduzir Ruídos e Luzes</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Cortinas blackout: bloqueiam luz externa e ajudam a manter o quarto escuro.</li>
+                    <li>Protetores auriculares ou white noise: abafam sons indesejados.</li>
+                    <li>Fita adesiva em LEDs de eletrônicos: elimina luzes irritantes.</li>
+                    <li>Tapetes e cortinas: ajudam a absorver sons e reduzir eco.</li>
+                    <li>Evitar aparelhos barulhentos: como ventiladores antigos ou relógios tic-tac.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O cérebro interpreta luz e som como sinais de alerta. Reduzir esses estímulos é essencial para o sono profundo.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground text-lg mb-2">🧐 Pergunta Interativa: “Como avaliamos nosso quarto hoje?”</h3>
+                    <p className="font-semibold text-foreground">Instruções:</p>
+                    <ol className="list-decimal list-inside space-y-1 mt-2">
+                        <li>Cada um dá uma nota de 0 a 10 para o quarto em relação a:
+                          <ul className="list-disc list-inside pl-6">
+                            <li>Silêncio</li>
+                            <li>Escuridão</li>
+                            <li>Temperatura</li>
+                            <li>Conforto da cama</li>
+                            <li>Organização</li>
+                          </ul>
+                        </li>
+                        <li>Compartilhem as notas e conversem sobre o que pode melhorar.</li>
+                        <li>Escolham juntos 1 ou 2 ajustes para fazer esta semana.</li>
+                    </ol>
+                    <p className="mt-4 italic">Esse exercício transforma o quarto em um projeto de bem-estar compartilhado.</p>
+                </div>
+
+                <Separator />
+                
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌙 Encerramento do Módulo</h3>
+                    <p>O quarto é o palco do descanso. Quando o casal cuida desse espaço com atenção e carinho, o sono deixa de ser um desafio e vira um prazer. Pequenas mudanças no ambiente podem gerar grandes mudanças na qualidade de vida.</p>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -332,7 +433,7 @@ export default function SonoParaCasaisPage() {
                 <Button size="lg" variant="outline" onClick={() => setView('ritual')}>
                   🧴 Ritual Noturno do Casal
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => setView('ambiente')}>
                   🥱 Barulhos, Luzes e Clima do Quarto
                 </Button>
                 <Button size="lg" variant="outline">
