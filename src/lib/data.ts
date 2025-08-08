@@ -24,12 +24,6 @@ export const mainModules = [
     image: 'https://i.imgur.com/3CyIyKD.png',
     dataAiHint: 'sleep hygiene',
   },
-  {
-    title: 'Sono de Qualidade para Casais',
-    slug: 'sono-para-casais',
-    image: 'https://i.imgur.com/bkq1S7n.png',
-    dataAiHint: 'couple sleeping',
-  },
 ];
 
 export const continueWatchingItems = [
