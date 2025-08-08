@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'abertura';
+type ViewState = 'inicio' | 'abertura' | 'entendendo';
 
 export default function SonoParaCasaisPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -101,6 +101,100 @@ export default function SonoParaCasaisPage() {
             </div>
           </div>
         );
+      case 'entendendo':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🧠 Módulo 2: Entendendo o Sono do Corpo e da Mente</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Objetivo do Módulo</h3>
+                  <p>Oferecer uma base clara e prática sobre como o sono funciona biologicamente e emocionalmente — e como essas dinâmicas se manifestam de forma diferente em cada pessoa. Entender isso é essencial para que o casal possa respeitar seus ritmos e criar estratégias juntos.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌙 Ciclos do Sono: O que acontece enquanto dormimos?</h3>
+                  <p>O sono não é um estado único — ele é composto por ciclos que se repetem ao longo da noite. Cada ciclo dura cerca de 90 minutos e passa por fases:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li>Sono leve (estágio 1 e 2): transição entre vigília e sono.</li>
+                    <li>Sono profundo (estágio 3): recuperação física, liberação de hormônios, descanso muscular.</li>
+                    <li>Sono REM (movimento rápido dos olhos): fase dos sonhos, consolidação da memória, equilíbrio emocional.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Um sono de qualidade depende da repetição saudável desses ciclos. Interrupções constantes (como acordar várias vezes) quebram esse fluxo e afetam o bem-estar.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">👥 Diferença entre Sono Masculino e Feminino</h3>
+                  <p>Embora cada pessoa seja única, estudos mostram algumas tendências:</p>
+                  <p className='font-semibold mt-2'>Mulheres:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Tendem a ter mais sono profundo, mas também mais despertares noturnos.</li>
+                    <li>São mais afetadas por variações hormonais (TPM, menopausa, gravidez).</li>
+                    <li>Costumam ser mais sensíveis ao ambiente (luz, ruído, temperatura).</li>
+                  </ul>
+                  <p className='font-semibold mt-2'>Homens:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Têm maior propensão ao ronco e à apneia do sono.</li>
+                    <li>Costumam ter sono mais contínuo, mas menos profundo em algumas fases.</li>
+                    <li>Podem demorar mais para perceber os efeitos da privação de sono.</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Essas diferenças não são regras, mas ajudam o casal a entender que o sono não é igual para todos — e que respeitar essas variações é um gesto de cuidado.
+                  </blockquote>
+                </div>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">😵‍💫 Emoções e Estresse: Os Sabotadores do Sono</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2">
+                    <li><span className="font-semibold">Ansiedade:</span> acelera a mente, dificulta o relaxamento e atrasa o início do sono.</li>
+                    <li><span className="font-semibold">Preocupações:</span> ativam o sistema de alerta, impedindo que o corpo entre em modo descanso.</li>
+                    <li><span className="font-semibold">Discussões antes de dormir:</span> aumentam o cortisol (hormônio do estresse) e dificultam o desligamento emocional.</li>
+                    <li><span className="font-semibold">Falta de rotina:</span> dormir em horários irregulares confunde o relógio biológico.</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                     O corpo precisa de previsibilidade para dormir bem. E a mente precisa de segurança.
+                  </blockquote>
+                </div>
+
+                <Separator />
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground text-lg mb-2">🔍 Pergunta Interativa: “Quais são nossos gatilhos de insônia?”</h3>
+                    <p className="font-semibold text-foreground">Instruções:</p>
+                    <ol className="list-decimal list-inside space-y-1 mt-2">
+                        <li>Cada um identifica 2 ou 3 situações que costumam atrapalhar o sono (ex: celular antes de dormir, preocupação com trabalho, discussões noturnas).</li>
+                        <li>Compartilhem com o parceiro.</li>
+                        <li>Conversem sobre como podem ajudar um ao outro a evitar esses gatilhos.</li>
+                    </ol>
+                    <p className="mt-4 italic">Esse exercício fortalece a empatia e cria um pacto de cuidado mútuo.</p>
+                </div>
+
+                <Separator />
+
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌙 Encerramento do Módulo</h3>
+                    <p>Dormir bem começa com entender como o corpo e a mente funcionam. Quando o casal aprende a reconhecer seus ritmos, gatilhos e necessidades, o sono deixa de ser um problema e passa a ser uma prática de parceria.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -114,7 +208,7 @@ export default function SonoParaCasaisPage() {
                 <Button size="lg" onClick={() => setView('abertura')}>
                   ✨ Abertura: Dormir Juntos é uma Arte
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" onClick={() => setView('entendendo')}>
                   🧠 Entendendo o Sono do Corpo e da Mente
                 </Button>
                 <Button size="lg" variant="outline">
