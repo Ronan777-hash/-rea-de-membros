@@ -29,6 +29,9 @@ export default function SonoParaCasaisPage() {
               <Button size="lg">
                 ✨ Abertura: Dormir Juntos é uma Arte
               </Button>
+              <Button size="lg" variant="outline">
+                🧠 Entendendo o Sono do Corpo e da Mente
+              </Button>
             </CardContent>
           </Card>
         </div>
