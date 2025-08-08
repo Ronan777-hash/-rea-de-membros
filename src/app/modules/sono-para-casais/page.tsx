@@ -32,6 +32,9 @@ export default function SonoParaCasaisPage() {
               <Button size="lg" variant="outline">
                 🧠 Entendendo o Sono do Corpo e da Mente
               </Button>
+              <Button size="lg" variant="outline">
+                🧴 Ritual Noturno do Casal
+              </Button>
             </CardContent>
           </Card>
         </div>
