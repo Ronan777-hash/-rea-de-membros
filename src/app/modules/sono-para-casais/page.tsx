@@ -38,6 +38,9 @@ export default function SonoParaCasaisPage() {
               <Button size="lg" variant="outline">
                 🥱 Barulhos, Luzes e Clima do Quarto
               </Button>
+              <Button size="lg" variant="outline">
+                🫂 O Poder do Toque Antes de Dormir
+              </Button>
             </CardContent>
           </Card>
         </div>
