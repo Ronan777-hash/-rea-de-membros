@@ -49,13 +49,13 @@ export const bonusContent = {
     {
       title: 'Especialistas do Sono: Aulas Selecionadas',
       slug: 'especialistas-do-sono',
-      image: 'https://i.imgur.com/xEc5uLf.png',
+      image: 'https://i.imgur.com/dR9Z9An.png',
       dataAiHint: 'sleep experts',
     },
     {
       title: 'Sono de qualidade para Casais',
       slug: 'sono-para-casais',
-      image: 'https://i.imgur.com/dR9Z9An.png',
+      image: 'https://i.imgur.com/xEc5uLf.png',
       dataAiHint: 'couple sleeping',
     },
     {
