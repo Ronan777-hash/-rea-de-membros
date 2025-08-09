@@ -28,6 +28,9 @@ export default function NovoModuloBonusPage() {
                 <Button size="lg" className="w-full" variant="outline">
                   🍵 Chá do Apagão Suave
                 </Button>
+                <Button size="lg" className="w-full" variant="outline">
+                  🫖 Elixir da Calmaria Instantânea
+                </Button>
               </CardContent>
             </Card>
         </div>
