@@ -49,7 +49,7 @@ export const bonusContent = {
     {
       title: 'Especialistas do Sono: Aulas Selecionadas',
       slug: 'especialistas-do-sono',
-      image: 'https://placehold.co/675x1200.png',
+      image: 'https://i.imgur.com/dR9Z9An.png',
       dataAiHint: 'sleep experts',
     },
     {
