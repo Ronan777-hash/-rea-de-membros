@@ -34,6 +34,9 @@ export default function NovoModuloBonusPage() {
                 <Button size="lg" className="w-full" variant="outline">
                   🍹 Suco da Serenidade Noturna
                 </Button>
+                <Button size="lg" className="w-full" variant="outline">
+                  ☕ Misturas Secretas para Noites Perfeitas
+                </Button>
               </CardContent>
             </Card>
         </div>
