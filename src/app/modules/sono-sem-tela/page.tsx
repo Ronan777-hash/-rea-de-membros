@@ -20,6 +20,7 @@ export default function SonoSemTelaPage() {
             </CardHeader>
             <CardContent className="space-y-6">
                 <p className="text-muted-foreground">Em breve, um módulo completo sobre como desacelerar e dormir melhor sem telas.</p>
+                <Button className="w-full">📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
             </CardContent>
         </Card>
         </div>
