@@ -55,7 +55,7 @@ export const bonusContent = {
     {
       title: 'Sono Sem Tela',
       slug: 'sono-sem-tela',
-      image: 'https://placehold.co/675x1200.png',
+      image: 'https://i.imgur.com/kqHRa6Y.png',
       dataAiHint: 'no screen sleep',
     },
     {
