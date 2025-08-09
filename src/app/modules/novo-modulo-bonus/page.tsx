@@ -9,8 +9,10 @@ import { Home, ArrowLeft } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
-type ViewState = 'inicio' | 'cha-suave' | 'suco-serenidade';
+
+type ViewState = 'inicio' | 'cha-suave' | 'suco-serenidade' | 'misturas-secretas';
 
 export default function NovoModuloBonusPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -30,6 +32,15 @@ export default function NovoModuloBonusPage() {
     q5: '',
   });
 
+    const [misturasAnswers, setMisturasAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+    q5: '',
+  });
+
+
   const handleChaAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setChaAnswers((prev) => ({ ...prev, [name]: value }));
@@ -38,6 +49,11 @@ export default function NovoModuloBonusPage() {
   const handleSucoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSucoAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleMisturasAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setMisturasAnswers((prev) => ({ ...prev, [name]: value }));
   };
   
   const renderContent = () => {
@@ -263,6 +279,151 @@ export default function NovoModuloBonusPage() {
             </div>
           </div>
         );
+      case 'misturas-secretas':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">☕ Misturas Secretas para Noites Perfeitas</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                 <p><strong>Objetivo:</strong> Criar receitas personalizadas que se adaptam ao seu ritmo, humor e necessidades — seja para desacelerar à noite ou despertar com leveza pela manhã.</p>
+                <Separator />
+
+                 <div>
+                  <h3 className="font-bold text-foreground text-lg">⚠️ Observação Importante Antes de Misturar Chás</h3>
+                  <p className="mt-2">Antes de explorar as combinações, é essencial lembrar que, apesar de naturais, os chás podem ter efeitos potentes no organismo.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Evite misturar muitas ervas de uma vez. O excesso pode causar desconfortos como sonolência intensa, queda de pressão ou irritações gástricas.</li>
+                    <li>Comece com no máximo duas ervas por infusão. Observe como seu corpo reage nos primeiros dias.</li>
+                    <li>Consulte um profissional de saúde antes de iniciar qualquer rotina com chás, especialmente se estiver grávida, amamentando, tomando medicamentos ou tiver alguma condição clínica.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O natural também exige responsabilidade. Ouça seu corpo, respeite seus limites e busque orientação quando necessário.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🧭 Guia de Combinações de Ingredientes</h3>
+                    <p className="mt-2">A chave está em entender o efeito de cada ingrediente e como eles se complementam:</p>
+                    <div className="rounded-md border mt-2">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Tipo de Mistura</TableHead>
+                                    <TableHead>Ingredientes Principais</TableHead>
+                                    <TableHead>Efeito Esperado</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell>Calmante Noturna</TableCell>
+                                    <TableCell>Camomila, lavanda, melissa, maçã, maracujá</TableCell>
+                                    <TableCell>Relaxamento e sono profundo</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>Energizante Matinal</TableCell>
+                                    <TableCell>Gengibre, hortelã, limão, chá verde, maçã verde</TableCell>
+                                    <TableCell>Clareza mental e disposição</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>Equilibrada Digestiva</TableCell>
+                                    <TableCell>Erva-doce, hibisco, hortelã, pepino, melancia</TableCell>
+                                    <TableCell>Leveza e conforto digestivo</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>Anti-estresse leve</TableCell>
+                                    <TableCell>Passiflora, banana, leite vegetal, baunilha</TableCell>
+                                    <TableCell>Redução de ansiedade</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </div>
+                     <div className="mt-4 p-3 bg-accent/50 rounded-md border border-accent">
+                        <p>💡 <strong>Dica:</strong> Você pode ajustar sabores conforme seu paladar — mais doce, mais cítrico ou mais herbal.</p>
+                    </div>
+                </div>
+                <Separator />
+
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🎒 Como Preparar “Kits” Prontos para Uso Rápido</h3>
+                    <p className="mt-2">Monte porções individuais para facilitar o preparo, especialmente em noites cansativas:</p>
+                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                        <li><strong>Chás secos:</strong> Misture as ervas em saquinhos ou potes pequenos com dosagem exata.</li>
+                        <li><strong>Cubos congelados:</strong> Bata frutas com infusões e congele em formas de gelo — basta adicionar água ou leite vegetal.</li>
+                        <li><strong>Pó funcional:</strong> Combine ingredientes secos como cacau, canela, camomila em pó e leite vegetal em pó para misturas instantâneas.</li>
+                    </ul>
+                    <p className="mt-2">Esses kits economizam tempo e mantêm o ritual prático e prazeroso.</p>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🌞 Mistura Energizante para Manhã & 🌙 Calmante para Noite</h3>
+                    <p className="font-semibold mt-2">Manhã:</p>
+                    <div className="mt-1 p-4 bg-muted/50 rounded-lg text-sm">
+                        <p>Infusão de gengibre com hortelã + suco de limão + maçã verde batida.<br/>Serve para despertar com frescor e foco.</p>
+                    </div>
+                     <p className="font-semibold mt-2">Noite:</p>
+                    <div className="mt-1 p-4 bg-muted/50 rounded-lg text-sm">
+                        <p>Infusão de camomila + banana amassada + leite vegetal morno.<br/>Serve para desacelerar e induzir o sono.</p>
+                    </div>
+                    <p className="mt-2">Você pode alternar entre essas duas receitas conforme seu ritmo diário.</p>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">🧊 Dicas para Armazenar e Manter Frescor</h3>
+                     <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                        <li><strong>Ervas secas:</strong> Guarde em potes herméticos, longe da luz e umidade.</li>
+                        <li><strong>Frutas batidas:</strong> Congele em porções pequenas ou use dentro de 24h.</li>
+                        <li><strong>Infusões prontas:</strong> Mantenha na geladeira por até 2 dias, em garrafas de vidro.</li>
+                    </ul>
+                     <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                       Evite recipientes plásticos para armazenar líquidos quentes ou ácidos — o vidro conserva melhor sabor e propriedades.
+                    </blockquote>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-bold text-foreground text-lg">📅 Frequência Recomendada</h3>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                        <li>Personalize conforme sua rotina e sensibilidade.</li>
+                        <li>Respeite pausas: após 2 a 3 semanas de uso contínuo, faça uma pausa de alguns dias para evitar tolerância e manter eficácia.</li>
+                    </ul>
+                </div>
+                 <Separator />
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">❓ Perguntas para Refletir e Responder</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="misturas-q1">Você prefere misturas prontas ou gosta de preparar na hora?</Label>
+                          <Textarea id="misturas-q1" name="q1" value={misturasAnswers.q1} onChange={handleMisturasAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="misturas-q2">Qual horário do dia você sente mais necessidade de apoio — manhã ou noite?</Label>
+                          <Textarea id="misturas-q2" name="q2" value={misturasAnswers.q2} onChange={handleMisturasAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="misturas-q3">Que sabores te trazem conforto imediato?</Label>
+                          <Textarea id="misturas-q3" name="q3" value={misturasAnswers.q3} onChange={handleMisturasAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="misturas-q4">Já pensou em montar seus próprios kits de chá ou suco?</Label>
+                          <Textarea id="misturas-q4" name="q4" value={misturasAnswers.q4} onChange={handleMisturasAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="misturas-q5">Que tipo de efeito você busca: relaxar, energizar, equilibrar ou desintoxicar?</Label>
+                          <Textarea id="misturas-q5" name="q5" value={misturasAnswers.q5} onChange={handleMisturasAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -279,7 +440,7 @@ export default function NovoModuloBonusPage() {
                   <Button size="lg" className="w-full" variant="outline" onClick={() => setView('suco-serenidade')}>
                     🍹 Suco da Serenidade Noturna
                   </Button>
-                  <Button size="lg" className="w-full" variant="outline">
+                   <Button size="lg" className="w-full" variant="outline" onClick={() => setView('misturas-secretas')}>
                     ☕ Misturas Secretas para Noites Perfeitas
                   </Button>
                 </CardContent>
@@ -305,5 +466,3 @@ export default function NovoModuloBonusPage() {
     </div>
   );
 }
-
-    
