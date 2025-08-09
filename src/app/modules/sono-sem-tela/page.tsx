@@ -18,9 +18,10 @@ export default function SonoSemTelaPage() {
                 Um guia prático para desligar os estímulos digitais, acalmar a mente e transformar suas noites em momentos de descanso profundo.
             </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4">
                 <p className="text-muted-foreground">Em breve, um módulo completo sobre como desacelerar e dormir melhor sem telas.</p>
                 <Button className="w-full">📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
+                <Button className="w-full">🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
             </CardContent>
         </Card>
         </div>
