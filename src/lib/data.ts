@@ -47,6 +47,18 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
+      title: 'Especialistas do Sono: Aulas Selecionadas',
+      slug: 'especialistas-do-sono',
+      image: 'https://placehold.co/675x1200.png',
+      dataAiHint: 'sleep experts',
+    },
+    {
+      title: 'Sono de qualidade para Casais',
+      slug: 'sono-para-casais',
+      image: 'https://i.imgur.com/bkq1S7n.png',
+      dataAiHint: 'couple sleeping',
+    },
+    {
       title: 'Bebidas do Sono Profundo: Chás e Sucos que Melhorar o Sono',
       slug: 'novo-modulo-bonus',
       image: 'https://i.imgur.com/0ZlcH0Q.png',
@@ -57,12 +69,6 @@ export const bonusContent = {
       slug: 'sono-sem-tela',
       image: 'https://i.imgur.com/kqHRa6Y.png',
       dataAiHint: 'no screen sleep',
-    },
-    {
-      title: 'Sono de qualidade para Casais',
-      slug: 'sono-para-casais',
-      image: 'https://i.imgur.com/bkq1S7n.png',
-      dataAiHint: 'couple sleeping',
     },
   ],
 };
