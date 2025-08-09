@@ -55,7 +55,7 @@ export const bonusContent = {
     {
       title: 'Novo Módulo',
       slug: 'novo-modulo-bonus',
-      image: 'https://placehold.co/675x1200.png',
+      image: 'https://i.imgur.com/0ZlcH0Q.png',
       dataAiHint: 'new module',
     },
     {
