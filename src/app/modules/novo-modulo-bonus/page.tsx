@@ -21,11 +21,11 @@ export default function NovoModuloBonusPage() {
         <div className="text-center p-8 flex flex-col items-center justify-center w-full animate-in fade-in-50 duration-300">
             <Card className="w-full max-w-md">
               <CardHeader>
-                <CardTitle className="font-headline text-3xl">Novo Módulo</CardTitle>
-                <CardDescription>Em breve, um novo conteúdo para você.</CardDescription>
+                <CardTitle className="font-headline text-3xl">🌙 Bebidas do Sono Profundo</CardTitle>
+                <CardDescription>Chás e sucos que relaxam seu corpo e mente para noites tranquilas.</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Estamos preparando um material incrível para te ajudar a dormir ainda melhor. Volte em breve!</p>
+                <p className="text-muted-foreground">Em breve, um novo conteúdo para você.</p>
               </CardContent>
             </Card>
         </div>

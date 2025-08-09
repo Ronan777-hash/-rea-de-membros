@@ -53,7 +53,7 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
-      title: 'Novo Módulo',
+      title: 'Bebidas do Sono Profundo: Chás e Sucos que Melhorar o Sono',
       slug: 'novo-modulo-bonus',
       image: 'https://i.imgur.com/0ZlcH0Q.png',
       dataAiHint: 'new module',
