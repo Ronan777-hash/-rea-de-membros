@@ -29,9 +29,6 @@ export default function NovoModuloBonusPage() {
                   🍵 Chá do Apagão Suave
                 </Button>
                 <Button size="lg" className="w-full" variant="outline">
-                  🫖 Elixir da Calmaria Instantânea
-                </Button>
-                <Button size="lg" className="w-full" variant="outline">
                   🍹 Suco da Serenidade Noturna
                 </Button>
                 <Button size="lg" className="w-full" variant="outline">
