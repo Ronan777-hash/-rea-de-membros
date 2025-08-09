@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos' | 'modo-noite';
+type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos' | 'modo-noite' | 'substitutos-inteligentes' | 'desafio-30-noites';
 
 export default function SonoSemTelaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -32,6 +32,12 @@ export default function SonoSemTelaPage() {
     q3: '',
     q4: '',
   });
+  const [substitutosAnswers, setSubstitutosAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
 
   const handleSabotaAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -47,6 +53,11 @@ export default function SonoSemTelaPage() {
   const handleModoNoiteAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setModoNoiteAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubstitutosAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSubstitutosAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -323,6 +334,91 @@ export default function SonoSemTelaPage() {
             </div>
           </div>
         );
+      case 'substitutos-inteligentes':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">💡 Substitutos Inteligentes para o Celular à Noite</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Desligar o celular à noite não significa abrir mão do prazer — significa trocar estímulo por presença. O segredo está em substituir o hábito, não apenas removê-lo. E quando as alternativas são agradáveis, o cérebro não sente falta da tela — ele agradece.</p>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎨 Atividades Simples e Prazerosas para Fazer Antes de Dormir</h3>
+                  <p className="mt-2">A chave está em escolher ações que tragam leveza, conexão ou introspecção. Nada de tarefas complexas ou exigentes — apenas momentos que acalmam.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Escrever 3 coisas boas do dia (gratidão ou diário rápido)</li>
+                    <li>Alongamento leve ou automassagem com óleo ou creme relaxante</li>
+                    <li>Escutar um áudio de meditação ou história tranquila (sem olhar para a tela)</li>
+                    <li>Organizar pequenos objetos ou preparar o ambiente para o dia seguinte</li>
+                    <li>Desenhar, pintar ou fazer algo manual simples — mesmo que seja só rabiscar</li>
+                    <li>Conversar com alguém ao vivo, sem celular por perto</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O prazer não está na tela — está na atenção que você dá ao momento.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌬️ Técnicas de Respiração e Relaxamento Muscular</h3>
+                  <p className="mt-2">Essas práticas ajudam a desacelerar o corpo e a mente, reduzindo a tensão acumulada ao longo do dia.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Respiração 4-7-8: inspire por 4 segundos, segure por 7, expire por 8.</li>
+                    <li>Respiração em caixa: 4 segundos para inspirar, segurar, expirar e pausar.</li>
+                    <li>Relaxamento progressivo: contraia e solte grupos musculares, dos pés à cabeça.</li>
+                    <li>Toque consciente: massageie mãos, pés ou pescoço com atenção plena.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O corpo responde ao toque e à respiração com gratidão — e com sono.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">📖 Leituras Rápidas que Induzem Calma (Sem Tela)</h3>
+                  <p className="mt-2">A leitura física tem um ritmo diferente — ela convida à introspecção, sem distrações visuais.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Poemas curtos ou reflexões inspiradoras</li>
+                    <li>Livros de sabedoria leve, como filosofia prática ou espiritualidade</li>
+                    <li>Histórias tranquilas e lentas, sem ação intensa ou suspense</li>
+                    <li>Textos de gratidão, meditação ou contemplação</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Ler à noite é como conversar com a alma — sem pressa, sem ruído.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas para refletir:</h3>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="substitutos-q1">Qual foi a última vez que você fez algo prazeroso à noite sem envolver uma tela?</Label>
+                          <Textarea id="substitutos-q1" name="q1" value={substitutosAnswers.q1} onChange={handleSubstitutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="substitutos-q2">Que tipo de atividade te acalma mais: movimento leve, escrita ou escuta silenciosa?</Label>
+                          <Textarea id="substitutos-q2" name="q2" value={substitutosAnswers.q2} onChange={handleSubstitutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="substitutos-q3">Você tem algum livro físico ao lado da cama — ou só o celular como companhia?</Label>
+                          <Textarea id="substitutos-q3" name="q3" value={substitutosAnswers.q3} onChange={handleSubstitutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="substitutos-q4">Se pudesse escolher uma nova rotina noturna, qual dessas práticas incluiria primeiro?</Label>
+                          <Textarea id="substitutos-q4" name="q4" value={substitutosAnswers.q4} onChange={handleSubstitutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -336,10 +432,10 @@ export default function SonoSemTelaPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button className="w-full" onClick={() => setView('como-celular-sabota')}>📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
-                <Button className="w-full" onClick={() => setView('regra-90-minutos')}>🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
-                <Button className="w-full" onClick={() => setView('modo-noite')}>🌙 Criando o “Modo Noite” no Ambiente</Button>
-                <Button className="w-full">💡 Substitutos Inteligentes para o Celular à Noite</Button>
-                <Button className="w-full">✨ Desafio 30 Noites Sem Tela</Button>
+                <Button className="w-full" variant="outline" onClick={() => setView('regra-90-minutos')}>🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
+                <Button className="w-full" variant="outline" onClick={() => setView('modo-noite')}>🌙 Criando o “Modo Noite” no Ambiente</Button>
+                <Button className="w-full" variant="outline" onClick={() => setView('substitutos-inteligentes')}>💡 Substitutos Inteligentes para o Celular à Noite</Button>
+                <Button className="w-full" variant="outline" onClick={() => setView('desafio-30-noites')}>✨ Desafio 30 Noites Sem Tela</Button>
               </CardContent>
             </Card>
           </div>
