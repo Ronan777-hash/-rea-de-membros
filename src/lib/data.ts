@@ -18,12 +18,6 @@ export const mainModules = [
     image: 'https://i.imgur.com/GAJkXxH.png',
     dataAiHint: 'night sky stars',
   },
-  {
-    title: 'Higiene do Sono',
-    slug: 'higiene-do-sono',
-    image: 'https://i.imgur.com/3CyIyKD.png',
-    dataAiHint: 'sleep hygiene',
-  },
 ];
 
 export const continueWatchingItems = [
