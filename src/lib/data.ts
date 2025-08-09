@@ -55,7 +55,7 @@ export const bonusContent = {
     {
       title: 'Sono de qualidade para Casais',
       slug: 'sono-para-casais',
-      image: 'https://i.imgur.com/bkq1S7n.png',
+      image: 'https://i.imgur.com/dR9Z9An.png',
       dataAiHint: 'couple sleeping',
     },
     {
