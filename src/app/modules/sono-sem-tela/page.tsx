@@ -23,6 +23,7 @@ export default function SonoSemTelaPage() {
                 <Button className="w-full">📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
                 <Button className="w-full">🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
                 <Button className="w-full">🌙 Criando o “Modo Noite” no Ambiente</Button>
+                <Button className="w-full">💡 Substitutos Inteligentes para o Celular à Noite</Button>
             </CardContent>
         </Card>
         </div>
