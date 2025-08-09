@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos';
+type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos' | 'modo-noite';
 
 export default function SonoSemTelaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -26,6 +26,13 @@ export default function SonoSemTelaPage() {
     q3: '',
     q4: '',
   });
+  const [modoNoiteAnswers, setModoNoiteAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
+
 
   const handleSabotaAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,6 +42,11 @@ export default function SonoSemTelaPage() {
   const handleRegra90MinutosAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setRegra90MinutosAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+  
+  const handleModoNoiteAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setModoNoiteAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -228,6 +240,89 @@ export default function SonoSemTelaPage() {
             </div>
           </div>
         );
+      case 'modo-noite':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🌙 Criando o “Modo Noite” no Ambiente</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>O ambiente em que você dorme é tão importante quanto o que você faz antes de dormir. Sons, luzes e temperatura enviam sinais diretos ao cérebro sobre o que esperar: agitação ou descanso. Criar um “Modo Noite” é como preparar o palco para o sono — e cada detalhe conta.</p>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">💡 Iluminação: O Tom da Tranquilidade</h3>
+                  <p className="mt-2">A luz tem um impacto direto no sistema nervoso. Tons frios (como branco ou azul) mantêm o cérebro em estado de alerta. Já os tons quentes sinalizam acolhimento e relaxamento.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Prefira luzes âmbar, alaranjadas ou avermelhadas no quarto à noite.</li>
+                    <li>Use abajures com baixa intensidade, luz indireta ou até velas seguras.</li>
+                    <li>Evite luzes de teto fortes e brancas após o pôr do sol.</li>
+                    <li>Se possível, instale dimmers para ajustar a intensidade conforme a noite avança.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    A luz certa não apenas acalma — ela ensina o corpo a dormir melhor.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎶 Sons e Músicas: O Ritmo do Relaxamento</h3>
+                  <p className="mt-2">O som é uma ferramenta poderosa para induzir estados mentais. Sons suaves ajudam a desacelerar o ritmo cardíaco e a reduzir a atividade cerebral.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Experimente sons da natureza: chuva, vento, mar, floresta.</li>
+                    <li>Ouça músicas instrumentais lentas, com frequência entre 60–80 bpm.</li>
+                    <li>Evite músicas com letra, batidas intensas ou mudanças bruscas de ritmo.</li>
+                    <li>Use caixas de som ambiente ou fones com isolamento suave, se necessário.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O som ideal não distrai — ele dissolve os pensamentos acelerados.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌡️ Temperatura e Ventilação: O Conforto Invisível</h3>
+                  <p className="mt-2">A temperatura corporal precisa cair levemente para que o sono profundo aconteça. Um quarto abafado ou frio demais pode interromper esse processo.</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Mantenha o ambiente entre 18°C e 22°C, ajustando conforme sua preferência.</li>
+                    <li>Use ventilação leve e constante, como um ventilador silencioso ou janela entreaberta.</li>
+                    <li>Evite cobertores pesados demais ou tecidos que retêm calor.</li>
+                    <li>Aromas suaves como lavanda ou camomila também ajudam a criar uma atmosfera de descanso.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O corpo dorme melhor quando não precisa lutar contra o ambiente.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas para refletir:</h3>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="modo-noite-q1">Sua iluminação noturna transmite calma ou mantém o ambiente em alerta?</Label>
+                          <Textarea id="modo-noite-q1" name="q1" value={modoNoiteAnswers.q1} onChange={handleModoNoiteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="modo-noite-q2">Você costuma dormir com algum som — ou o silêncio absoluto te incomoda?</Label>
+                          <Textarea id="modo-noite-q2" name="q2" value={modoNoiteAnswers.q2} onChange={handleModoNoiteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="modo-noite-q3">O quarto está na temperatura ideal para o seu corpo relaxar — ou você acorda suando ou com frio?</Label>
+                          <Textarea id="modo-noite-q3" name="q3" value={modoNoiteAnswers.q3} onChange={handleModoNoiteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="modo-noite-q4">Que pequenos ajustes você pode fazer hoje para transformar seu quarto em um convite ao descanso?</Label>
+                          <Textarea id="modo-noite-q4" name="q4" value={modoNoiteAnswers.q4} onChange={handleModoNoiteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -242,7 +337,7 @@ export default function SonoSemTelaPage() {
               <CardContent className="space-y-4">
                 <Button className="w-full" onClick={() => setView('como-celular-sabota')}>📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
                 <Button className="w-full" onClick={() => setView('regra-90-minutos')}>🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
-                <Button className="w-full">🌙 Criando o “Modo Noite” no Ambiente</Button>
+                <Button className="w-full" onClick={() => setView('modo-noite')}>🌙 Criando o “Modo Noite” no Ambiente</Button>
                 <Button className="w-full">💡 Substitutos Inteligentes para o Celular à Noite</Button>
                 <Button className="w-full">✨ Desafio 30 Noites Sem Tela</Button>
               </CardContent>
