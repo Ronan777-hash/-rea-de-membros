@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 
-type ViewState = 'inicio' | 'como-celular-sabota';
+type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos';
 
 export default function SonoSemTelaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -20,10 +20,21 @@ export default function SonoSemTelaPage() {
     q3: '',
     q4: '',
   });
+  const [regra90MinutosAnswers, setRegra90MinutosAnswers] = useState({
+    q1: '',
+    q2: '',
+    q3: '',
+    q4: '',
+  });
 
   const handleSabotaAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSabotaAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleRegra90MinutosAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setRegra90MinutosAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -129,6 +140,94 @@ export default function SonoSemTelaPage() {
             </div>
           </div>
         );
+      case 'regra-90-minutos':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🕒 A Regra dos 90 Minutos Antes de Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Os últimos 90 minutos antes de dormir são preciosos. É nesse intervalo que o corpo começa a desacelerar, se preparar para o repouso e entrar em estado de transição entre vigília e sono. Mas se esse tempo é invadido por telas e estímulos, o sono perde qualidade — mesmo que você durma por horas.</p>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🧬 O Que Acontece com o Corpo Nesse Período</h3>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Temperatura corporal começa a cair: isso sinaliza ao cérebro que é hora de descansar.</li>
+                    <li>Produção de melatonina aumenta naturalmente, desde que não haja luz intensa ou estímulos digitais.</li>
+                    <li>Frequência cardíaca desacelera, preparando o corpo para entrar em ondas cerebrais mais lentas.</li>
+                    <li>Sistema nervoso entra em modo parassimpático, responsável pelo relaxamento profundo.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Esse é o momento ideal para desacelerar — não para estimular.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">📱 Criando um Bloqueio de Tela Automático</h3>
+                  <p className="mt-2">Para proteger esse período, é essencial limitar o uso de telas. E a tecnologia pode ajudar:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Configure o celular para entrar em “modo descanso” automático 90 minutos antes do horário habitual de dormir.</li>
+                    <li>Use recursos como bloqueio de apps, filtro de luz azul, modo não perturbe e limite de tempo de uso.</li>
+                    <li>Alguns aparelhos permitem desativar notificações e ocultar ícones de redes sociais nesse horário.</li>
+                  </ul>
+                  <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O ideal é que o celular se torne invisível — ou irrelevante — nesse intervalo.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌿 Substituindo o “Só Mais Um Vídeo” por um Ritual Relaxante</h3>
+                  <p className="mt-2">O hábito de consumir conteúdo até o último segundo é comum — mas pode ser transformado com pequenas mudanças:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                    <li>Crie um ritual fixo e prazeroso que sinalize ao corpo que o dia está terminando.</li>
+                    <li>Exemplos:
+                      <ul className="list-disc list-inside space-y-1 mt-1 pl-4">
+                        <li>Tomar um banho morno</li>
+                        <li>Fazer um chá calmante</li>
+                        <li>Ouvir uma música suave</li>
+                        <li>Praticar respiração consciente</li>
+                        <li>Conversar com o parceiro sem telas</li>
+                      </ul>
+                    </li>
+                    <li>O segredo está na repetição: quanto mais o ritual se repete, mais o corpo entende que é hora de dormir.</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    O ritual não precisa ser longo — só precisa ser constante.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas para refletir:</h3>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="regra-q1">Você costuma ter um ritual antes de dormir — ou vai direto da tela para o travesseiro?</Label>
+                          <Textarea id="regra-q1" name="q1" value={regra90MinutosAnswers.q1} onChange={handleRegra90MinutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="regra-q2">Seu celular está programado para te ajudar a dormir ou para te manter acordado?</Label>
+                          <Textarea id="regra-q2" name="q2" value={regra90MinutosAnswers.q2} onChange={handleRegra90MinutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="regra-q3">O que você poderia incluir no seu ritual noturno para tornar esse momento mais relaxante?</Label>
+                          <Textarea id="regra-q3" name="q3" value={regra90MinutosAnswers.q3} onChange={handleRegra90MinutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="regra-q4">Já percebeu como seu corpo responde quando você desacelera conscientemente antes de dormir?</Label>
+                          <Textarea id="regra-q4" name="q4" value={regra90MinutosAnswers.q4} onChange={handleRegra90MinutosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -142,7 +241,7 @@ export default function SonoSemTelaPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <Button className="w-full" onClick={() => setView('como-celular-sabota')}>📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
-                <Button className="w-full">🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
+                <Button className="w-full" onClick={() => setView('regra-90-minutos')}>🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
                 <Button className="w-full">🌙 Criando o “Modo Noite” no Ambiente</Button>
                 <Button className="w-full">💡 Substitutos Inteligentes para o Celular à Noite</Button>
                 <Button className="w-full">✨ Desafio 30 Noites Sem Tela</Button>
