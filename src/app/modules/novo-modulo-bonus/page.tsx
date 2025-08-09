@@ -31,6 +31,9 @@ export default function NovoModuloBonusPage() {
                 <Button size="lg" className="w-full" variant="outline">
                   🫖 Elixir da Calmaria Instantânea
                 </Button>
+                <Button size="lg" className="w-full" variant="outline">
+                  🍹 Suco da Serenidade Noturna
+                </Button>
               </CardContent>
             </Card>
         </div>
