@@ -24,8 +24,10 @@ export default function NovoModuloBonusPage() {
                 <CardTitle className="font-headline text-3xl">🌙 Bebidas do Sono Profundo</CardTitle>
                 <CardDescription>Chás e sucos que relaxam seu corpo e mente para noites tranquilas.</CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Em breve, um novo conteúdo para você.</p>
+              <CardContent className="flex flex-col gap-4 pt-4">
+                <Button size="lg" className="w-full" variant="outline">
+                  🍵 Chá do Apagão Suave
+                </Button>
               </CardContent>
             </Card>
         </div>
