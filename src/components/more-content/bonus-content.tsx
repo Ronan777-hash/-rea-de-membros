@@ -30,7 +30,7 @@ export function BonusContent() {
                           alt={video.title}
                           width={675}
                           height={1200}
-                          className="w-full h-auto object-contain"
+                          className="w-full h-auto object-contain aspect-[675/1200]"
                           data-ai-hint={video.dataAiHint}
                         />
                       </CardContent>

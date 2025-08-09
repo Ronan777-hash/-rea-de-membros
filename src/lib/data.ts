@@ -53,6 +53,12 @@ export const continueWatchingItems = [
 export const bonusContent = {
   videos: [
     {
+      title: 'Novo Módulo',
+      slug: 'novo-modulo-bonus',
+      image: 'https://placehold.co/675x1200.png',
+      dataAiHint: 'new module',
+    },
+    {
       title: 'Sono Sem Tela',
       slug: 'sono-sem-tela',
       image: 'https://i.imgur.com/kqHRa6Y.png',

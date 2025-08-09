@@ -33,7 +33,7 @@ export function MainModulesCarousel() {
                       alt={module.title}
                       width={675}
                       height={1200}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto object-contain aspect-[675/1200]"
                       data-ai-hint={module.dataAiHint}
                       priority={mainModules.indexOf(module) < 2}
                     />
