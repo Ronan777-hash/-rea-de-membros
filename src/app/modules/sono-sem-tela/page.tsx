@@ -9,8 +9,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 type ViewState = 'inicio' | 'como-celular-sabota' | 'regra-90-minutos' | 'modo-noite' | 'substitutos-inteligentes' | 'desafio-30-noites';
+
+interface DesafioDia {
+  desconectei: string;
+  ritual: string;
+  dormiMelhor: string;
+  observacoes: string;
+}
 
 export default function SonoSemTelaPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -38,6 +47,13 @@ export default function SonoSemTelaPage() {
     q3: '',
     q4: '',
   });
+  const [desafioAnswers, setDesafioAnswers] = useState<Record<number, DesafioDia>>(() => {
+    const initial: Record<number, DesafioDia> = {};
+    for (let i = 1; i <= 30; i++) {
+      initial[i] = { desconectei: '', ritual: '', dormiMelhor: '', observacoes: '' };
+    }
+    return initial;
+  });
 
 
   const handleSabotaAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -60,8 +76,168 @@ export default function SonoSemTelaPage() {
     setSubstitutosAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleDesafioChange = (dia: number, campo: keyof DesafioDia, valor: string) => {
+    setDesafioAnswers(prev => ({
+      ...prev,
+      [dia]: {
+        ...prev[dia],
+        [campo]: valor,
+      }
+    }));
+  };
+
   const renderContent = () => {
     switch (view) {
+      case 'desafio-30-noites':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">✨ Desafio 30 Noites Sem Tela</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você já aprendeu como o celular interfere no sono, como preparar o corpo e o ambiente, e como substituir os estímulos digitais por práticas relaxantes. Agora é hora de transformar esse conhecimento em hábito — e sentir os efeitos reais de uma rotina noturna livre de telas.</p>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">💬 Antes de Começar: Uma Mensagem Importante</h3>
+                  <p className="mt-2">Este desafio não é sobre perfeição — é sobre transformação. Se você perder um dia, ou até alguns, não se culpe e não desista. Levante, recomece e siga em frente. O hábito nasce da repetição, não da rigidez. E quando você persiste, mesmo com falhas, algo muda: o sono melhora, a mente desacelera, e a vida começa a respirar com mais leveza.</p>
+                </div>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎯 Como Funciona o Desafio</h3>
+                  <p className="mt-2">Durante 30 noites seguidas, você vai se desconectar das telas 90 minutos antes de dormir e seguir uma rotina de desaceleração.</p>
+                  <p className="font-semibold text-foreground mt-2">Objetivo:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-1 pl-2">
+                    <li>Reduzir estímulos digitais antes de dormir</li>
+                    <li>Criar um ritual noturno consistente</li>
+                    <li>Sentir os efeitos reais no sono, no humor e na clareza mental</li>
+                  </ul>
+                  <p className="font-semibold text-foreground mt-2">Regras básicas:</p>
+                  <ul className="list-disc list-inside space-y-1 mt-1 pl-2">
+                    <li>Nada de celular, TV ou computador nos 90 minutos finais do dia</li>
+                    <li>Escolha pelo menos 2 práticas relaxantes por noite (respiração, leitura, música, etc.)</li>
+                    <li>Registre como se sentiu ao acordar</li>
+                  </ul>
+                   <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                    Não é sobre controlar o tempo — é sobre cuidar de si.
+                  </blockquote>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-bold text-foreground text-lg mb-2">📊 Quadro de Acompanhamento – Desafio 30 Noites Sem Tela</h3>
+                    <div className="rounded-md border">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="w-[50px]">Dia</TableHead>
+                                    <TableHead>Desconectei 90 min antes?</TableHead>
+                                    <TableHead>Fiz o ritual relaxante?</TableHead>
+                                    <TableHead>Dormi melhor?</TableHead>
+                                    <TableHead>Observações</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {Object.keys(desafioAnswers).map(diaStr => {
+                                    const dia = parseInt(diaStr);
+                                    return (
+                                        <TableRow key={dia}>
+                                            <TableCell className="font-medium">{dia}</TableCell>
+                                            <TableCell>
+                                                <RadioGroup onValueChange={(value) => handleDesafioChange(dia, 'desconectei', value)} value={desafioAnswers[dia].desconectei} className="flex gap-2">
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Sim" id={`d${dia}-d-sim`} />
+                                                        <Label htmlFor={`d${dia}-d-sim`}>Sim</Label>
+                                                    </div>
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Não" id={`d${dia}-d-nao`} />
+                                                        <Label htmlFor={`d${dia}-d-nao`}>Não</Label>
+                                                    </div>
+                                                </RadioGroup>
+                                            </TableCell>
+                                            <TableCell>
+                                                 <RadioGroup onValueChange={(value) => handleDesafioChange(dia, 'ritual', value)} value={desafioAnswers[dia].ritual} className="flex gap-2">
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Sim" id={`d${dia}-r-sim`} />
+                                                        <Label htmlFor={`d${dia}-r-sim`}>Sim</Label>
+                                                    </div>
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Não" id={`d${dia}-r-nao`} />
+                                                        <Label htmlFor={`d${dia}-r-nao`}>Não</Label>
+                                                    </div>
+                                                </RadioGroup>
+                                            </TableCell>
+                                            <TableCell>
+                                                  <RadioGroup onValueChange={(value) => handleDesafioChange(dia, 'dormiMelhor', value)} value={desafioAnswers[dia].dormiMelhor} className="flex gap-2">
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Sim" id={`d${dia}-dm-sim`} />
+                                                        <Label htmlFor={`d${dia}-dm-sim`}>Sim</Label>
+                                                    </div>
+                                                    <div className="flex items-center space-x-2">
+                                                        <RadioGroupItem value="Não" id={`d${dia}-dm-nao`} />
+                                                        <Label htmlFor={`d${dia}-dm-nao`}>Não</Label>
+                                                    </div>
+                                                </RadioGroup>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Textarea
+                                                    placeholder="Escreva aqui..."
+                                                    value={desafioAnswers[dia].observacoes}
+                                                    onChange={(e) => handleDesafioChange(dia, 'observacoes', e.target.value)}
+                                                />
+                                            </TableCell>
+                                        </TableRow>
+                                    )
+                                })}
+                            </TableBody>
+                        </Table>
+                    </div>
+                </div>
+                 <Separator />
+                  <div>
+                    <h3 className="font-bold text-foreground text-lg">🔄 Como Manter o Hábito Após o Desafio</h3>
+                    <ul className="list-disc list-inside space-y-1 mt-2 pl-2">
+                        <li>Escolha um ritual noturno que você realmente goste — prazer sustenta o hábito.</li>
+                        <li>Deixe o celular fora do quarto ou em modo avião todas as noites.</li>
+                        <li>Associe o “modo noite” a algo positivo: um chá, uma música, um momento de carinho.</li>
+                        <li>Compartilhe o desafio com alguém — fazer em dupla aumenta o compromisso.</li>
+                        <li>Celebre cada semana completada com algo que represente autocuidado.</li>
+                    </ul>
+                     <blockquote className="border-l-4 border-primary pl-4 italic mt-2">
+                        O hábito não nasce da força — nasce da repetição com intenção.
+                    </blockquote>
+                  </div>
+                   <Separator />
+                   <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">❓ Perguntas para refletir:</h3>
+                    <div className="space-y-4 mt-4">
+                        <div className="space-y-2">
+                          <Label>Qual foi o maior desafio ao tentar dormir sem tela — o tédio, a ansiedade ou o impulso automático?</Label>
+                          <Textarea placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label>O que você sentiu ao acordar depois de uma noite desconectada?</Label>
+                          <Textarea placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                           <Label>Que prática você mais gostou de incluir na sua rotina noturna?</Label>
+                          <Textarea placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                           <Label>Como seria sua vida se esse hábito se tornasse permanente?</Label>
+                          <Textarea placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+              <Button onClick={() => setView('inicio')}>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Voltar
+              </Button>
+            </div>
+          </div>
+        );
       case 'como-celular-sabota':
         return (
           <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
@@ -430,12 +606,12 @@ export default function SonoSemTelaPage() {
                   Um guia prático para desligar os estímulos digitais, acalmar a mente e transformar suas noites em momentos de descanso profundo.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <Button className="w-full" onClick={() => setView('como-celular-sabota')}>📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
+              <CardContent className="flex flex-col gap-4">
+                <Button className="w-full" variant="outline" onClick={() => setView('como-celular-sabota')}>📱 Como o Celular Sabota Seu Sono Sem Você Perceber</Button>
                 <Button className="w-full" variant="outline" onClick={() => setView('regra-90-minutos')}>🕒 A Regra dos 90 Minutos Antes de Dormir</Button>
                 <Button className="w-full" variant="outline" onClick={() => setView('modo-noite')}>🌙 Criando o “Modo Noite” no Ambiente</Button>
                 <Button className="w-full" variant="outline" onClick={() => setView('substitutos-inteligentes')}>💡 Substitutos Inteligentes para o Celular à Noite</Button>
-                <Button className="w-full" variant="outline" onClick={() => setView('desafio-30-noites')}>✨ Desafio 30 Noites Sem Tela</Button>
+                <Button className="w-full" onClick={() => setView('desafio-30-noites')}>✨ Desafio 30 Noites Sem Tela</Button>
               </CardContent>
             </Card>
           </div>
