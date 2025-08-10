@@ -18,10 +18,8 @@ export function ContinueWatchingList() {
           />
       </div>
 
-      <Button asChild className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-bold text-lg" size="lg">
-        <a href="https://ev.braip.com/ref?pv=pro4zjrm&af=afizj44j7x" target="_blank" rel="noopener noreferrer">
-          Quero Dormir Melhor Agora!
-        </a>
+      <Button className="bg-[#FFD700] hover:bg-[#FFD700]/90 text-black font-bold text-lg" size="lg">
+        Saiba Mais
       </Button>
     </div>
   )
