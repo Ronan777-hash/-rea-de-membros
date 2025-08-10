@@ -5,7 +5,7 @@ export default function Home() {
     <div className="container mx-auto max-w-4xl px-4 py-6 space-y-8">
       <header className="text-center md:text-left">
         <h1 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-          Principal
+          Acesso Básico
         </h1>
         <p className="text-muted-foreground mt-1">
           Seu santuário para um sono melhor.
@@ -13,7 +13,6 @@ export default function Home() {
       </header>
 
       <section>
-        <h2 className="text-2xl font-bold font-headline mb-4 text-center md:text-left">Módulos Principais</h2>
         <MainModulesCarousel />
       </section>
     </div>
