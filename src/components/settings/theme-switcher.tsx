@@ -2,7 +2,7 @@
 
 import { useTheme } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
-import { Sun, Moon, Sparkles } from 'lucide-react';
+import { Sun, Moon, Sparkles, Leaf } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export function ThemeSwitcher() {
@@ -12,6 +12,7 @@ export function ThemeSwitcher() {
     { name: 'light', label: 'Claro', icon: Sun },
     { name: 'dark', label: 'Escuro', icon: Moon },
     { name: 'purple', label: 'Roxo', icon: Sparkles },
+    { name: 'green', label: 'Verde', icon: Leaf },
   ];
 
   return (
@@ -21,7 +22,7 @@ export function ThemeSwitcher() {
           key={t.name}
           variant={theme === t.name ? 'default' : 'ghost'}
           size="sm"
-          onClick={() => setTheme(t.name as 'light' | 'dark' | 'purple')}
+          onClick={() => setTheme(t.name as 'light' | 'dark' | 'purple' | 'green')}
           className={cn("w-full transition-all", theme === t.name && "shadow-sm")}
           aria-label={`Switch to ${t.name} theme`}
         >

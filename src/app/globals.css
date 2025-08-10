@@ -73,6 +73,28 @@ body {
     --input: 263 40% 30%;
     --ring: 247 60% 80%;
   }
+
+  .green {
+    --background: 160 57% 15%; /* #0F3D2E */
+    --foreground: 160 10% 98%;
+    --card: 160 55% 20%;
+    --card-foreground: 160 10% 98%;
+    --popover: 160 55% 20%;
+    --popover-foreground: 160 10% 98%;
+    --primary: 150 60% 80%;
+    --primary-foreground: 160 57% 10%;
+    --secondary: 160 55% 25%;
+    --secondary-foreground: 160 10% 98%;
+    --muted: 160 55% 25%;
+    --muted-foreground: 160 5% 65%;
+    --accent: 160 55% 30%;
+    --accent-foreground: 160 10% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 160 10% 98%;
+    --border: 160 55% 25%;
+    --input: 160 55% 25%;
+    --ring: 150 60% 80%;
+  }
 }
 
 @layer base {

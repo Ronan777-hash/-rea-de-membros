@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-type Theme = "light" | "dark" | "purple";
+type Theme = "light" | "dark" | "purple" | "green";
 
 type ThemeProviderState = {
   theme: Theme;
@@ -27,8 +27,8 @@ export function ThemeProvider({ children, defaultTheme = "purple", storageKey = 
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove('dark', 'purple');
-    if (theme === 'dark' || theme === 'purple') {
+    root.classList.remove('dark', 'purple', 'green');
+    if (theme === 'dark' || theme === 'purple' || theme === 'green') {
       root.classList.add(theme);
     }
     localStorage.setItem(storageKey, theme);
