@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados' | 'acorda-mesmo-horario' | 'sono-leve';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados' | 'acorda-mesmo-horario' | 'sono-leve' | 'ansiedade-estresse';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -20,6 +20,7 @@ export default function DuvidasEDificuldadesPage() {
   const [pensamentosAceleradosAnswers, setPensamentosAceleradosAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [acordaMesmoHorarioAnswers, setAcordaMesmoHorarioAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [sonoLeveAnswers, setSonoLeveAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [ansiedadeEstresseAnswers, setAnsiedadeEstresseAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
 
   const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -50,6 +51,11 @@ export default function DuvidasEDificuldadesPage() {
   const handleSonoLeveAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSonoLeveAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAnsiedadeEstresseAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setAnsiedadeEstresseAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -416,6 +422,66 @@ export default function DuvidasEDificuldadesPage() {
             </div>
           </div>
         );
+      case 'ansiedade-estresse':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">😟 Ansiedade ou Estresse na Hora de Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você está cansado, quer descansar… mas a mente está em alerta, o corpo tenso, e o sono parece cada vez mais distante. A ansiedade noturna é uma das maiores barreiras para dormir bem — mas existem formas rápidas e eficazes de acalmar o sistema e preparar o corpo para o descanso.</p>
+                <Separator />
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🧘‍♀️ 1. Técnicas Rápidas para Baixar a Ansiedade Antes de Deitar</h3>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    <li>Respiração diafragmática: inspire profundamente pelo nariz, expandindo o abdômen, e expire lentamente pela boca. Repita por 2 minutos.</li>
+                    <li>Técnica da mão: imagine que cada dedo representa uma etapa — respiração, relaxamento, gratidão, visualização e intenção. Toque cada dedo e pratique mentalmente cada etapa.</li>
+                    <li>Autocompaixão ativa: coloque a mão sobre o peito e diga mentalmente: “Está tudo bem. Eu posso descansar agora.” Isso ajuda a reduzir o estado de alerta emocional.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🧍‍♂️ 2. Postura de Alongamento para Relaxar o Corpo Todo</h3>
+                  <p className="mt-1">Uma postura simples e poderosa:</p>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    <li>Deite-se no chão com as pernas apoiadas na parede (posição de pernas elevadas).</li>
+                    <li>Mantenha os braços abertos ao lado do corpo, com as palmas voltadas para cima.</li>
+                    <li>Respire profundamente e permaneça nessa posição por 5 a 10 minutos.</li>
+                  </ul>
+                  <p className="mt-1">Essa postura ativa o sistema parassimpático, melhora a circulação e reduz a tensão muscular — preparando o corpo para o sono.</p>
+                </div>
+                <Separator />
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="ae-q1">O que costuma te deixar mais ansioso(a) à noite?</Label>
+                          <Textarea id="ae-q1" name="q1" value={ansiedadeEstresseAnswers.q1} onChange={handleAnsiedadeEstresseAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ae-q2">Já tentou alguma técnica de respiração ou alongamento antes de dormir?</Label>
+                          <Textarea id="ae-q2" name="q2" value={ansiedadeEstresseAnswers.q2} onChange={handleAnsiedadeEstresseAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ae-q3">Como seu corpo reage quando está estressado? Tensão muscular, agitação, insônia?</Label>
+                          <Textarea id="ae-q3" name="q3" value={ansiedadeEstresseAnswers.q3} onChange={handleAnsiedadeEstresseAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ae-q4">Se pudesse escolher uma frase para acalmar sua mente hoje, qual seria?</Label>
+                          <Textarea id="ae-q4" name="q4" value={ansiedadeEstresseAnswers.q4} onChange={handleAnsiedadeEstresseAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+             <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -445,7 +511,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('sono-leve')}>
                     <span className="mr-2">🔊</span> Meu sono é muito leve e qualquer barulho me acorda
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('ansiedade-estresse')}>
                     <span className="mr-2">😰</span> Tenho dificuldade para dormir quando estou ansioso(a) ou estressado(a)
                   </Button>
                 </div>
