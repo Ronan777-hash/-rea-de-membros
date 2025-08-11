@@ -45,6 +45,9 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
                     <span className="mr-2">🔊</span> Meu sono é muito leve e qualquer barulho me acorda
                   </Button>
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                    <span className="mr-2">😰</span> Tenho dificuldade para dormir quando estou ansioso(a) ou estressado(a)
+                  </Button>
                 </div>
               </CardContent>
             </Card>
