@@ -42,6 +42,9 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
                     <span className="mr-2">⏰</span> Acordo sempre no mesmo horário, mesmo sem querer
                   </Button>
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                    <span className="mr-2">🔊</span> Meu sono é muito leve e qualquer barulho me acorda
+                  </Button>
                 </div>
               </CardContent>
             </Card>
