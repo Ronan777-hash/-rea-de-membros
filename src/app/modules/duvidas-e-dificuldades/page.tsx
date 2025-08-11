@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados' | 'acorda-mesmo-horario';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -18,6 +18,7 @@ export default function DuvidasEDificuldadesPage() {
   const [acordandoAnswers, setAcordandoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [naoConsigoDormirNovamenteAnswers, setNaoConsigoDormirNovamenteAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [pensamentosAceleradosAnswers, setPensamentosAceleradosAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [acordaMesmoHorarioAnswers, setAcordaMesmoHorarioAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
 
   const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,6 +39,11 @@ export default function DuvidasEDificuldadesPage() {
   const handlePensamentosAceleradosAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setPensamentosAceleradosAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAcordaMesmoHorarioAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setAcordaMesmoHorarioAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -286,6 +292,62 @@ export default function DuvidasEDificuldadesPage() {
             </div>
           </div>
         );
+      case 'acorda-mesmo-horario':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">⏰ Acorda Sempre no Mesmo Horário (Mesmo Sem Querer)?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você abre os olhos no mesmo horário todos os dias — às vezes antes do despertador, às vezes no meio da madrugada — e sente que não tem controle sobre isso? Isso pode estar relacionado ao seu relógio biológico, também conhecido como ritmo circadiano. A boa notícia: ele pode ser ajustado com pequenas mudanças na rotina.</p>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🕰️ 1. Como Ajustar o “Relógio Biológico” aos Poucos</h3>
+                  <p className="mt-1">Nosso corpo funciona em ciclos de 24 horas, influenciados por luz, temperatura e hábitos.<br/>Para ajustar esse relógio interno, é importante criar uma rotina consistente:<br/>- Vá dormir e acorde no mesmo horário todos os dias (inclusive aos fins de semana).<br/>- Evite cochilos longos durante o dia.<br/>- Faça ajustes de 15 a 30 minutos por vez — mudanças bruscas confundem o corpo.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌞 2. Uso de Luz Natural ao Acordar e Luz Baixa à Noite</h3>
+                  <p className="mt-1">A luz é um dos principais reguladores do ritmo circadiano.<br/>- Pela manhã: exponha-se à luz natural logo ao acordar — abra janelas, caminhe ao ar livre ou tome café perto da luz.<br/>- À noite: reduza a intensidade das luzes, evite telas brilhantes e crie um ambiente aconchegante com luzes quentes e suaves.</p>
+                  <p className='mt-2'>Essas práticas ajudam seu corpo a entender quando é hora de estar alerta e quando é hora de descansar.</p>
+                </div>
+
+                <Separator />
+
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="amh1">Você costuma acordar no mesmo horário até nos fins de semana?</Label>
+                          <Textarea id="amh1" name="q1" value={acordaMesmoHorarioAnswers.q1} onChange={handleAcordaMesmoHorarioAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="amh2">Como é a iluminação do seu quarto à noite? Usa luzes fortes ou suaves?</Label>
+                          <Textarea id="amh2" name="q2" value={acordaMesmoHorarioAnswers.q2} onChange={handleAcordaMesmoHorarioAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="amh3">Já tentou ajustar seu horário de sono aos poucos? Como foi a experiência?</Label>
+                          <Textarea id="amh3" name="q3" value={acordaMesmoHorarioAnswers.q3} onChange={handleAcordaMesmoHorarioAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="amh4">Qual seria o horário ideal para você acordar e se sentir bem?</Label>
+                          <Textarea id="amh4" name="q4" value={acordaMesmoHorarioAnswers.q4} onChange={handleAcordaMesmoHorarioAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -309,7 +371,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('pensamentos-acelerados')}>
                     <span className="mr-2">🧠</span> Tenho pensamentos acelerados na hora de dormir
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('acorda-mesmo-horario')}>
                     <span className="mr-2">⏰</span> Acordo sempre no mesmo horário, mesmo sem querer
                   </Button>
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
