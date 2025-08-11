@@ -33,6 +33,9 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
                     <span className="mr-2">🌒</span> Fico acordando várias vezes durante a noite
                   </Button>
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                    <span className="mr-2">🌌</span> Quando acordo no meio da noite, não consigo dormir novamente
+                  </Button>
                 </div>
               </CardContent>
             </Card>
