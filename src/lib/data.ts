@@ -21,7 +21,7 @@ export const mainModules = [
   {
     title: 'Dúvidas e Dificuldades',
     slug: 'duvidas-e-dificuldades',
-    image: 'https://placehold.co/675x1200.png',
+    image: 'https://i.imgur.com/dUPbgkq.png',
     dataAiHint: 'questions doubts',
   },
 ];
