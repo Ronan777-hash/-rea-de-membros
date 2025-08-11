@@ -10,13 +10,14 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
   const [pegarNoSonoAnswers, setPegarNoSonoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [acordandoAnswers, setAcordandoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [naoConsigoDormirNovamenteAnswers, setNaoConsigoDormirNovamenteAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [pensamentosAceleradosAnswers, setPensamentosAceleradosAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
 
   const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -32,6 +33,11 @@ export default function DuvidasEDificuldadesPage() {
   const handleNaoConsigoDormirNovamenteAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setNaoConsigoDormirNovamenteAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePensamentosAceleradosAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setPensamentosAceleradosAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -224,6 +230,62 @@ export default function DuvidasEDificuldadesPage() {
             </div>
           </div>
         );
+      case 'pensamentos-acelerados':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🧠 Pensamentos Acelerados na Hora de Dormir</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você deita, apaga a luz… e sua mente decide que é hora de trabalhar. Mil ideias, preocupações e lembranças começam a circular, como se o cérebro tivesse um botão de “modo turbo” noturno. Mas existe uma forma gentil de desacelerar esse fluxo e preparar a mente para o descanso.</p>
+                
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">📝 1. Exercício de “Descarregar” a Mente</h3>
+                  <p className="mt-1">Antes de deitar, pegue um bloco de anotações e escreva tudo o que está passando pela sua cabeça — sem filtro.<br/>Pode ser uma lista de tarefas, preocupações, ideias soltas ou até frases desconexas.<br/>Esse ato simples ajuda a tirar os pensamentos da mente e colocá-los no papel, criando uma sensação de alívio e organização.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🎧 2. Áudio de Meditação Guiada</h3>
+                  <p className="mt-1">Ouvir uma meditação guiada com foco no relaxamento noturno pode ajudar a redirecionar a atenção e acalmar o sistema nervoso.<br/>Escolha áudios com voz suave, ritmo lento e foco na respiração ou visualização.<br/>Você pode usar esse momento como um ritual de transição entre o dia e o sono.</p>
+                </div>
+                
+                <Separator />
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="paq1">Você já tentou escrever antes de dormir? Como se sentiu depois?</Label>
+                          <Textarea id="paq1" name="q1" value={pensamentosAceleradosAnswers.q1} onChange={handlePensamentosAceleradosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="paq2">Que tipo de pensamento costuma surgir com mais frequência à noite?</Label>
+                          <Textarea id="paq2" name="q2" value={pensamentosAceleradosAnswers.q2} onChange={handlePensamentosAceleradosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="paq3">Já experimentou meditação guiada? Prefere com voz masculina, feminina ou sons da natureza?</Label>
+                          <Textarea id="paq3" name="q3" value={pensamentosAceleradosAnswers.q3} onChange={handlePensamentosAceleradosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="paq4">Se pudesse esvaziar a mente de um único pensamento hoje, qual seria?</Label>
+                          <Textarea id="paq4" name="q4" value={pensamentosAceleradosAnswers.q4} onChange={handlePensamentosAceleradosAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -244,7 +306,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('nao-consigo-dormir-novamente')}>
                     <span className="mr-2">🌌</span> Quando acordo no meio da noite, não consigo dormir novamente
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('pensamentos-acelerados')}>
                     <span className="mr-2">🧠</span> Tenho pensamentos acelerados na hora de dormir
                   </Button>
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
