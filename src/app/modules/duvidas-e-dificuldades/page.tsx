@@ -10,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados' | 'acorda-mesmo-horario';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente' | 'pensamentos-acelerados' | 'acorda-mesmo-horario' | 'sono-leve';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
@@ -19,6 +19,7 @@ export default function DuvidasEDificuldadesPage() {
   const [naoConsigoDormirNovamenteAnswers, setNaoConsigoDormirNovamenteAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [pensamentosAceleradosAnswers, setPensamentosAceleradosAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [acordaMesmoHorarioAnswers, setAcordaMesmoHorarioAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [sonoLeveAnswers, setSonoLeveAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
 
   const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -44,6 +45,11 @@ export default function DuvidasEDificuldadesPage() {
   const handleAcordaMesmoHorarioAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setAcordaMesmoHorarioAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSonoLeveAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setSonoLeveAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
 
@@ -348,6 +354,68 @@ export default function DuvidasEDificuldadesPage() {
             </div>
           </div>
         );
+      case 'sono-leve':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🔕 Sono Leve: Qualquer Barulho Te Acorda?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você está dormindo… e de repente, um carro passando, um cachorro latindo ou até o som do ventilador te desperta. Ter sono leve é mais comum do que parece — e existem formas simples de proteger seu descanso contra esses pequenos invasores sonoros.</p>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🚪 1. Isolamento Sonoro Simples no Quarto</h3>
+                  <p className="mt-1">Você não precisa fazer uma reforma acústica para dormir melhor.<br/>Pequenas mudanças já ajudam bastante:</p>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    <li>Use cortinas grossas ou blackout para abafar sons externos.</li>
+                    <li>Coloque tapetes ou almofadas extras para absorver ruídos.</li>
+                    <li>Mantenha portas e janelas bem vedadas — até uma fita de vedação pode ajudar.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🌊 2. Uso de Ruído Branco ou Sons da Natureza</h3>
+                  <p className="mt-1">Ruído branco é um som constante e suave que “mascara” os ruídos repentinos.<br/>Pode ser o som de um ventilador, chuva leve, ondas do mar ou até uma cachoeira.<br/>Esses sons criam uma espécie de “colchão sonoro” que ajuda o cérebro a se manter em estado de repouso, mesmo quando há barulhos ao redor.</p>
+                  <p className='mt-2'>Você pode usar aplicativos, playlists ou até dispositivos próprios para isso — o importante é encontrar um som que te acalme e te proteja dos ruídos externos.</p>
+                </div>
+
+                <Separator />
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="slq1">Que tipo de barulho costuma te acordar com mais frequência?</Label>
+                          <Textarea id="slq1" name="q1" value={sonoLeveAnswers.q1} onChange={handleSonoLeveAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="slq2">Já testou sons da natureza ou ruído branco? Qual te acalma mais?</Label>
+                          <Textarea id="slq2" name="q2" value={sonoLeveAnswers.q2} onChange={handleSonoLeveAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="slq3">Como é a acústica do seu quarto hoje? Tem algo que poderia melhorar?</Label>
+                          <Textarea id="slq3" name="q3" value={sonoLeveAnswers.q3} onChange={handleSonoLeveAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="slq4">Se pudesse escolher um som para embalar seu sono todas as noites, qual seria?</Label>
+                          <Textarea id="slq4" name="q4" value={sonoLeveAnswers.q4} onChange={handleSonoLeveAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+              </CardContent>
+            </Card>
+             <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -374,7 +442,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('acorda-mesmo-horario')}>
                     <span className="mr-2">⏰</span> Acordo sempre no mesmo horário, mesmo sem querer
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('sono-leve')}>
                     <span className="mr-2">🔊</span> Meu sono é muito leve e qualquer barulho me acorda
                   </Button>
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
