@@ -26,7 +26,11 @@ export default function DuvidasEDificuldadesPage() {
                 <CardDescription className="text-lg pt-2">7 caminhos para entender seu sono, acalmar a mente e descansar de verdade.</CardDescription>
               </CardHeader>
               <CardContent>
-                {/* O conteúdo futuro será adicionado aqui */}
+                <div className="flex flex-col gap-4">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                    <span className="mr-2">🥲</span> Tenho dificuldade para pegar no sono, mesmo cansado(a)
+                  </Button>
+                </div>
               </CardContent>
             </Card>
            </div>
