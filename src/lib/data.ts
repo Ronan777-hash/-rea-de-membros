@@ -18,6 +18,12 @@ export const mainModules = [
     image: 'https://i.imgur.com/GAJkXxH.png',
     dataAiHint: 'night sky stars',
   },
+  {
+    title: 'Dúvidas e Dificuldades',
+    slug: 'duvidas-e-dificuldades',
+    image: 'https://placehold.co/675x1200.png',
+    dataAiHint: 'questions doubts',
+  },
 ];
 
 export const continueWatchingItems = [
