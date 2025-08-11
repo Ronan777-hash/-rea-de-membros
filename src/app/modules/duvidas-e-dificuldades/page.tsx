@@ -10,12 +10,14 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite' | 'nao-consigo-dormir-novamente';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
   const [pegarNoSonoAnswers, setPegarNoSonoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
   const [acordandoAnswers, setAcordandoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [naoConsigoDormirNovamenteAnswers, setNaoConsigoDormirNovamenteAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+
 
   const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -26,6 +28,12 @@ export default function DuvidasEDificuldadesPage() {
     const { name, value } = e.target;
     setAcordandoAnswers((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleNaoConsigoDormirNovamenteAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setNaoConsigoDormirNovamenteAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
 
   const renderContent = () => {
     switch(view) {
@@ -155,6 +163,67 @@ export default function DuvidasEDificuldadesPage() {
             </div>
           </div>
         );
+      case 'nao-consigo-dormir-novamente':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🌌 Acordou no Meio da Noite e Não Consegue Voltar a Dormir?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Esse momento pode ser frustrante: o silêncio da madrugada, o corpo cansado, mas a mente desperta. A boa notícia é que existem formas suaves e eficazes de reconduzir o corpo ao estado de sono — sem esforço e sem ansiedade.</p>
+
+                <Separator />
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">📵 1. Evite Olhar para o Celular ou Relógio</h3>
+                  <p className="mt-1">A luz azul da tela ativa o cérebro e interrompe a produção de melatonina.<br/>Além disso, ver as horas pode gerar ansiedade (“já são 3h da manhã!”), dificultando ainda mais o retorno ao sono.<br/>Deixe o celular longe da cama e confie no seu corpo.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🖼️ 2. Exercício de Foco em Imagens Mentais Calmas</h3>
+                  <p className="mt-1">Feche os olhos e imagine um lugar tranquilo — uma praia deserta, um campo florido, uma cabana na montanha.<br/>Inclua detalhes sensoriais: o som do vento, o cheiro da natureza, a textura do ambiente.<br/>Esse tipo de visualização ajuda a acalmar a mente e reconectar com o sono.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🍵 3. Chá de Camomila Antes de Dormir</h3>
+                  <p className="mt-1">A camomila é uma das ervas mais estudadas e premiadas por seus efeitos calmantes.<br/>Ela atua como um leve sedativo natural, ajudando a reduzir a ansiedade e preparar o corpo para um sono profundo.<br/>Ideal para incluir na rotina noturna — especialmente em noites mais agitadas.</p>
+                </div>
+                
+                <Separator />
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="ncdn1">O que você costuma fazer quando acorda no meio da noite?</Label>
+                          <Textarea id="ncdn1" name="q1" value={naoConsigoDormirNovamenteAnswers.q1} onChange={handleNaoConsigoDormirNovamenteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ncdn2">Já percebeu se olhar o celular te deixa mais desperto?</Label>
+                          <Textarea id="ncdn2" name="q2" value={naoConsigoDormirNovamenteAnswers.q2} onChange={handleNaoConsigoDormirNovamenteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ncdn3">Qual imagem mental te transmite mais calma e segurança?</Label>
+                          <Textarea id="ncdn3" name="q3" value={naoConsigoDormirNovamenteAnswers.q3} onChange={handleNaoConsigoDormirNovamenteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="ncdn4">Você já experimentou o chá de camomila como parte da sua rotina de sono?</Label>
+                          <Textarea id="ncdn4" name="q4" value={naoConsigoDormirNovamenteAnswers.q4} onChange={handleNaoConsigoDormirNovamenteAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
       case 'inicio':
       default:
         return (
@@ -172,7 +241,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('acordando-a-noite')}>
                     <span className="mr-2">🌒</span> Fico acordando várias vezes durante a noite
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('nao-consigo-dormir-novamente')}>
                     <span className="mr-2">🌌</span> Quando acordo no meio da noite, não consigo dormir novamente
                   </Button>
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
