@@ -10,15 +10,21 @@ import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-type ViewState = 'inicio' | 'pegar-no-sono';
+type ViewState = 'inicio' | 'pegar-no-sono' | 'acordando-a-noite';
 
 export default function DuvidasEDificuldadesPage() {
   const [view, setView] = useState<ViewState>('inicio');
-  const [answers, setAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [pegarNoSonoAnswers, setPegarNoSonoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
+  const [acordandoAnswers, setAcordandoAnswers] = useState({ q1: '', q2: '', q3: '', q4: '' });
 
-  const handleAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handlePegarNoSonoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setAnswers((prev) => ({ ...prev, [name]: value }));
+    setPegarNoSonoAnswers((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleAcordandoAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setAcordandoAnswers((prev) => ({ ...prev, [name]: value }));
   };
 
   const renderContent = () => {
@@ -57,19 +63,84 @@ export default function DuvidasEDificuldadesPage() {
                     <div className="space-y-4">
                         <div className="space-y-2">
                           <Label htmlFor="q1">Você já tentou alguma dessas técnicas? Qual funcionou melhor para você?</Label>
-                          <Textarea id="q1" name="q1" value={answers.q1} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Textarea id="q1" name="q1" value={pegarNoSonoAnswers.q1} onChange={handlePegarNoSonoAnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="q2">Como costuma ser sua rotina na última hora antes de dormir?</Label>
-                          <Textarea id="q2" name="q2" value={answers.q2} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Textarea id="q2" name="q2" value={pegarNoSonoAnswers.q2} onChange={handlePegarNoSonoAnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="q3">Que tipo de atividade mental você percebe que te atrapalha mais à noite?</Label>
-                          <Textarea id="q3" name="q3" value={answers.q3} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Textarea id="q3" name="q3" value={pegarNoSonoAnswers.q3} onChange={handlePegarNoSonoAnswerChange} placeholder="Sua resposta..." />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="q4">Se pudesse mudar apenas um hábito noturno hoje, qual seria?</Label>
-                          <Textarea id="q4" name="q4" value={answers.q4} onChange={handleAnswerChange} placeholder="Sua resposta..." />
+                          <Textarea id="q4" name="q4" value={pegarNoSonoAnswers.q4} onChange={handlePegarNoSonoAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                    </div>
+                </div>
+
+              </CardContent>
+            </Card>
+            <div className="text-center">
+                <Button onClick={() => setView('inicio')}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Voltar
+                </Button>
+            </div>
+          </div>
+        );
+      case 'acordando-a-noite':
+        return (
+          <div className="w-full space-y-8 py-8 animate-in fade-in-50 duration-300">
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl">🌙 Acorda Várias Vezes Durante a Noite?</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <p>Você dorme… mas não permanece dormindo. Acorda uma, duas, três vezes — e isso afeta diretamente sua energia no dia seguinte. Esse tipo de interrupção pode ter várias causas, mas também tem soluções simples e eficazes.</p>
+
+                <Separator />
+                
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">❄️ 1. Ajuste de Temperatura do Quarto</h3>
+                  <p className="mt-1">Ambientes muito quentes ou frios atrapalham o ciclo natural do sono.<br/>A temperatura ideal gira em torno de 18 a 22°C.<br/>Ventilação leve, roupas de cama respiráveis e pijamas confortáveis fazem diferença.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">☕ 2. Redução de Cafeína e Açúcar no Fim do Dia</h3>
+                  <p className="mt-1">Mesmo que você não sinta os efeitos imediatamente, cafeína e açúcar podem manter seu sistema em alerta por horas.<br/>Evite café, chá preto, refrigerantes e doces após as 17h.<br/>Prefira opções leves e naturais à noite.</p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-foreground text-lg">🛌 3. Três Técnicas para Voltar a Dormir em Menos de 10 Minutos</h3>
+                  <ul className="list-disc list-inside mt-1 space-y-1">
+                    <li>Respiração em contagem regressiva: inspire e conte de 100 até 0, lentamente.</li>
+                    <li>Visualização guiada: imagine um lugar tranquilo e reconfortante, com detalhes sensoriais.</li>
+                    <li>Relaxamento por escaneamento corporal: concentre-se em cada parte do corpo, da cabeça aos pés, soltando a tensão.</li>
+                  </ul>
+                </div>
+                
+                <Separator />
+                
+                <div className="p-4 bg-accent/50 rounded-lg border border-accent">
+                    <h3 className="font-bold text-foreground mb-4 text-lg">🟡 Perguntas Interativas</h3>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="aq1">Você costuma acordar em horários específicos ou aleatórios?</Label>
+                          <Textarea id="aq1" name="q1" value={acordandoAnswers.q1} onChange={handleAcordandoAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="aq2">Já percebeu se a temperatura do quarto influencia seu sono?</Label>
+                          <Textarea id="aq2" name="q2" value={acordandoAnswers.q2} onChange={handleAcordandoAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="aq3">Qual foi sua última refeição ou bebida antes de dormir ontem?</Label>
+                          <Textarea id="aq3" name="q3" value={acordandoAnswers.q3} onChange={handleAcordandoAnswerChange} placeholder="Sua resposta..." />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="aq4">Das três técnicas para voltar a dormir, qual você gostaria de testar hoje?</Label>
+                          <Textarea id="aq4" name="q4" value={acordandoAnswers.q4} onChange={handleAcordandoAnswerChange} placeholder="Sua resposta..." />
                         </div>
                     </div>
                 </div>
@@ -98,7 +169,7 @@ export default function DuvidasEDificuldadesPage() {
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('pegar-no-sono')}>
                     <span className="mr-2">🥲</span> Tenho dificuldade para pegar no sono, mesmo cansado(a)
                   </Button>
-                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
+                  <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto" onClick={() => setView('acordando-a-noite')}>
                     <span className="mr-2">🌒</span> Fico acordando várias vezes durante a noite
                   </Button>
                   <Button size="lg" variant="outline" className="text-left justify-start whitespace-normal h-auto">
