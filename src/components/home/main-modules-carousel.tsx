@@ -1,3 +1,4 @@
+
 "use client"
 
 import Image from "next/image"
@@ -17,7 +18,7 @@ export function MainModulesCarousel() {
     <Carousel
       opts={{
         align: "start",
-        loop: true,
+        loop: false,
       }}
       className="w-full"
     >
