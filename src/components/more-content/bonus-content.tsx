@@ -80,7 +80,7 @@ export function BonusContent() {
             Tenha acesso a todos os módulos, aulas e materiais exclusivos para transformar suas noites.
             </p>
             <Button asChild size="lg" className="w-full max-w-xs">
-            <a href="https://pay.kiwify.com.br/0qvDuIH" target="_blank" rel="noopener noreferrer">
+            <a href="https://pay.kiwify.com.br/Soz2IZl" target="_blank" rel="noopener noreferrer">
                 Tornar-se Premium Agora
             </a>
             </Button>
