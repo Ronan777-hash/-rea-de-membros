@@ -8,7 +8,7 @@ export default function Home() {
           Acesso Básico
         </h1>
         <p className="text-muted-foreground mt-1">
-          Seu santuário para um sono melhor.
+          Seu santuário para um sono melhor. Comece sua jornada por aqui.
         </p>
       </header>
 

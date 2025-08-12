@@ -3,13 +3,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, History, Library, Settings, Sparkles } from 'lucide-react';
+import { Home, History, Library, Settings, Sparkles, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '/', label: 'Principal', icon: Home },
+  { href: '/', label: 'Básico', icon: Home },
   { href: '/continue-watching', label: 'Extra', icon: Sparkles },
-  { href: '/more-content', label: 'Conteúdos', icon: Library },
+  { href: '/more-content', label: 'Premium', icon: Star },
   { href: '/settings', label: 'Ajustes', icon: Settings },
 ];
 

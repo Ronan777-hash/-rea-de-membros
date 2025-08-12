@@ -8,7 +8,7 @@ export default function MoreContentPage() {
           Acesso Premium ⭐️
         </h1>
         <p className="text-muted-foreground mt-1">
-          Explore materiais especiais para aprofundar seu sono.
+          Explore módulos e materiais exclusivos para aprofundar sua jornada.
         </p>
       </header>
       <BonusContent />
