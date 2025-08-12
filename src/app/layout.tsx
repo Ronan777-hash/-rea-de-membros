@@ -1,8 +1,10 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { AppShell } from '@/components/layout/app-shell';
 import { Toaster } from '@/components/ui/toaster';
+import { AuthProvider } from '@/context/auth-context';
 
 export const metadata: Metadata = {
   title: 'Lulla: Your Sleep Sanctuary',
@@ -26,10 +28,12 @@ export default function RootLayout({
           defaultTheme="purple"
           storageKey="lulla-ui-theme"
         >
-          <AppShell>
-            {children}
-          </AppShell>
-          <Toaster />
+          <AuthProvider>
+            <AppShell>
+              {children}
+            </AppShell>
+            <Toaster />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

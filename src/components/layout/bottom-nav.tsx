@@ -3,18 +3,24 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, History, Library, Settings, Sparkles, Star } from 'lucide-react';
+import { Home, User, Star, Settings, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { href: '/', label: 'Básico', icon: Home },
-  { href: '/continue-watching', label: 'Extra', icon: Sparkles },
-  { href: '/more-content', label: 'Premium', icon: Star },
-  { href: '/settings', label: 'Ajustes', icon: Settings },
-];
+import { useAuth } from '@/context/auth-context';
 
 export function BottomNav() {
   const pathname = usePathname();
+  const { user } = useAuth();
+
+  const navItems = [
+    { href: '/', label: 'Básico', icon: Home },
+    { href: '/continue-watching', label: 'Extra', icon: Sparkles },
+    { href: '/more-content', label: 'Premium', icon: Star },
+    // Show Login or Settings based on user state
+    ...(user 
+      ? [{ href: '/settings', label: 'Ajustes', icon: Settings }]
+      : [{ href: '/login', label: 'Login', icon: User }]
+    )
+  ];
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 h-16 bg-card border-t border-border/50 shadow-t-2xl z-50">
